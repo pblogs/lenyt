@@ -1,0 +1,23 @@
+%section.top-side
+  %nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        %button.navbar-toggle{data: {toggle: 'collapse', target: '#myNavbar'}}
+          %span.icon-bar
+          %span.icon-bar
+          %span.icon-bar
+        = link_to image_tag('logo-white.png', title: 'Lenyt - Rent camera gear locally'), root_path, class: 'logo navbar-brand'
+
+      #myNavbar.collapse.navbar-collapse
+        %ul.nav.navbar-nav
+          %li= link_to "List Your Equipment", '#', class: 'list-icon'
+          %li= link_to "Sign Up", '#', data: {toggle: 'modal', target: '#myModal'}
+          %li= link_to "I agree", '#', data: {toggle: 'modal', target: '#myModal2'}
+          %li= link_to "Log In", '#', data: {toggle: 'modal', target: '#myModal1'}
+
+%section.header-content
+  %h1= "EQUIP YOUR INNER ARTIST"
+  %h2= "Rent camera gear locally."
+  = link_to "How it works", '#', class: 'how-works'
+  %input.search-field.col-xs-12.col-sm-8.col-md-6.col-lg-4{placeholder: 'What are you looking for?', type: 'search'}
+  %input.search-icon{type: 'button'}

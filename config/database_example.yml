@@ -1,0 +1,9 @@
+development:
+  adapter: postgresql
+  database: lenyt_dev
+test:
+  adapter: postgresql
+  database: lenit_test
+production:
+  adapter: postgresql
+  database: lenyt
