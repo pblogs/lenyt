@@ -1,0 +1,23 @@
+#myModal2.modal.fade{aria: {hidden: true, labelledby: 'myModalLabel'}, role: 'dialog', tabindex: '-1'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{type: 'button', aria: {label: 'Close'}, data: {dismiss: 'modal'}}= raw("<span aria-hidden='true'>&times;</span>")
+      .modal-body.mCustomScrollbar
+        %h3= "User Agreement"
+        %p
+          ==
+          Welcome to the website of Lenyt (a Lenyt Camera, Inc. company project) (“Company”, “Lenyt”, “we”, or “us”). The following terms and conditions,
+          together with any documents they expressly incorporate by reference, (collectively, these “Terms of Use”), govern your access to and use of Lenyt.com,
+          including any content, functionality and services offered on or through Lenyt.com (the ”Website”), whether as a guest or a registered user.
+          Please read the Terms of Use carefully before you start to use the Website.
+          ==
+        %p
+          ==
+          By using the Website or by clicking to accept or agree to the Terms of Use when this option is made available to you, you accept and agree to be bound and abide by these
+          Terms of Use and our Privacy Policy, incorporated herein by reference. If you do not want to agree to these Terms of Use or the Privacy Policy, you must not access or use the Website.
+          This Website is offered and available to users who are 13 years of age or older, and reside in the United States or any of its territories or possessions.
+          By using this Website, you represent and warrant that you are of legal age to form a binding contract with the Company and meet all of the foregoing eligibility requirements.
+          If you do not meet all of these requirements, you must not access or use the Website.
+          ==
+      .iagree= link_to "I Agree", '#'
