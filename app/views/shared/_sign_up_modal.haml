@@ -7,7 +7,7 @@
         .form-sign
           .social-btns
             = link_to "sign Up with Facebook", user_omniauth_authorize_path(:facebook), class: 'face'
-            = link_to "sign Up with Google", '#', class: 'google'
+            = link_to "sign Up with Google", user_omniauth_authorize_path(:google_oauth2), class: 'google'
           .or= 'or'
           .log-inp
             == <input type="text" placeholder="Username" />

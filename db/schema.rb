@@ -16,18 +16,10 @@ ActiveRecord::Schema.define(version: 20150515134120) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "identities", force: true do |t|
-    t.integer  "user_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "identities", ["user_id"], name: "index_identities_on_user_id", using: :btree
-
   create_table "users", force: true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "surname"
+    t.string   "login"
     t.string   "email",                  default: "", null: false
     t.string   "password_salt",          default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
@@ -39,6 +31,8 @@ ActiveRecord::Schema.define(version: 20150515134120) do
     t.datetime "last_sign_in_at"
     t.inet     "current_sign_in_ip"
     t.inet     "last_sign_in_ip"
+    t.string   "provider"
+    t.string   "uid"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
