@@ -6,7 +6,7 @@
       .modal-body
         .form-sign
           .social-btns
-            = link_to "sign Up with Facebook", '#', class: 'face'
+            = link_to "sign Up with Facebook", user_omniauth_authorize_path(:facebook), class: 'face'
             = link_to "sign Up with Google", '#', class: 'google'
           .or= 'or'
           .log-inp
