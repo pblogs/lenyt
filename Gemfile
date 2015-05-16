@@ -28,7 +28,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'spring',        group: :development
 
 gem 'devise'
-gem 'devise-encryptable'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 

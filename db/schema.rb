@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20150515134120) do
 
   create_table "users", force: true do |t|
     t.string   "first_name"
-    t.string   "surname"
-    t.string   "login"
+    t.string   "last_name"
+    t.string   "full_name"
     t.string   "email",                  default: "", null: false
     t.string   "password_salt",          default: "", null: false
     t.string   "encrypted_password",     default: "", null: false

@@ -44,8 +44,6 @@ GEM
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    devise-encryptable (0.2.0)
-      devise (>= 2.1.0)
     erubis (2.7.0)
     execjs (2.5.2)
     faraday (0.9.1)
@@ -167,7 +165,6 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
-  devise-encryptable
   haml-rails (~> 0.9)
   jbuilder (~> 2.0)
   jquery-rails
