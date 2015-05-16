@@ -1,0 +1,45 @@
+@font-face { font-family: "Helvetica Bold"; src: asset-url('Helvetica-Bold.otf'); }
+@font-face { font-family: "Helvetica Light"; src: asset-url('Helvetica-Light.otf'); }
+@font-face { font-family: "Helvetica"; src: asset-url('Helvetica.otf'); }
+
+*{ margin:0; padding:0; outline:none;}
+.clear{ clear: both;}
+
+body{  font-size:14px; color:#666666; font-family: "Helvetica", arial, sans-serif;}
+
+a {color: #143f71; text-decoration: none; font-family: "Helvetica Light", arial, sans-serif;}
+a:hover{ color: #0761c9; text-decoration: none; opacity: 0.7; transition: opacity .8s ease-in-out; -moz-transition: opacity .8s ease-in-out; -webkit-transition: opacity .8s ease-in-out;}
+a:focus{ border: none; outline: none; text-decoration: none;}
+ul{ list-style: none;}
+ol{ list-style: none;}
+ol, ul { margin: 0;}
+img{ max-width: 100%;}
+.h4, .h5, .h6, h4, h5, h6{ margin-bottom: 0;}
+.row{ margin: 0;}
+.col-md-3, .col-md-6, .col-md-12{ padding: 0;}
+
+input { color: #000000;}
+input::-moz-placeholder{ opacity: 1; font-family: "Helvetica Light", arial, sans-serif;}
+input::-webkit-input-placeholder{ opacity: 1; font-family: "Helvetica Light", arial, sans-serif;}
+input:-ms-input-placeholder{ opacity: 1; font-family: "Helvetica Light", arial, sans-serif;}
+
+textarea{ color: #000000;}
+textarea::-moz-placeholder{ opacity: 1; font-family: "Helvetica Light", arial, sans-serif;}
+textarea::-webkit-input-placeholder{ opacity: 1; font-family: "Helvetica Light", arial, sans-serif;}
+textarea:-ms-input-placeholder{ opacity: 1; font-family: "Helvetica Light", arial, sans-serif;}
+
+.device-item.col-xs-12.col-sm-6.col-md-2.col-lg-2{ float: none;}
+
+.navbar-default { background: none; border: none;}
+.navbar-default .navbar-nav > li:last-child > a{ padding: 0 38px;}
+.navbar-default .navbar-nav > li:last-child > a.user{ background: rgba(255, 255, 255, 0.33); padding: 0 20px;}
+.navbar-default .navbar-nav > li:last-child > a.user img{ margin: 0 10px 0 10px;}
+.navbar-default .navbar-nav > li:last-child > a.user span.user-block{ position: relative; display: inline-block;}
+.navbar-default .navbar-nav > li:last-child > a.user span.counti{ position: absolute; right: 0; top: 10px;}
+.navbar-default .navbar-toggle{ background: #ffffff;}
+.navbar-default .navbar-toggle .icon-bar{ background: #000101;}
+
+.top-side .container-fluid{ padding-right: 0;}
+.top-side .container-fluid .navbar-collapse{ padding: 0;}
+
+.redc{ border-radius: 50%; background: #ff3131; line-height: 20px; font-size: 16px; width: 20px; height: 20px; display: inline-block; text-align: center; color: #ffffff; position: absolute; right: 20px; top: 16px;}

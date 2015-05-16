@@ -13,3 +13,8 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require bootstrap
+//= require bootstrap-slider
+//= require moment.min
+//= require jquery.daterangepicker
+//= require custom

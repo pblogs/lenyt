@@ -6,7 +6,7 @@
           %span.icon-bar
           %span.icon-bar
           %span.icon-bar
-        = link_to image_tag('logo-white.png', title: 'Lenyt - Rent camera gear locally'), root_path, class: 'logo navbar-brand'
+        = link_to image_tag(logo_img, title: 'Lenyt - Rent camera gear locally'), root_path, class: 'logo navbar-brand'
 
       #myNavbar.collapse.navbar-collapse
         %ul.nav.navbar-nav
@@ -14,14 +14,14 @@
           - if user_signed_in?
             %li
               %a{data: {toggle: 'dropdown'}}
-                = current_user.email
+                = current_user.full_name
                 %span.user-block
                   = image_tag('audrey.png')
                   %span.counti.redc= '3'
               %ul.dropdown-menu{role: 'menu', aria: {labelledby: 'dLabel'}}
-                %li= link_to "Your Listings", '#'
+                %li= link_to "Your Listings", profile_users_path
                 %li= link_to raw("Messages <span class='redc'>3</span>"), '#'
-                %li= link_to "Account Settings", '#'
+                %li= link_to "Account Settings", settings_users_path
                 %li= link_to "Invite Friends", '#'
                 %li= link_to "Log Out", signout_path
           - else
@@ -29,9 +29,3 @@
             %li= link_to "I agree", '#', data: {toggle: 'modal', target: '#myModal2'}
             %li= link_to "Log In", '#', data: {toggle: 'modal', target: '#myModal1'}
 
-%section.header-content
-  %h1= "EQUIP YOUR INNER ARTIST"
-  %h2= "Rent camera gear locally."
-  = link_to "How it works", '#', class: 'how-works'
-  %input.search-field.col-xs-12.col-sm-8.col-md-6.col-lg-4{placeholder: 'What are you looking for?', type: 'search'}
-  %input.search-icon{type: 'button'}

@@ -9,5 +9,6 @@
     = csrf_meta_tags
   %body
     %header
-      = render partial: 'shared/header'
-    = yield
+      = render partial: 'shared/header', locals: {logo_img: 'logo.png'}
+    %main
+      = yield

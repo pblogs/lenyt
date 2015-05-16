@@ -9,7 +9,14 @@
     %link{ rel: 'shortcut icon', href: image_path("/icon.gif") }
   %body
     %header
-      = render partial: 'shared/header'
+      = render partial: 'shared/header', locals: {logo_img: 'logo_white.png'}
+      %section.header-content
+        %h1= "EQUIP YOUR INNER ARTIST"
+        %h2= "Rent camera gear locally."
+        = link_to "How it works", '#', class: 'how-works'
+        %input.search-field.col-xs-12.col-sm-8.col-md-6.col-lg-4{placeholder: 'What are you looking for?', type: 'search'}
+        %input.search-icon{type: 'button'}
+
     %main
       = yield
       = render partial: "shared/sign_up_modal"

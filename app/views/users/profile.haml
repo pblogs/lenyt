@@ -1,0 +1,30 @@
+.profile-content
+  %section
+    // User Section
+    .col-sm-12
+      .shadow-box
+        .user-profile
+          = image_tag('audrey-big.png', title: current_user.full_name)
+          %span.user-name= current_user.full_name
+          .stars
+            - 1.upto(5) do
+              %span.star-active.star
+            %span= "17"
+
+        .profile-actions
+          .action-item.col-xs-12.col-sm-3= link_to "Account Settings", settings_users_path, class: 'settings'
+          .action-item.box-center.col-xs-12.col-sm-4= raw('Total Revenue <span>$340</span>')
+          .action-item.col-xs-12.col-sm-3= link_to raw("Messages<span class='redc'>3</span>"), settings_users_path, class: 'messages'
+          .clear
+    // End User Section
+    // Listing section
+    .col-sm-12.listing= 'Your Listings:'
+    .col-sm-12.listing-prod
+      = render partial: 'listings/one_listing'
+      = render partial: 'listings/one_listing'
+      = render partial: 'listings/one_listing'
+      = render partial: 'listings/one_listing'
+      .clear
+
+  %section.create-listing
+    = link_to "Create New Listing", '#', class: 'shadow-box'
