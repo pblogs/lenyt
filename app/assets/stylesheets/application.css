@@ -16,5 +16,6 @@
  *= require datepicker
  *= require slider
  *= require daterangepicker
+ *= require bootstrap.vertical-tabs
  *= require_self
  */

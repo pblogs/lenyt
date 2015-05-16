@@ -1,0 +1,51 @@
+.account-content
+  %section.content
+    .col-sm-12
+      .col-xs-4
+        // Nav tabs
+        %ul.nav.nav-tabs.tabs-left
+          %li.active= link_to raw("<span>Profile Settings</span>"), '#settings', {data: {toggle: 'tab'}}
+          %li= link_to raw("<span>Payment Settings</span>"), '#payment', {data: {toggle: 'tab'}}
+          %li= link_to raw("<span>Notifications</span>"), '#notifications', {data: {toggle: 'tab'}}
+          %li= link_to raw("<span>User Agreement</span>"), '#agreement', {data: {toggle: 'tab'}}
+      .col-xs-8
+        // Tab panes
+        .tab-content
+
+          #settings.tab-pane.active
+            = form_for current_user, url: user_path(current_user), html: { method: :put } do |f|
+              .user-changes.col-lg-12
+                .img-content.col-sm-4
+                  %a.account-link
+                    = image_tag('audrey-big.png')
+                    %span= "Change Picture"
+
+                .account-fields.col-sm-8
+                  = f.text_field :first_name, class: 'left col-xs-12 col-sm-6 width-fix', placeholder: 'First Name'
+                  = f.text_field :last_name, class: 'left col-xs-12 col-sm-6', placeholder: 'First Name'
+                  = f.text_field :user_name, class: 'left col-xs-12  top-space', placeholder: 'User Name'
+                  = f.text_field :password, class: 'left col-xs-12', placeholder: 'Password'
+                  .clear
+                  = link_to "Change password", '#', class: 'right account-link'
+                .clear
+                .user-changes.col-lg-12
+                  = f.text_field :address, class: 'col-xs-12 col-sm-12 top-space', placeholder: 'Address'
+                  = f.text_field :city, class: 'col-xs-12 col-sm-6 width-fix', placeholder: 'City'
+                  = f.text_field :state, class: 'col-xs-12 col-sm-6', placeholder: 'State'
+
+                  = f.text_field :postal_code, class: 'col-xs-12 col-sm-6 width-fix', placeholder: 'Postal Code'
+                  = f.text_field :country, class: 'col-xs-12 col-sm-6', placeholder: 'Country'
+                  .clear
+                .user-changes.col-lg-12.no-border
+                  = f.text_field :phone_number, class: 'col-xs-12 col-sm-6 top-space', placeholder: 'Phone Number'
+                  .clear
+                  = f.text_field :email, class: 'col-xs-12 col-sm-6', placeholder: 'Email Address'
+                  .clear
+                .user-changes.col-lg-12.no-border.no-padding-b
+                  = f.submit "Save", class: 'list-it col-xs-12 col-sm-12 top-space btn btn-success'
+
+          = render partial: "payment"
+
+
+          #notifications.tab-pane= "Notifications"
+          #agreement.tab-pane= "Agreement"

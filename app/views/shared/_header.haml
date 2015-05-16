@@ -14,7 +14,7 @@
           - if user_signed_in?
             %li
               %a{data: {toggle: 'dropdown'}}
-                = current_user.full_name
+                = current_user.user_name
                 %span.user-block
                   = image_tag('audrey.png')
                   %span.counti.redc= '3'

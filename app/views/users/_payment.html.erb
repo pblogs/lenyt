@@ -1,0 +1,55 @@
+<div class="tab-pane" id="payment">
+  <div class="user-changes col-lg-12">
+    <%= image_tag('braintree-icons.png') %>
+
+  </div>
+  <div class="user-changes col-lg-12">
+    <div class="send-money">Sending Money</div>
+    <div class="col-xs-12 col-sm-4">
+      Credit Card Info:
+      <%= image_tag('card-icons.png') %>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <input type="text" class="col-xs-12 col-sm-6 width-fix" placeholder="First Name"/>
+      <input type="text" class="col-xs-12 col-sm-6" placeholder="Last Name"/>
+      <input type="text" class="col-xs-12 col-sm-12" placeholder="Credit Card Number"/>
+
+      <div class="col-xs-6 col-sm-4">Expiration:</div>
+      <input type="text" class="col-xs-4 col-sm-2" placeholder="Day"/>
+      <input type="text" class="col-xs-4 col-sm-3" placeholder="Month"/>
+      <input type="text" class="col-xs-4 col-sm-3 no-margin width-f" placeholder="Year"/>
+      <input type="text" class="col-xs-4 col-sm-3 no-margin right" placeholder="CVV"/>
+
+      <div class="clear"></div>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="user-changes col-lg-12 no-border">
+    <div class="send-money">Recieving Money</div>
+    <div class="col-xs-12 col-sm-4">
+      <span class="bank">Bank Account Info:</span>
+
+      <div class="clear"></div>
+      <input type="text" class="col-xs-12 col-sm-12" placeholder="Transit No."/>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <input type="text" class="col-xs-12 col-sm-6 width-fix" placeholder="First Name"/>
+      <input type="text" class="col-xs-12 col-sm-6" placeholder="Last Name"/>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <input type="text" class="col-xs-12 col-sm-6 width-fix" placeholder="Inst. No."/>
+      <input type="text" class="col-xs-12 col-sm-6" placeholder="Account No."/>
+    </div>
+    <div class="clear"></div>
+  </div>
+  <div class="clear"></div>
+  <div class="line-orr">OR</div>
+  <div class="connect">
+    <span>Connect your Paypal account:</span>
+    <a href="#"><%= image_tag('connect-with-paypal.png') %></a>
+  </div>
+  <div class="user-changes col-lg-12 no-border no-padding-b">
+    <a href="#" class="list-it col-xs-12 col-sm-12 top-space">Save</a>
+  </div>
+  <div class="clear"></div>
+</div>
