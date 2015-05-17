@@ -1,4 +1,3 @@
-SERVICES = YAML.load(File.open("#{::Rails.root}/config/oauth.yml").read)
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
