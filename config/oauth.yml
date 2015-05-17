@@ -1,6 +1,6 @@
 google: # also used by the YouTube provider
-  key: "746331387491.apps.googleusercontent.com"
-  secret: "k_IixsOIqCpIXUb3smTjz-9H"
+  key: "457191228933-u6l8j310tf2o0753l5j7spk7avqku7l8.apps.googleusercontent.com"
+  secret: "SrAK9d0k6wVdFDTiGamKLcav"
 facebook:
   key: "933636170020915"
   secret: "948b9e1054fd667e9a044471b7a91c4b"
