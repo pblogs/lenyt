@@ -1,6 +1,13 @@
 class ListingsController < ApplicationController
+
+
   def index
     @products = Product.all
+  end
+
+
+  def search
+
   end
 
   def new

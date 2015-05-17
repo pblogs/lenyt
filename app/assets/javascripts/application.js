@@ -13,10 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require jquery.min
 //= require autocomplete-rails
 //= require turbolinks
 //= require bootstrap
 //= require bootstrap-slider
+//= require bootstrap-datepicker
 //= require moment.min
 //= require jquery.daterangepicker
+//= require jquery.mCustomScrollbar.concat.min
 //= require custom

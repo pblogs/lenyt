@@ -1,43 +1,36 @@
-
 $(function(){
-    var waypoint = new Waypoint({
-        element: document.getElementById('row-1'),
-        offset: 300,
-        handler: function(direction) {
-            $('.active').removeClass('active');
-            $(".row-1").addClass("active");
-        }
-    });
-    var waypoint2 = new Waypoint({
-        element: document.getElementById('row-2'),
-        offset: 300,
-        handler: function(direction) {
-            $('.active').removeClass('active');
-            $(".row-2").addClass("active");
-        }
-    });
-    var waypoint3 = new Waypoint({
-        element: document.getElementById('row-3'),
-        offset: 300,
-        handler: function(direction) {
-            $('.active').removeClass('active');
-            $(".row-3").addClass("active");
-        }
-    });
-    var waypoint4 = new Waypoint({
-        element: document.getElementById('row-4'),
-        offset: 300,
-        handler: function(direction) {
-            $('.active').removeClass('active');
-            $(".row-4").addClass("active");
-        }
-    });
-    var waypoint5 = new Waypoint({
-        element: document.getElementById('row-5'),
-        offset: 300,
-        handler: function(direction) {
-            $('.active').removeClass('active');
-            $(".row-5").addClass("active");
-        }
-    });
+  var nowTemp = new Date();
+  var now = new Date(nowTemp.getFullYear(), nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
+
+  var checkin = $('#dpd1').datepicker({
+    onRender: function(date) {
+      return date.valueOf() < now.valueOf() ? 'disabled' : '';
+    }
+  }).on('changeDate', function(ev) {
+      if (ev.date.valueOf() > checkout.date.valueOf()) {
+        var newDate = new Date(ev.date)
+        newDate.setDate(newDate.getDate() + 1);
+        checkout.setValue(newDate);
+      }
+      checkin.hide();
+      $('#dpd2')[0].focus();
+    }).data('datepicker');
+  var checkout = $('#dpd2').datepicker({
+    onRender: function(date) {
+      return date.valueOf() <= checkin.date.valueOf() ? 'disabled' : '';
+    }
+  }).on('changeDate', function(ev) {
+      checkout.hide();
+    }).data('datepicker');
+})
+$(function(){
+  $("#range").slider({});
+});
+$(document).ready(function(){
+  $('[data-toggle="popover"]').popover();
+  $("#tchat").mCustomScrollbar();
+
+  $("#tchat").mCustomScrollbar("scrollTo","bottom",{
+    scrollEasing:"easeOut"
+  });
 });

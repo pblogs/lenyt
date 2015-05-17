@@ -14,16 +14,16 @@
         .profile-actions
           .action-item.col-xs-12.col-sm-3= link_to "Account Settings", settings_users_path, class: 'settings'
           .action-item.box-center.col-xs-12.col-sm-4= raw('Total Revenue <span>$340</span>')
-          .action-item.col-xs-12.col-sm-3= link_to raw("Messages<span class='redc'>3</span>"), settings_users_path, class: 'messages'
+          .action-item.col-xs-12.col-sm-3= link_to raw("Messages<span class='redc'>3</span>"), my_messages_path, class: 'messages'
           .clear
     // End User Section
     // Listing section
     .col-sm-12.listing= 'Your Listings:'
     .col-sm-12.listing-prod
-      = render partial: 'listings/one_listing'
-      = render partial: 'listings/one_listing'
-      = render partial: 'listings/one_listing'
-      = render partial: 'listings/one_listing'
+      = render partial: 'listings/one_list'
+      = render partial: 'listings/one_list'
+      = render partial: 'listings/one_list'
+      = render partial: 'listings/one_list'
       .clear
 
   %section.create-listing

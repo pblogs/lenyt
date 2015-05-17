@@ -19,8 +19,8 @@
                   = image_tag('audrey.png')
                   %span.counti.redc= '3'
               %ul.dropdown-menu{role: 'menu', aria: {labelledby: 'dLabel'}}
-                %li= link_to "Your Listings", profile_users_path
-                %li= link_to raw("Messages <span class='redc'>3</span>"), '#'
+                %li= link_to "Your Listings", my_profile_path
+                %li= link_to raw("Messages <span class='redc'>3</span>"), my_messages_path
                 %li= link_to "Account Settings", settings_users_path
                 %li= link_to "Invite Friends", '#'
                 %li= link_to "Log Out", signout_path

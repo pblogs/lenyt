@@ -17,5 +17,6 @@
  *= require slider
  *= require daterangepicker
  *= require bootstrap.vertical-tabs
+ *= require jquery.mCustomScrollbar
  *= require_self
  */
