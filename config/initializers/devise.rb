@@ -235,7 +235,7 @@ Devise.setup do |config|
   # up on your models and hooks.
   # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
   config.omniauth :facebook, ENV['lenyt_facebook_key'], ENV['lenyt_facebook_secret']
-  config.omniauth :google_oauth2, ENV['lenyt_google_key'], ENV['lenyt_google_secret'], {access_type: 'offline', approval_prompt: ''}
+  config.omniauth :google_oauth2, ENV['lenyt_google_key'], ENV['lenyt_google_secret']
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
