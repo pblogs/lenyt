@@ -22,8 +22,6 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 
@@ -41,3 +39,12 @@ gem 'acts-as-taggable-on'
 gem 'rails4-autocomplete'
 
 gem 'paperclip'
+
+# Quiet Assets turns off the Rails asset pipeline log.
+gem 'quiet_assets', group: :development
+
+# Tiny, fast & funny HTTP server
+gem 'thin'
+
+# Simple, Heroku-friendly Rails app configuration using ENV and a single YAML file
+gem "figaro"
