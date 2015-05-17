@@ -1,0 +1,79 @@
+%section.content
+  %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
+    .price= raw("$50<span>per day</span>")
+    .slide-images
+      = image_tag('slide-image.jpg')
+      .slide-controls
+        %a{:href => "#"}
+          = image_tag('arrow-left.png')
+        %span 1/3
+        %a{:href => "#"}
+          = image_tag('arrow-right.png')
+    .product-title Leica M9 with 50mm f2.0
+  %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
+    .actions
+      .pick-date
+        %input#dpd1{:placeholder => "From", :type => "text"}
+        %input#dpd2{:placeholder => "To", :type => "text"}
+      .total
+        %ul
+          %li= raw("5<span>day(s)</span>")
+          %li= raw("$269<span>total</span>")
+    .rit
+      .gray-box
+        .insurance
+          .col-xs-12.col-sm-6.col-md-6.col-lg-6
+            %h3.bold-text Choose Insurance:
+            %p.value-text Listing Value: $3000
+          .waver.col-xs-12.col-sm-6.col-md-3.col-lg-3
+            %h3 Damage Waver
+            .text-box.text-box-active
+              %span.price-num $19
+              %span.price-description $450 Refundable Deposit
+          .deposit.col-xs-12.col-sm-6.col-md-3.col-lg-3
+            %h3 Full Deposit
+            .text-box
+              %span.price-num $3000
+              %span.price-description Refundable Deposit
+          .clear
+          %p.description Damage Waver: Covers this rental for its full duration. Requires a $450 hold on your credit card as a refundable deductible deposit.
+      .user-req
+        .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-4
+          = image_tag('emma.png', title: "Emma")
+          %span.user-name Emma
+          .stars
+            %span.star-active.star
+            %span.star-active.star
+            %span.star-active.star
+            %span.star-inactive.star
+        %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#"} Request
+        .clear
+        .message
+          Your credit card will not be charged until the user accepts your request. You can always view and cancel your requests from the
+          %a{:href => "#"} Message
+          board.
+%section.content.table-type
+  %aside.product-details.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
+    .prov
+      %p
+        In beautiful condition. Leica M9 with 50mm Summicron lens.
+        %br/
+        Package includes:
+        %br/
+        \- Leica M9
+        %br/
+        \- 50mm Summicron lens
+        %br/
+        \- 2X batteries
+        %br/
+        \- Tripod
+        %br/
+        \- Carrying bag
+  %aside.map-side.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
+    .rit
+      .meet-location
+        %h3.left Suggested Meetup
+        %h3.right Location:80 Church St. Toronto, ON, M2J 3X5
+      .map
+        = image_tag('map.jpg')
+

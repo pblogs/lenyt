@@ -10,5 +10,7 @@ Rails.application.routes.draw do
       get :settings
     end
   end
+  resources :listings
+
   root to: 'home_page#index'
 end
