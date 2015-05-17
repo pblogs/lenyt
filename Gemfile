@@ -7,6 +7,8 @@ gem 'rails', '4.1.8'
 gem 'pg'
 gem "haml-rails", "~> 0.9"
 
+gem 'formtastic'
+gem 'awesome_nested_fields'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -18,6 +20,7 @@ gem 'coffee-rails', '~> 4.0.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -32,3 +35,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 
 gem 'rails_12factor'
+
+
+gem 'acts-as-taggable-on'
+gem 'rails4-autocomplete'
+
+gem 'paperclip'
