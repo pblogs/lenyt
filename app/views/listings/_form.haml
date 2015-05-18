@@ -2,10 +2,9 @@
   = f.text_field :title, class: 'meet-location inp-bg', placeholder: "Title"
   = f.text_field :category, class: 'meet-location inp-bg', placeholder: "Category"
   .category-total
-    = text_field_tag :label_price_per_day, '', class: 'meet-location inp-bg left col-xs-12 col-sm-6 col-md-6 col-lg-8', placeholder: "Price (per day)"
+    %span.meet-location.inp-bg.left.col-xs-12.col-sm-6.col-md-6.col-lg-8= "Price (per day)"
     = f.text_field :price_per_day, class: 'meet-location left col-xs-12 col-sm-6 col-md-6 col-lg-4', placeholder: "$"
-
-    = text_field_tag :label_total_value, '', class: 'meet-location inp-bg left col-xs-12 col-sm-6 col-md-6 col-lg-8', placeholder: "Total Equipment Value"
+    %span.meet-location.inp-bg.left.col-xs-12.col-sm-6.col-md-6.col-lg-8= "Total Equipment Value"
     = f.text_field :total_value, class: 'meet-location left col-xs-12 col-sm-6 col-md-6 col-lg-4', placeholder: "$"
 
   = f.text_area :details, class: 'inp-bg', placeholder: "Details"

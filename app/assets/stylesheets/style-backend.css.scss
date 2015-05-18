@@ -136,7 +136,7 @@ aside.prod-reg textarea{ height: 178px; width: 100%; border: none; resize: none;
 a.list-it, input.list-it{ display: block; background: #12ab5c; height: 50px; line-height: 50px; color: #ffffff; font-size: 25px; font-family: "Helvetica Light", arial, sans-serif; text-align: center; margin: 10px 0;}
 
 aside.prod-reg .category-total input.meet-location{ display: inline-block; border: 1px solid #999999; width: 33.3333%;}
-aside.prod-reg .category-total input.meet-location.inp-bg{ width: 66%; border: none; margin-right: 0.6667%;}
+aside.prod-reg .category-total input.meet-location.inp-bg, span.meet-location.inp-bg { width: 66%; border: none; margin-right: 0.6667%; color: gray;}
 .popover{ width: 320px; border: none; border-radius: 0; max-width: none;}
 .popover-content{ padding: 10px; font-size: 16px; font-family: "Helvetica Light", arial, sans-serif; color: #000000; line-height: normal;}
 
