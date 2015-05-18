@@ -11,9 +11,8 @@
       .col-xs-8
         // Tab panes
         .tab-content
-
-          = form_for current_user, url: user_path(current_user), html: { method: :put, id: 'user-form' } do |f|
-            #settings.tab-pane.active
+          #settings.tab-pane.active
+            = form_for current_user, url: user_path(current_user), html: { method: :put, id: 'user-form' } do |f|
               = render 'shared/errors', resource: current_user
               .user-changes.col-lg-12
                 .img-content.col-sm-4
