@@ -1,0 +1,26 @@
+.account-content
+  %section.content
+    .col-sm-12
+      .col-xs-4
+        // Nav tabs
+        %ul.nav.nav-tabs.tabs-left
+          %li.active= link_to raw("<span>Sign Up</span>"), '#'
+      .col-xs-8
+        // Tab panes
+        .tab-content
+          #settings.tab-pane.active
+            = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+              .user-changes.col-lg-12.no-border
+                = f.email_field :email, class: 'col-xs-12 col-sm-6', autofocus: true, placeholder: 'Email Address'
+                .clear
+                = f.password_field :password, class: 'col-xs-12 col-sm-6', placeholder: 'Password'
+                .clear
+                - if devise_mapping.rememberable?
+                  .field
+                    = f.check_box :remember_me
+                    = f.label :remember_me
+
+              .user-changes.col-lg-12.no-border.no-padding-b
+                = link_to "Log in", 'javascript:{}', class: 'list-it col-xs-12 col-sm-12 top-space', onclick: "document.getElementById('new_user').submit(); return false;"
+              .clear
+

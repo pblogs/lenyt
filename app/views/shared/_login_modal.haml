@@ -11,10 +11,9 @@
             = link_to "sign Up with Google", user_omniauth_authorize_path(:google_oauth2), class: 'google'
           .or= 'or'
           .log-inp
-            == <input type="text" placeholder="Username" />
-            == <input type="password" placeholder="Password" />
-            == <input type="submit" value="Sign Up" />
-        %span.sign= raw("By signing up, I agree to Lenyt’s<br /> User Agreement and Terms of Services.")
-        %p.already
-          = "Already a member? "
-          = link_to 'Log In', '#'
+            = form_for(User.new, as: :user, url: session_path(:user)) do |f|
+              = f.email_field :email, autofocus: true, placeholder: 'Email Address'
+              = f.password_field :password, placeholder: 'Password'
+              = f.submit "Log in"
+
+

@@ -1,0 +1,23 @@
+.account-content
+  %section.content
+    .col-sm-12
+      .col-xs-4
+        // Nav tabs
+        %ul.nav.nav-tabs.tabs-left
+          %li.active= link_to raw("<span>Sign Up</span>"), '#'
+      .col-xs-8
+        // Tab panes
+        .tab-content
+          #settings.tab-pane.active
+            = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+              = devise_error_messages!
+              .user-changes.col-lg-12.no-border
+                = f.text_field :email, class: 'col-xs-12 col-sm-6', placeholder: 'Email Address'
+                .clear
+                = f.password_field :password, class: 'col-xs-12 col-sm-6', placeholder: 'Password'
+                .clear
+                = f.password_field :password_confirmation, class: 'col-xs-12 col-sm-6', placeholder: 'Password Confirmation'
+                .clear
+              .user-changes.col-lg-12.no-border.no-padding-b
+                = link_to "Save", 'javascript:{}', class: 'list-it col-xs-12 col-sm-12 top-space', onclick: "document.getElementById('new_user').submit(); return false;"
+              .clear
