@@ -4,7 +4,6 @@ Rails.application.routes.draw do
     omniauth_callbacks: 'callbacks'
   }
   match 'auth/failure', to: redirect('/'), via: [:get]
-  match 'signout', to: 'sessions#destroy', as: 'signout', via: [:get, :post]
   match 'search', to: 'listings#search', as: 'search', via: [:get]
 
   match 'profile', to: 'users#profile', as: 'my_profile', via: [:get]
