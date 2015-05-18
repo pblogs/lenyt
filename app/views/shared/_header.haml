@@ -14,9 +14,9 @@
           - if user_signed_in?
             %li
               %a{data: {toggle: 'dropdown'}}
-                = current_user.user_name
+                = current_user.username
                 %span.user-block
-                  = image_tag('audrey.png')
+                  = image_tag(current_user.avatar, class: 'img-circle')
                   %span.counti.redc= '3'
               %ul.dropdown-menu{role: 'menu', aria: {labelledby: 'dLabel'}}
                 %li= link_to "Your Listings", my_profile_path

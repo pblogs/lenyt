@@ -4,8 +4,8 @@
     .col-sm-12
       .shadow-box
         .user-profile
-          = image_tag('audrey-big.png', title: current_user.user_name)
-          %span.user-name= current_user.user_name
+          = image_tag('audrey-big.png', title: current_user.username)
+          %span.user-name= current_user.username
           .stars
             - 1.upto(5) do
               %span.star-active.star

@@ -17,13 +17,13 @@
               .user-changes.col-lg-12
                 .img-content.col-sm-4
                   %a.account-link
-                    = image_tag('audrey-big.png')
+                    = image_tag(current_user.avatar, class: 'img-circle', size: '80x80')
                     %span= "Change Picture"
 
                 .account-fields.col-sm-8
                   = f.text_field :first_name, class: 'left col-xs-12 col-sm-6 width-fix', placeholder: 'First Name'
                   = f.text_field :last_name, class: 'left col-xs-12 col-sm-6', placeholder: 'First Name'
-                  = f.text_field :user_name, class: 'left col-xs-12  top-space', placeholder: 'User Name'
+                  = f.text_field :username, class: 'left col-xs-12  top-space', placeholder: 'User Name'
                   = f.text_field :password, class: 'left col-xs-12', placeholder: 'Password'
                   .clear
                   = link_to "Change password", '#', class: 'right account-link'
