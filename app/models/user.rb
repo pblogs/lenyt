@@ -23,4 +23,8 @@ class User < ActiveRecord::Base
   def avatar
     image_url
   end
+
+  def full_name
+    username.present? ? username : email
+  end
 end

@@ -1,0 +1,7 @@
+.col-sm-12
+  - if resource.errors.any?
+    .alert.alert-danger.alert-block
+      /= button_to 'x', class: 'close', data: {dismiss: 'alert'}
+      %ul
+        - resource.errors.full_messages.each do |msg|
+          %li= msg

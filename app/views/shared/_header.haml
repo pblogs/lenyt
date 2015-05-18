@@ -14,7 +14,7 @@
           - if user_signed_in?
             %li
               %a{data: {toggle: 'dropdown'}}
-                = current_user.username
+                = current_user.full_name
                 %span.user-block
                   = image_tag(current_user.avatar, class: 'img-circle')
                   %span.counti.redc= '3'
@@ -25,7 +25,7 @@
                 %li= link_to "Invite Friends", '#'
                 %li= link_to "Log Out", signout_path
           - else
-            %li= link_to "Sign Up", '#', data: {toggle: 'modal', target: '#myModal'}
+            %li= link_to "Sign Up", '#', data: {toggle: 'modal', target: '#signUpModal'}
             %li= link_to "I agree", '#', data: {toggle: 'modal', target: '#myModal2'}
             %li= link_to "Log In", '#', data: {toggle: 'modal', target: '#myModal1'}
 

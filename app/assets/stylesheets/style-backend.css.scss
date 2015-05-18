@@ -219,7 +219,7 @@ section.create-listing a{ display: inline-block; background: #eeeeee image-url("
 .user-changes a.account-link{color: #000000; font-size: 16px; font-family: "Helvetica Light", arial, sans-serif;}
 .user-changes a:hover{color: #3c3c3c;}
 .top-space{ margin-top: 18px;}
-.user-changes input{ height: 30px; border: 1px solid #666666; margin-bottom: 10px;}
+.user-changes input.col-xs-12{ height: 30px; border: 1px solid #666666; margin-bottom: 10px;}
 .user-changes .img-content.col-sm-4 { padding-left: 0; text-align: center;}
 .account-fields.col-sm-8 { padding: 0;}
 .user-changes a.list-it{ font-size: 16px; font-family: "Helvetica Bold", arial, sans-serif;}

@@ -33,10 +33,10 @@ class ListingsController < ApplicationController
   end
 
   def update
-    @product = Product.find(product_params)
+    @product = Product.find(params[:id])
 
     respond_to do |format|
-      if @product.update(params[:product])
+      if @product.update(product_params)
         format.html { redirect_to listing_path(@product), notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
