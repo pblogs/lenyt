@@ -82,14 +82,7 @@ a.face, a.google{ display: block; font-family: "Helvetica Bold", arial, sans-ser
 a.face{ background: #3c5a94 image-url("icons/facebook.png") no-repeat; background-position: 31px center; color: #ffffff;}
 a.google{ background: #ffffff image-url("icons/google.png") no-repeat; background-position: 21px center; border: 1px solid #666666; color: #666666;}
 div.or{ background: image-url("line.jpg") no-repeat center center; display: block; text-align: center; font-size: 23px; color: #666666; font-family: "Helvetica", arial, sans-serif; margin: 43px 0; padding-bottom: 3px;}
-.log-inp{ margin-bottom: 20px;}
-.log-inp input{ display: block; line-height: 60px; width: 100%; font-size: 23px;}
-.log-inp input[type="text"], .log-inp input[type="password"], .log-inp input[type="email"]{ border: 1px solid #666666; color: #666666; font-family: "Helvetica", arial, sans-serif; margin-bottom: 15px; padding: 0 15px;}
-.log-inp input[type="submit"]{ background: #12ab5c; color: #ffffff; text-align: center; border: none; font-family: "Helvetica Bold", arial, sans-serif;}
 
-span.sign, p.already{ display: block; font-family: "Helvetica Bold", arial, sans-serif; font-size: 20px; text-align: center;}
-p.already{ margin-top: 30px;}
-p.already a{ color: #12ab5c;}
 
 div.number{ min-height: 144px; display: block; text-align: center; vertical-align: middle; padding-top: 64px;}
 div.number span{margin: 0 auto; background: #ffffff; border: 2px solid #666666; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 46px; display: block; color: #666666; font-family: "Helvetica", arial, sans-serif; font-size: 25px;}
