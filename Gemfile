@@ -25,6 +25,10 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
+
+gem 'stripe'
+gem 'omniauth-stripe-connect'
+
 gem 'acts-as-taggable-on'
 gem 'rails4-autocomplete'
 gem 'paperclip'

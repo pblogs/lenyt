@@ -45,6 +45,9 @@
   <div class="clear"></div>
   <div class="line-orr">OR</div>
   <div class="connect">
+
+  <%= link_to image_tag('https://stripe.com/img/about/logos/connect/blue.png'), user_omniauth_authorize_path(:stripe_connect) %>
+
     <span>Connect your Paypal account:</span>
     <a href="#"><%= image_tag('connect-with-paypal.png') %></a>
   </div>

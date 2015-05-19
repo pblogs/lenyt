@@ -1,9 +1,11 @@
 class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :validatable
-  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+  devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2, :stripe_connect]
 
   def self.from_omniauth(auth)
+    # require 'pry'
+    # binding.pry
     user_hash = {
       first_name: auth.info.first_name,
       last_name: auth.info.last_name,
