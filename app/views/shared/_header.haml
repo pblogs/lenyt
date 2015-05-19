@@ -10,7 +10,7 @@
 
       #myNavbar.collapse.navbar-collapse
         %ul.nav.navbar-nav
-          %li= link_to "List Your Equipment", '#', class: 'list-icon'
+          %li= link_to "List Your Equipment", new_listing_path, class: 'list-icon'
           - if user_signed_in?
             %li
               %a{data: {toggle: 'dropdown'}}
