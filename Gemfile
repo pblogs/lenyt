@@ -48,6 +48,11 @@ group :development do
 
   # Quiet Assets turns off the Rails asset pipeline log.
   gem 'quiet_assets'
+
+  # pry awesomeness
+  gem 'pry-byebug'
+  gem 'pry-rails'
+  gem 'pry-stack_explorer'
 end
 
 group :development, :test do

@@ -1,0 +1,10 @@
+.row
+  .col-md-12.col-md-12
+    - if object.errors.any?
+      .alert.alert-danger.alert-block
+        %i.glyphicon.glyphicon-remove-circle.pull-right{"data-dismiss" => "alert", :style => "cursor:pointer;"}
+        %br/
+        %ul{:style => "padding: 0;"}
+          - object.errors.full_messages.each_with_index do |msg, index|
+            %li
+              = msg

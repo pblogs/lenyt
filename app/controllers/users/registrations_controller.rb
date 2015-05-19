@@ -18,10 +18,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
           end
         }
         format.js {
-          flash[:notice] = "Created account, signed in."
-          render template: "devise/registrations/success_sign_up.js.erb", layout: false
-          flash.discard
           sign_up(resource_name, resource)
+          render layout: false
         }
       end
     else
@@ -31,9 +29,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
           respond_with resource
         }
         format.js {
-          flash[:alert] = @user.errors.full_messages.to_sentence
-          render template: "devise/registrations/errors.js.erb", layout: false
-          flash.discard
+          render layout: false
         }
       end
     end

@@ -1,7 +1,7 @@
 if($('#flash').length > 0) {
   $('#flash').remove();
-  $('.modal-body').prepend("<%= escape_javascript raw(flash_normal) %>");
+  $('.modal-body').prepend("<%= j(render 'shared/error_messages', object: resource) %>");
 }
 else {
-  $('.modal-body').prepend("<%= escape_javascript raw(flash_normal) %>");
+  $('.modal-body').prepend("<%= j(render 'shared/error_messages', object: resource) %>");
 }
