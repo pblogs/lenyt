@@ -18,6 +18,7 @@
         %input.search-icon{type: 'button'}
 
     %main
+      = render 'shared/flashes'
       = yield
       = render partial: "shared/sign_up_modal"
       = render partial: "shared/login_modal"

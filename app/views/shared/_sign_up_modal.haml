@@ -10,7 +10,9 @@
             = link_to "sign Up with Google", user_omniauth_authorize_path(:google_oauth2), class: 'google'
           .or= 'or'
           .log-inp
-            = form_for :user, url: users_path, html: {method: :post} do |f|
+            = form_for :user, url: users_path, remote: true, format: :js, html: {method: :post} do |f|
+              #form_flashes
+                = render 'shared/errors', resource: resource
               = f.text_field :email, placeholder: 'E-mail'
               = f.password_field :password, placeholder: 'Password'
               = f.password_field :password_confirmation, placeholder: 'Confirm Password'
