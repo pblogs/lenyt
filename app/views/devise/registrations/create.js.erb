@@ -1,14 +1,6 @@
 <% if resource.valid? %>
-  console.log('Valid');
-  $('.alert.alert-danger.alert-block').remove();
-  // tr = $('.educations_list').find('tr').last();
-  // $('<%= j(render(@education)) %>').insertAfter(tr);
-  // $("#new_education")[0].reset();
-  // $('#education_year').attr('type', '').val('');
-  // $('.selectpicker').selectpicker('refresh');
-  // $('.file_field').on('change', function(event) {
-  //   $(this).closest("form").submit();
-  // });
+  location.reload();
+  // console.log('Valid');
 <% else %>
   // console.log('InValid');
   $('.alert.alert-danger.alert-block').remove();
