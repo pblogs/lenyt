@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { omniauth_callbacks: 'callbacks',  registrations: 'users/registrations' } do
+  devise_for :users, controllers: { omniauth_callbacks: 'callbacks',  registrations: 'users/registrations',  sessions: 'users/sessions' } do
     #match 'settings', to: 'users/registrations#settings', as: :settings, via: [:get]
   end
   match 'auth/failure', to: redirect('/'), via: [:get]
