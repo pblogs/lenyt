@@ -14,7 +14,7 @@
             = form_for(User.new, as: :user, url: session_path(:user), remote: true, format: :js, html: {id: 'user_login_modal'}) do |f|
               #form_flashes
                 = render 'shared/errors', resource: resource
-              = f.email_field :email, autofocus: true, placeholder: 'Email Address'
+              = f.text_field :email, autofocus: true, placeholder: 'Email Address'
               = f.password_field :password, placeholder: 'Password'
               = f.check_box :remember_me
               = f.label :remember_me
