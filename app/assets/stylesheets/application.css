@@ -18,5 +18,7 @@
  *= require daterangepicker
  *= require bootstrap.vertical-tabs
  *= require jquery.mCustomScrollbar
+ *= require common
+ *= require font-awesome
  *= require_self
  */

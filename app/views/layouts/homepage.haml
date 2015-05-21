@@ -10,6 +10,7 @@
   %body
     %header
       = render partial: 'shared/header', locals: {logo_img: 'logo_white.png'}
+      = render 'layouts/flash_notices'
       %section.header-content
         %h1= "EQUIP YOUR INNER ARTIST"
         %h2= "Rent camera gear locally."
