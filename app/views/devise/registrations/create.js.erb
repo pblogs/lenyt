@@ -1,5 +1,5 @@
 <% if resource.valid? %>
-  location.reload();
+  location.replace('<%= root_url %>');
 <% else %>
   $('#error_messages').remove();
   $(document).find("#user_signup_modal").prepend("<%= j(render 'shared/error_messages', object: resource) %>");

@@ -5,11 +5,14 @@
     %title Lenyt
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-    %link{ rel: 'shortcut icon', href: image_path("/icon.gif") }
     = csrf_meta_tags
+    %link{ rel: 'shortcut icon', href: image_path("/icon.gif") }
   %body
     %header
       = render partial: 'shared/header', locals: {logo_img: 'logo.png'}
     %main
       //= render 'shared/flashes'
       = yield
+      = render partial: "shared/sign_up_modal"
+      = render partial: "shared/login_modal"
+      = render partial: "shared/agree_modal"

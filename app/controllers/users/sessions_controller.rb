@@ -1,6 +1,6 @@
 class Users::SessionsController < Devise::SessionsController
   respond_to :js
-  layout false
+  layout false, only: :create
 
   def new
     super
