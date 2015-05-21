@@ -1,0 +1,10 @@
+var error = "<div id='error_messages' class='row'><div class='col-md-12 col-md-12'><div class='alert alert-danger alert-block'>Wrong Email or Password</div></div></div>"
+
+<% if resource.present? %>
+  location.replace('<%= root_url %>');
+  console.log('Valid');
+<% else %>
+   console.log('InValid');
+  $('#error_messages').remove();
+  $(document).find("form#new_user").prepend(error);
+<% end %>
