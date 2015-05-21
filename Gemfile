@@ -28,6 +28,7 @@ gem 'omniauth-google-oauth2'
 gem 'acts-as-taggable-on'
 gem 'rails4-autocomplete'
 gem 'paperclip'
+gem "twitter-bootstrap-rails"
 gem 'mandrill-rails'
 gem "font-awesome-rails"
 
