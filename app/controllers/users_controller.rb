@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
- # before_action :authenticate_user!
+ before_action :authenticate_user!
 
   def profile
     current_user
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def messages
-
+    @conversations = current_user.mailbox.conversations
   end
 
   def update

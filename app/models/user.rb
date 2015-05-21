@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
   validates :email, :username, presence: true
   validates :username, uniqueness: true
-
+  acts_as_messageable
 
   def self.from_omniauth(auth)
     user_hash = {

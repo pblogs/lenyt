@@ -4,70 +4,25 @@
       / required for floating
       / Nav tabs
       %ul.nav.nav-tabs.tabs-left
-        %li.active
-          %a{"data-toggle" => "tab", :href => "#home"}
-            .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              .img-content
-                %span.redc 3
-                = image_tag('emma.png')
-              %span.user-name Emma
-              .stars
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-inactive.star
-                %span (17)
-            .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              Request sent on 20/04/2015
-            .clear
-        %li
-          %a{"data-toggle" => "tab", :href => "#profile"}
-            .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              .img-content
-                %span.redc 3
-                = image_tag('emma.png')
-              %span.user-name Emma
-              .stars
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-inactive.star
-                %span (17)
-            .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              Request sent on 20/04/2015
-            .clear
-        %li
-          %a{"data-toggle" => "tab", :href => "#messages"}
-            .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              .img-content
-                %span.redc 3
-                = image_tag('emma.png')
-              %span.user-name Emma
-              .stars
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-inactive.star
-                %span (17)
-            .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              Request sent on 20/04/2015
-            .clear
-        %li
-          %a{"data-toggle" => "tab", :href => "#settings"}
-            .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              .img-content
-                %span.redc 3
-                = image_tag('emma.png')
-              %span.user-name Emma
-              .stars
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-inactive.star
-                %span (17)
-            .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              Request sent on 20/04/2015
-            .clear
+        - @conversations.each do |c|
+          %li.active
+            %a{"data-toggle" => "tab", :href => "#home"}
+              .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                .img-content
+                  %span.redc
+                    = c.count_messages
+                  = image_tag('emma.png')
+                %span.user-name
+                  =c.originator.username
+                .stars
+                  %span.star-active.star
+                  %span.star-active.star
+                  %span.star-active.star
+                  %span.star-inactive.star
+                  %span (17)
+              .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                Request sent on 20/04/2015
+              .clear
     .col-xs-6
       / Tab panes
       .tab-content
