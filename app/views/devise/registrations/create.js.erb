@@ -1,8 +1,6 @@
 <% if resource.valid? %>
   location.reload();
-  // console.log('Valid');
 <% else %>
-  // console.log('InValid');
-  $('.alert.alert-danger.alert-block').remove();
+  $('#error_messages').remove();
   $(document).find("#user_signup_modal").prepend("<%= j(render 'shared/error_messages', object: resource) %>");
 <% end %>

@@ -1,8 +1,10 @@
-<% if resource.valid? %>
-location.reload();
-console.log('Valid');
+var error = "<div id='error_messages' class='row'><div class='col-md-12 col-md-12'><div class='alert alert-danger alert-block'>Wrong Email or Password</div></div></div>"
+
+<% if resource.present? %>
+  location.reload();
+  console.log('Valid');
 <% else %>
- console.log('InValid');
-$('.alert.alert-danger.alert-block').remove();
-$(document).find("#user_login_modal").prepend("<%= j(render 'shared/error_messages', object: resource) %>");
+   console.log('InValid');
+  $('#error_messages').remove();
+  $(document).find("#user_login_modal").prepend(error);
 <% end %>
