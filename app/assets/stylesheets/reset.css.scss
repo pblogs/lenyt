@@ -44,11 +44,13 @@ textarea:-ms-input-placeholder{ opacity: 1; font-family: "Helvetica Light", aria
 
 .redc{ border-radius: 50%; background: #ff3131; line-height: 20px; font-size: 16px; width: 20px; height: 20px; display: inline-block; text-align: center; color: #ffffff; position: absolute; right: 20px; top: 16px;}
 
-.devise-forms {
-  max-width: 430px;
-  margin: 30px auto;
+.devise-forms { max-width: 550px; margin: 30px auto; }
+.form-sign{ padding: 0 15%;}
+a.face, a.google{ display: block; font-family: "Helvetica Bold", arial, sans-serif; font-size: 22px; height: 60px; padding: 0 0 0 75px; margin-bottom: 12px; line-height: 60px;}
+a.face{ background: #3c5a94 image-url("icons/facebook.png") no-repeat; background-position: 31px center; color: #ffffff;}
+a.google{ background: #ffffff image-url("icons/google.png") no-repeat; background-position: 21px center; border: 1px solid #666666; color: #666666;}
+div.or{ background: image-url("line.jpg") no-repeat center center; display: block; text-align: center; font-size: 23px; color: #666666; font-family: "Helvetica", arial, sans-serif; margin: 43px 0; padding-bottom: 3px;}
 
-}
 .log-inp{
   margin-bottom: 20px;
 

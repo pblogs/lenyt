@@ -10,7 +10,8 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require bootstrap.min
+ *= require twitter-bootstrap-static/bootstrap
+ *= require twitter-bootstrap-static/fontawesome
  *= require reset
  *= require style-backend
  *= require datepicker
@@ -18,5 +19,7 @@
  *= require daterangepicker
  *= require bootstrap.vertical-tabs
  *= require jquery.mCustomScrollbar
+ *= require common
+ *= require font-awesome
  *= require_self
  */

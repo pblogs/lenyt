@@ -4,21 +4,4 @@
       .modal-header
         %button.close{type: 'button', aria: {label: 'Close'}, data: {dismiss: 'modal'}}= raw("<span aria-hidden='true'>&times;</span>")
       .modal-body
-        .form-sign
-          .social-btns
-            = link_to "sign Up with Facebook", user_omniauth_authorize_path(:facebook), class: 'face'
-            = link_to "sign Up with Google", user_omniauth_authorize_path(:google_oauth2), class: 'google'
-          .or= 'or'
-          .log-inp
-            = form_for :user, url: users_path, remote: true, format: :js, html: {method: :post, id: 'user_signup_modal'} do |f|
-              #form_flashes
-                = render 'shared/errors', resource: resource
-              = f.text_field :username, placeholder: 'Username'
-              = f.text_field :email, placeholder: 'E-mail'
-              = f.password_field :password, placeholder: 'Password'
-              = f.password_field :password_confirmation, placeholder: 'Confirm Password'
-              = f.submit "Sign Up"
-        %span.sign= raw("By signing up, I agree to Lenyt’s<br /> User Agreement and Terms of Services.")
-        %p.already
-          = "Already a member? "
-          = link_to 'Log In', new_session_path(:user)
+        = render 'shared/sign_up_form', resource: resource
