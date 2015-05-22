@@ -26,3 +26,76 @@ jQuery(function() {
   $("a[rel~=popover], .has-popover").popover();
   return $("a[rel~=tooltip], .has-tooltip").tooltip();
 });
+
+function getMessages(id) {
+  setTimeout(function () {
+    vm.$data.messages = [
+      {
+        isLeft: true,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: true,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: false,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: false,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: true,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: true,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: true,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: false,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: false,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: true,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      },
+      {
+        isLeft: true,
+        date: 'few seconds ago',
+        name: 'Borea',
+        body: 'Mesaj'
+      }
+    ]
+  }, 1000)
+}

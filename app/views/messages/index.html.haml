@@ -1,0 +1,117 @@
+%section.content
+  #vue-el.col-sm-12.message-board
+    - if @conversations.any?
+      .col-xs-6
+        / required for floating
+        / Nav tabs
+        %ul.nav.nav-tabs.tabs-left
+          - @conversations.each_with_index do |c, index|
+            %li{class: ('active' if index ==0) }
+              %a{"data-toggle" => "tab", :href => "#home"}
+                .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                  .img-content
+                    %span.redc
+                      = c.count_messages
+                    = image_tag(c.originator.avatar, class: 'img-circle')
+                  %span.user-name
+                    =c.originator.username
+                  .stars
+                    %span.star-active.star
+                    %span.star-active.star
+                    %span.star-active.star
+                    %span.star-inactive.star
+                    %span (17)
+                .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                  Request sent on #{ c.created_at.strftime('%d/%m/%Y') }
+                .clear
+      .col-xs-6
+        / Tab panes
+        .tab-content
+          #home.tab-pane.active
+            .chat-line-product.col-sm-12
+              .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
+                .img-content
+                  = image_tag('small-img.jpg')
+                .request-info
+                  Request for: Leica M6
+                .request-info
+                  Request sent on 20/04/2015
+              .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
+                5 days
+                %span $250
+              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+            .clear
+            .chat-messages.col-sm-12
+              #tchat.chat-height.mCustomScrollbar
+                .chat-message-content{'v-repeat' => 'messages'}
+                  .message-details.col-sm-6{'v-class' => 'left: isLeft, right: !isLeft'}
+                    .chat-name.left {{name}}
+                    .chat-date.right {{date}}
+                    .clear
+                  .clear
+                  .col-sm-6{'v-class' => '"from-me": !isLeft, "from-them": isLeft'}
+                    %p {{body}}
+                  .clear
+
+            .type-side
+              %textarea.col-sm-10{:placeholder => "type..."}
+              %button.col-sm-2.send send
+              .clear
+            .clear
+          #profile.tab-pane
+            .chat-line-product.col-sm-12
+              .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
+                .img-content
+                  = image_tag('small-img.jpg')
+                .request-info
+                  Request for: Leica M6
+                .request-info
+                  Request sent on 20/04/2015
+              .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
+                5 days
+                %span $150
+              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+          #messages.tab-pane
+            .chat-line-product.col-sm-12
+              .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
+                .img-content
+                  = image_tag('small-img.jpg')
+                .request-info
+                  Request for: Leica M6
+                .request-info
+                  Request sent on 20/04/2015
+              .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
+                5 days
+                %span $450
+              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+          #settings.tab-pane
+            .chat-line-product.col-sm-12
+              .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
+                .img-content
+                  = image_tag('small-img.jpg')
+                .request-info
+                  Request for: Leica M6
+                .request-info
+                  Request sent on 20/04/2015
+              .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
+                5 days
+                %span $350
+              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+    - else
+      %center
+        %h2 Nothing to view here
+        %p You'll see your requests here when you have any.
+    .clear
+
+:javascript
+  window.vm = new Vue({
+    el: '#vue-el',
+    data: {
+      messages: []
+    }
+  })
+  $(document).ready(function () { getMessages(1) });

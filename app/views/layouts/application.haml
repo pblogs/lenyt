@@ -5,6 +5,7 @@
     %title Lenyt
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
+    %script{'src' => 'http://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js'}
     = csrf_meta_tags
     %link{ rel: 'shortcut icon', href: image_path("/icon.gif") }
   %body

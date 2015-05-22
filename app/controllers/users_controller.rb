@@ -8,10 +8,6 @@ class UsersController < ApplicationController
   def settings
   end
 
-  def messages
-    @conversations = current_user.mailbox.conversations
-  end
-
   def update
     @user = current_user
 
