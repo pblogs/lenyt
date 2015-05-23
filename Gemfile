@@ -28,7 +28,7 @@ gem 'omniauth-google-oauth2'
 gem 'acts-as-taggable-on'
 gem 'rails4-autocomplete'
 
-gem "paperclip", "~> 4.2"
+gem "paperclip", "= 3.4.2"
 gem 'aws-sdk-v1'
 gem 'dropzonejs-rails'
 
