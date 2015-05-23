@@ -1,0 +1,15 @@
+#uploadAvatar.modal.fade{aria: {hidden: true, labelledby: 'myModalLabel'}, role: 'dialog', tabindex: '-1'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{type: 'button', aria: {label: 'Close'}, data: {dismiss: 'modal'}}= raw("<span aria-hidden='true'>&times;</span>")
+        %h4.modal-title#myModalLabel= "Upload New"
+      .modal-body
+        .form-sign
+          %form
+          = form_for(current_user, as: :user,  url: upload_avatar_users_path, html: { multipart: true, class: "dropzone", id: 'new_form'}) do |f|
+            .fallback
+              = f.file_field "avatar"
+
+      .modal-footer
+        %button.btn.btn-default{type: 'button', data: {dismiss: 'modal'}}= 'Close'

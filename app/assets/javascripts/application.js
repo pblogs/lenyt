@@ -13,14 +13,18 @@
 //= require jquery
 //= require jquery-ui
 //= require jquery_ujs
+//= require dropzone
 //= require twitter/bootstrap
 //= require autocomplete-rails
+//= require my_items
 //= require bootstrap-slider
 //= require bootstrap-datepicker
 //= require moment.min
 //= require jquery.daterangepicker
 //= require jquery.mCustomScrollbar.concat.min
 //= require custom
+
+
 
 jQuery(function() {
   $("a[rel~=popover], .has-popover").popover();

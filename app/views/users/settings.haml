@@ -17,9 +17,10 @@
               .user-changes.col-lg-12
                 .img-content.col-sm-4
                   %a.account-link
-                    = image_tag(current_user.avatar, class: 'img-circle', size: '80x80')
-                    %span= "Change Picture"
-
+                    #avatar
+                      = image_tag(current_user.avatar, class: 'img-circle', size: '80x80')
+                    %span= link_to "Change Picture", '#', data: {toggle: 'modal', target: '#uploadAvatar'}
+                    = render 'users/upload_avatar'
                 .account-fields.col-sm-8
                   = f.text_field :first_name, class: 'left col-xs-12 col-sm-6 width-fix', placeholder: 'First Name'
                   = f.text_field :last_name, class: 'left col-xs-12 col-sm-6', placeholder: 'First Name'

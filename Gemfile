@@ -27,7 +27,11 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'acts-as-taggable-on'
 gem 'rails4-autocomplete'
-gem 'paperclip'
+
+gem "paperclip", "~> 4.2"
+gem 'aws-sdk-v1'
+gem 'dropzonejs-rails'
+
 gem "twitter-bootstrap-rails"
 gem 'mandrill-rails'
 gem "font-awesome-rails"
