@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
   end
 
   def avatar
-    image_url
+    image_url.present? ? image_url : 'emma.png'
   end
 
   def full_name

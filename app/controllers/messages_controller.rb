@@ -8,10 +8,12 @@ class MessagesController < ApplicationController
 
   def show
     conversation = current_user.mailbox.conversations.find(params[:id])
-    @messages = conversation.messages
+    @messages = conversation.messages.order(created_at: :asc)
 
     respond_to do |format|
-      format.json { render json: @messages }
+      format.json {
+        render json: @messages
+      }
      end
   end
 end

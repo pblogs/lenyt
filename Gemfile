@@ -32,6 +32,10 @@ gem 'mailboxer'
 gem "twitter-bootstrap-rails"
 gem 'mandrill-rails'
 gem "font-awesome-rails"
+gem 'active_model_serializers'
+gem 'vuejs-rails'
+gem 'momentjs-rails'
+gem 'faker'
 
 # Tiny, fast & funny HTTP server
 gem 'thin'
