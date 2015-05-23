@@ -34,7 +34,7 @@ class UsersController < ApplicationController
     @user.update_attributes(user_params)
 
     respond_to do |format|
-      format.js
+      format.json { render json: @user.to_json }
     end
   end
 

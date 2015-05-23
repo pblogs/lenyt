@@ -27,8 +27,8 @@ class User < ActiveRecord::Base
     user
   end
 
-  def avatar
-    image_url
+  def profile_picture
+    avatar.present? ? avatar : image_url
   end
 
   def full_name
