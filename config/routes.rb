@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     collection do
       get :settings
       put :upload_avatar
+      put :delete_avatar
     end
   end
   resources :listings

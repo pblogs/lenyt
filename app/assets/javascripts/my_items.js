@@ -24,7 +24,6 @@ $(document).ready(function(){
     url: '/users/upload_avatar',
     method: 'put',
     maxFiles: 1,
-    // restrict image size to a maximum 1MB
     maxFilesize: 1,
     uploadMultiple: false,
     // changed the passed param to one accepted by
@@ -34,10 +33,9 @@ $(document).ready(function(){
     addRemoveLinks: true,
     // if the upload was successful
     success: function(file, response){
-      appendContent(response.file_name.url, response.id);
-      // find the remove button link of the uploaded file and give it an id
-      // based of the fileID response from the server
-      $(file.previewTemplate).find('.dz-remove').attr('id', response.fileID);
+      var file_url = $(file.previewTemplate).find('.dz-image img').attr('src');
+      appendContent(file_url, response.id);
+      $(file.previewTemplate).find('.dz-remove').attr('href', '/users/delete_avatar');
       // add the dz-success class (the green tick sign)
       $(file.previewElement).addClass("dz-success");
     },
@@ -48,9 +46,12 @@ $(document).ready(function(){
 
       // make a DELETE ajax request to delete the file
       $.ajax({
-        type: 'DELETE',
-        url: '/delete_avatar/' + id,
+        type: 'put',
+        url: '/users/delete_avatar',
         success: function(data){
+          $(".dz-image-preview").html("");
+          //TODO add missing file
+          $(".img-circle").attr("src", 'nil');
           console.log(data.message);
         }
       });
@@ -59,12 +60,5 @@ $(document).ready(function(){
 });
 
 var appendContent = function(imageUrl, mediaId) {
-  $(".img-content").append('<div class="col-lg-4">' +
-    '<div class="thumbnail"><img src="' + imageUrl + '"/>' +
-    '<div class="caption">' +
-    '<input id="media_contents_" name="media_contents[]" value="' + mediaId +'" type="checkbox">' +
-    '</div>' +
-    '</div></div>');
-  $("#delete").removeAttr('disabled');
-  $("#no-media").html("");
+  $(".img-circle").attr("src", imageUrl);
 };

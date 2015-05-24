@@ -39,7 +39,13 @@ class UsersController < ApplicationController
   end
 
   def delete_avatar
+    @user = current_user
+    @user.avatar.destroy #Will remove the attachment and save the model
+    @user.avatar.clear #Will queue the attachment to be deleted
 
+    respond_to do |format|
+      format.json { render json: @user.to_json }
+    end
   end
 
   private

@@ -18,7 +18,7 @@
                 .img-content.col-sm-4
                   %a.account-link
                     #avatar
-                      = image_tag(current_user.avatar, class: 'img-circle', size: '80x80')
+                      = user_avatar(current_user)
                     %span= link_to "Change Picture", '#', data: {toggle: 'modal', target: '#uploadAvatar'}
                     = render 'users/upload_avatar'
                 .account-fields.col-sm-8

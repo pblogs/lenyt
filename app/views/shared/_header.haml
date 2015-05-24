@@ -16,7 +16,7 @@
               %a{data: {toggle: 'dropdown'}}
                 = current_user.full_name
                 %span.user-block
-                  = image_tag(current_user.profile_picture.url(:thumb), class: 'img-circle', size: '50x50')
+                  = user_avatar(current_user)
                   %span.counti.redc= '3'
               %ul.dropdown-menu{role: 'menu', aria: {labelledby: 'dLabel'}}
                 %li= link_to "Your Listings", my_profile_path
