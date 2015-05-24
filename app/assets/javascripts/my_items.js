@@ -46,7 +46,7 @@ $(document).ready(function(){
 
       // make a DELETE ajax request to delete the file
       $.ajax({
-        type: 'put',
+        type: 'delete',
         url: '/users/delete_avatar',
         success: function(data){
           $(".dz-image-preview").html("");
