@@ -15,25 +15,25 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @product = current_user.products.find(params[:id])
   end
 
   def create
-    @product = Product.new(product_params)
+    @product = current_user.products.new(product_params)
 
     respond_to do |format|
       if @product.save
         format.html { redirect_to listing_path(@product), notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product}
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new', error: 'Error....' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
   end
 
   def update
-    @product = Product.find(params[:id])
+    @product = current_user.products.find(params[:id])
 
     respond_to do |format|
       if @product.update(product_params)
@@ -46,8 +46,13 @@ class ListingsController < ApplicationController
     end
   end
 
+  def show
+    @product = current_user.products.find(params[:id])
+  end
+
   def destroy
-    @product = Product.find(params[:id])
+    @product = current_user.product.find(params[:id])
+
     @product.destroy
     respond_to do |format|
       format.html { redirect_to listings_url }
@@ -58,6 +63,6 @@ class ListingsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :category, :tag_list, :price_per_day, :total_value, :details, :is_available, :available_at, :end_at, :meet_location)
+    params.require(:product).permit(:title, :category_id, :user_id, :tag_list, :price_per_day, :total_value, :details, :is_available, :available_at, :end_at, :meet_location)
   end
 end

@@ -35,7 +35,6 @@ ActiveRecord::Schema.define(version: 20150524164913) do
 
   create_table "products", force: true do |t|
     t.string   "title"
-    t.string   "category"
     t.integer  "price_per_day", default: 0
     t.integer  "total_value",   default: 0
     t.text     "details"
@@ -46,6 +45,7 @@ ActiveRecord::Schema.define(version: 20150524164913) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "category_id"
   end
 
   create_table "taggings", force: true do |t|

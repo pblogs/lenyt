@@ -5,7 +5,12 @@ class CreateCategories < ActiveRecord::Migration
       t.timestamps
     end
 
-    Category.create(name: 'Leica..')
-    Category.create(name: 'Lens..')
+    remove_column :products, :category
+    add_column :products, :category_id, :integer
+
+    Category.create(name: 'Canon')
+    Category.create(name: 'Nikon')
+    Category.create(name: 'Polaroid')
+    Category.create(name: 'Sony')
   end
 end

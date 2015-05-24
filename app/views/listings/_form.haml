@@ -1,6 +1,7 @@
 %aside.prod-reg.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
   = f.text_field :title, class: 'meet-location inp-bg', placeholder: "Title"
-  = f.text_field :category, class: 'meet-location inp-bg', placeholder: "Category"
+  = f.select :category_id, Category.all.map{|cat| [cat.name, cat.id]}, {include_blank: "Category"}, class: 'meet-location inp-bg'
+  /= f.text_field :category, class: 'meet-location inp-bg', placeholder: "Category"
   .category-total
     %span.meet-location.inp-bg.left.col-xs-12.col-sm-6.col-md-6.col-lg-8= "Price (per day)"
     = f.text_field :price_per_day, class: 'meet-location left col-xs-12 col-sm-6 col-md-6 col-lg-4', placeholder: "$"

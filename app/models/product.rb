@@ -4,7 +4,6 @@
 #
 #  id            :integer          not null, primary key
 #  title         :string(255)
-#  category      :string(255)
 #  price_per_day :integer          default(0)
 #  total_value   :integer          default(0)
 #  details       :text
@@ -15,6 +14,7 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #  user_id       :integer
+#  category_id   :integer
 #
 
 class Product < ActiveRecord::Base
@@ -24,6 +24,7 @@ class Product < ActiveRecord::Base
   acts_as_taggable
 
   has_many :assets, as: :attachable
-  accepts_nested_attributes_for :assets
+  belongs_to :user
 
+  accepts_nested_attributes_for :assets
 end

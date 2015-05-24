@@ -125,7 +125,7 @@ span.price-popover{ display: block; font-size: 20px; font-family: "Helvetica Bol
 aside.listing div.slide-images div.slide-controls{ right: 0; left: auto;}
 a.add-picture{ display: block; background: #f2f2f2 image-url("plus-icon.png") no-repeat; background-position:  center right 10px; margin-bottom: 6px; padding-left: 10px; height: 40px; line-height: 40px; color: #000000; font-size: 20px; font-family: "Helvetica Light", arial, sans-serif;}
 .inp-bg{background: #f2f2f2;}
-aside.listing .meet-location, aside.prod-reg .meet-location{ display: block; width: 100%; margin-bottom: 6px; border: none; padding-left: 10px; height: 40px; line-height: 40px; color: #000000; font-size: 20px; font-family: "Helvetica Light", arial, sans-serif;}
+aside.listing .meet-location, aside.prod-reg .meet-location{ display: F; width: 100%; margin-bottom: 6px; border: none; padding-left: 10px; height: 40px; line-height: 40px; font-size: 20px; font-family: "Helvetica Light", arial, sans-serif;}
 aside.listing .slide-images{ margin-bottom: 6px;}
 aside.prod-reg input.drop{ background: #f2f2f2 image-url("arrow-bottom.png") no-repeat; background-position: center right 10px; position: relative;}
 aside.prod-reg ul.dropdown-menu{border: 1px solid #999999; border-radius: 0; top: 38px; box-shadow: none; width: 100%; padding: 0; left: auto;}
@@ -135,9 +135,10 @@ aside.prod-reg textarea{ height: 178px; width: 100%; border: none; resize: none;
 
 a.list-it, input.list-it{ display: block; background: #12ab5c; height: 50px; line-height: 50px; color: #ffffff; font-size: 25px; font-family: "Helvetica Light", arial, sans-serif; text-align: center; margin: 10px 0;}
 
-aside.prod-reg .category-total input.meet-location{ display: inline-block; border: 1px solid #999999; width: 33.3333%;}
-aside.prod-reg .category-total input.meet-location.inp-bg, span.meet-location.inp-bg { width: 66%; border: none; margin-right: 0.6667%; color: gray;}
-.popover{ width: 320px; border: none; border-radius: 0; max-width: none;}
+aside.prod-reg .category-total input.meet-location, select.meet-location { display: inline-block; border: 1px solid #999999; width: 33.3333%;}
+aside.prod-reg .category-total input.meet-location.inp-bg, span.meet-location.inp-bg{ width: 66%; border: none; margin-right: 0.6667%; color: gray;}
+select.meet-location.inp-bg { border: none; margin-right: 0.6667%; color: gray;}
+ .popover{ width: 320px; border: none; border-radius: 0; max-width: none;}
 .popover-content{ padding: 10px; font-size: 16px; font-family: "Helvetica Light", arial, sans-serif; color: #000000; line-height: normal;}
 
 /* Message board */
