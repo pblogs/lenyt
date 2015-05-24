@@ -29,6 +29,9 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
     arel (5.0.1.20140414130214)
     awesome_nested_fields (0.6.4)
       rails (>= 3.0.0)
@@ -252,6 +255,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
+  annotate (~> 2.6.6)
   awesome_nested_fields
   aws-sdk-v1
   coffee-rails (~> 4.0.0)

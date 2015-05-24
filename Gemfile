@@ -43,6 +43,7 @@ gem 'thin'
 gem "figaro"
 # Makes running your Rails app easier. Based on the ideas behind 12factor.net
 gem 'rails_12factor', group: :production
+gem 'annotate', '~> 2.6.6'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
