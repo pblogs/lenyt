@@ -21,3 +21,23 @@ Account settings page:
 4. There is no "User Agreement" tab in the final design, it should be "Invite Friends", refer to G4.
 
 I haven’t been able to get to the “Search” page or the “Listing Details” page. Is the front end for these done?
+
+- Make sure that the price is bound anchored to each camera.
+- Use the full imags for both top and bottom.
+- Bottom two under how it works are mis-aligned.
+- 30 pix from top of browser begin to highlight.
+- Renters block hihglight jumps to last block.
+- Leave it the same as desktop way.
+- When smaller add padding to the search bar and bring icon into the actual search bar.
+- Apply resizing to social media buttons at the bottom so they shrink.
+- Shrink, but keep desktop version just shrink icons instead of repositioning.
+- Push the notification content below the notificaiton.
+- List it page remove gradient, keep drop down funcitonality but remove gradient.
+- Make the font black on all of the columns.
+- Keep it consistant text color and change the button color to lighter hue, same thing as landing page design.
+- Make the message box smaller with scroll optionaility.
+- Account page highlighting mimic on listing page.
+- Update the invite friends page, and notifications remove user agreement.
+- to - and from mustb e selected.
+- Add scroll option to search page on right side listings.
+- Shrink stuff on mobile app.

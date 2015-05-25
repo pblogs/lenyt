@@ -5,8 +5,13 @@
 //= require jquery.mCustomScrollbar.concat.min
 //= require waypoint_custom
 //= require common
+//= require owl.carousel
 
 jQuery(function() {
   $("a[rel~=popover], .has-popover").popover();
   return $("a[rel~=tooltip], .has-tooltip").tooltip();
+});
+
+jQuery(document).ready(function($) {
+  $(".owl-carousel").owlCarousel();
 });
