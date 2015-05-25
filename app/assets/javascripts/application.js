@@ -20,11 +20,11 @@
 //= require my_items
 //= require bootstrap-slider
 //= require bootstrap-datepicker
-//= require custom
-//= require jquery.mCustomScrollbar.concat.min
-//= require moment.min
-//= require jquery.daterangepicker
 //= require moment
+//= require jquery.mCustomScrollbar.concat.min
+//= require jquery.ui.addresspicker
+//= require map_options
+//= require custom
 //= require common
 
 jQuery(function() {

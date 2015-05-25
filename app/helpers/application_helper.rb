@@ -33,7 +33,7 @@ module ApplicationHelper
 
   def user_avatar(user, size='50x50')
     return image_tag(user.avatar.url(:thumb), class: 'img-circle avatar', size: size) if user.avatar.present?
-    return image_tag(user.image_url(:thumb), class: 'img-circle img-url', size: size) unless user.image_url.blank?
+    return image_tag(user.image_url, class: 'img-circle img-url', size: size) unless user.image_url.blank?
     image_tag('default_avatar.png', class: 'img-circle missing', size: size)
   end
 end

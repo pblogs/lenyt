@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150524164913) do
+ActiveRecord::Schema.define(version: 20150525134826) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,17 +88,26 @@ ActiveRecord::Schema.define(version: 20150524164913) do
 
   create_table "products", force: true do |t|
     t.string   "title"
-    t.integer  "price_per_day", default: 0
-    t.integer  "total_value",   default: 0
+    t.integer  "price_per_day",               default: 0
+    t.integer  "total_value",                 default: 0
     t.text     "details"
-    t.boolean  "is_available",  default: false
+    t.boolean  "is_available",                default: false
     t.date     "available_at"
     t.date     "end_at"
-    t.string   "meet_location"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "category_id"
+    t.string   "address"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.boolean  "gmaps"
+    t.string   "postal_code"
+    t.string   "country"
+    t.string   "locality"
+    t.string   "administrative_area_level_2"
+    t.string   "administrative_area_level_1"
+    t.string   "location_type"
   end
 
   create_table "taggings", force: true do |t|

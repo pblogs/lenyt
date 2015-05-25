@@ -1,0 +1,13 @@
+#uploadAssets.modal.fade{aria: {hidden: true, labelledby: 'uploadAssetsLabel'}, role: 'dialog', tabindex: '-1'}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{type: 'button', aria: {label: 'Close'}, data: {dismiss: 'modal'}}= raw("<span aria-hidden='true'>&times;</span>")
+        %h4.modal-title#uploadAssetsLabel= "Upload Assets"
+      .modal-body
+        .form-sign#my_dropzone.dropzone
+          .fallback
+            = f.fields_for :assets, @product.assets.build do |asset_form|
+              = asset_form.file_field :image
+      .modal-footer
+        %button.btn.btn-default{type: 'button', data: {dismiss: 'modal'}}= 'Close'

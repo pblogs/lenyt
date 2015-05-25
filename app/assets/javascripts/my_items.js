@@ -1,20 +1,3 @@
-/*
-$(function() {
-  var myDropzone;
-  myDropzone = new Dropzone("#edit_user");
-  return myDropzone.on("success", function(file, responseText) {
-    var _this = this;
-    appendContent(responseText.file_name.url, responseText.id);
-    setTimeout(function(){
-      $('#uploadAvatar').modal('hide');
-      _this.removeAllFiles();
-    },1000);
-  });
-});
-
-
-*/
-
 $(document).ready(function(){
   // disable auto discover
   Dropzone.autoDiscover = false;
@@ -56,6 +39,20 @@ $(document).ready(function(){
         }
       });
     }
+  });
+
+  $('#my_dropzone').dropzone({
+    url: '/pictures',
+    method: 'post',
+    headers: {'X-CSRF-Token' : $('meta[name="csrf-token"]').attr('content')},
+
+    maxFiles: 5,
+    uploadMultiple: true,
+    //paramName: "asset",
+    paramName: "asset[image]",
+    // show remove links on each image upload
+    addRemoveLinks: true
+    // if the upload was successful
   });
 });
 

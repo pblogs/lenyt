@@ -22,16 +22,25 @@
     .clear
 %aside.listing.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
   .rit
-    = link_to 'Add Pictures', '#', class: 'add-picture inp-bg'
+    = link_to 'Add Pictures', '#', class: 'add-picture inp-bg', data: {toggle: 'modal', target: '#uploadAssets'}
+    = render partial: 'listings/upload_assets', locals: {f: f}
     .slide-images
       = image_tag('slide-image.jpg')
       .slide-controls
         = link_to image_tag('arrow-left.png'), '#'
         == <span>1/3</span>
         = link_to image_tag('arrow-right.png'), '#'
-    = f.text_field :meet_location, class: 'meet-location inp-bg', placeholder: 'Meet Location'
-    .map-list
-      = image_tag('map-list.jpg')
+    = f.text_field :address, class: 'meet-location inp-bg', placeholder: 'Meet Location'
+    .map-list#map
+
+    = f.hidden_field :country
+    = f.hidden_field :postal_code
+    = f.hidden_field :locality
+    = f.hidden_field :latitude
+    = f.hidden_field :longitude
+    = f.hidden_field :administrative_area_level_2
+    = f.hidden_field :administrative_area_level_1
+    = f.hidden_field :location_type
 
 
 :javascript
