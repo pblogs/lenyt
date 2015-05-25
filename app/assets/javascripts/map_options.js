@@ -1,4 +1,4 @@
-if ($( "#addresspicker" ).length > 0) {
+if ($("#addresspicker").length > 0) {
   $(function() {
     var addresspicker = $( "#addresspicker" ).addresspicker({
       componentsFilter: 'country:CA'

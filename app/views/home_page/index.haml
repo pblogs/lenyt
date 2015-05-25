@@ -1,36 +1,7 @@
 %section.devices.content
   %h3= "Don’t Let Budgeting Kill Creativitiy"
   .device-price.grey-box
-    .device-item.col-xs-6.col-sm-4.col-md-3.col-lg-2
-      .thumbnail-device
-        %a{href: '#'}
-          %span.price= raw('$100 <span>/day</span>')
-          = image_tag('devices/photo-device.png')
-      %h4= link_to 'Canon 5D Mark III'
-    .device-item.col-xs-6.col-sm-4.col-md-3.col-lg-2
-      .thumbnail-device
-        %a{href: '#'}
-          %span.price= raw('$100 <span>/day</span>')
-          = image_tag('devices/photo-dev2.png')
-      %h4= link_to 'Canon 5D Mark III'
-    .device-item.col-xs-6.col-sm-4.col-md-3.col-lg-2
-      .thumbnail-device
-        %a{href: '#'}
-          %span.price= raw('$100 <span>/day</span>')
-          = image_tag('devices/photo-dev3.png')
-      %h4= link_to 'Canon 5D Mark III'
-    .device-item.col-xs-6.col-sm-4.col-md-3.col-lg-2
-      .thumbnail-device
-        %a{href: '#'}
-          %span.price= raw('$100 <span>/day</span>')
-          = image_tag('devices/photo-dev4.png')
-      %h4= link_to 'Canon 5D Mark III'
-    .device-item.col-xs-6.col-sm-4.col-md-3.col-lg-2
-      .thumbnail-device
-        %a{href: '#'}
-          %span.price= raw('$100 <span>/day</span>')
-          = image_tag('devices/photo-dev5.png')
-      %h4= link_to 'Canon 5D Mark III'
+    = render 'preview_items'
     .clear
 
 %section.bg-one
@@ -86,7 +57,11 @@
 
 %section.content.center
   .grey-box.social.col-xs-12.col-sm-8.col-md-8.col-lg-8
-    = link_to image_tag('social/contact.png'), '#'
-    = link_to image_tag('social/facebook.png'), '#'
-    = link_to image_tag('social/photo.png'), '#'
-    = link_to image_tag('social/twiter.png'), '#'
+    .col-md-3.col-sm-3.col-xs-6
+      = link_to image_tag('social/contact.png'), '#', class: 'img-responsive'
+    .col-md-3.col-sm-3.col-xs-6
+      = link_to image_tag('social/facebook.png'), '#', class: 'img-responsive'
+    .col-md-3.col-sm-3.col-xs-6
+      = link_to image_tag('social/photo.png'), '#', class: 'img-responsive'
+    .col-md-3.col-sm-3.col-xs-6
+      = link_to image_tag('social/twiter.png'), '#', class: 'img-responsive'

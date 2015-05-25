@@ -38,6 +38,7 @@ gem 'active_model_serializers'
 gem 'vuejs-rails'
 gem 'momentjs-rails'
 gem 'faker'
+gem 'owlcarousel-rails'
 
 # Tiny, fast & funny HTTP server
 gem 'thin'

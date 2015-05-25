@@ -2,4 +2,4 @@
   = form_for @product, url: listings_path, html: {method: :post, multipart: true } do |f|
     = render 'shared/errors', resource: @product
     = render partial: 'form', locals: {f: f}
-    = f.submit "List It", class: 'list-it col-xs-12 col-sm-12 col-md-12 col-lg-12 btn'
+    = f.submit "List It", class: 'list-it col-xs-12 col-sm-12 col-md-12 col-lg-12 btn', id: 'new-listing'

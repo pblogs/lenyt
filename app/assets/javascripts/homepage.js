@@ -5,8 +5,25 @@
 //= require jquery.mCustomScrollbar.concat.min
 //= require waypoint_custom
 //= require common
+//= require owl.carousel
 
 jQuery(function() {
   $("a[rel~=popover], .has-popover").popover();
   return $("a[rel~=tooltip], .has-tooltip").tooltip();
+});
+
+jQuery(document).ready(function($) {
+  $(".owl-carousel").owlCarousel({
+    items : 5,
+    lazyLoad : true,
+    navigation : true,
+    itemsCustom : false,
+    itemsDesktop : [1199,4],
+    itemsDesktopSmall : [980,3],
+    itemsTablet: [768,2],
+    itemsTabletSmall: false,
+    itemsMobile : [479,1],
+    singleItem : false,
+    itemsScaleUp : false
+  });
 });
