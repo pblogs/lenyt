@@ -31,13 +31,9 @@ module ApplicationHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
-  def user_avatar(user)
-    if user.avatar.present?
-      image_tag(user.avatar.url(:thumb), class: 'img-circle avatar', size: '50x50')
-    elsif !user.image_url.blank?
-      image_tag(user.image_url(:thumb), class: 'img-circle img-url', size: '50x50')
-    else
-      image_tag('http://placehold.it/100x100', class: 'img-circle missing', size: '50x50')
-    end
+  def user_avatar(user, size='50x50')
+    return image_tag(user.avatar.url(:thumb), class: 'img-circle avatar', size: size) if user.avatar.present?
+    return image_tag(user.image_url(:thumb), class: 'img-circle img-url', size: size) unless user.image_url.blank?
+    image_tag('default_avatar.png', class: 'img-circle missing', size: size)
   end
 end

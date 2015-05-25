@@ -1,7 +1,7 @@
 .form-sign
   .social-btns
-    = link_to "sign Up with Facebook", user_omniauth_authorize_path(:facebook), class: 'face'
-    = link_to "sign Up with Google", user_omniauth_authorize_path(:google_oauth2), class: 'google'
+    = link_to "Log In with Facebook", user_omniauth_authorize_path(:facebook), class: 'face'
+    = link_to "Log In with Google", user_omniauth_authorize_path(:google_oauth2), class: 'google'
   .or= 'or'
   .log-inp
     = form_for(:user, url: session_path(:user), remote: true, format: :js, html: {id: 'new_user'}) do |f|

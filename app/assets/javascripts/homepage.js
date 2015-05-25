@@ -4,6 +4,7 @@
 //= require noframework.waypoints.min
 //= require jquery.mCustomScrollbar.concat.min
 //= require waypoint_custom
+//= require common
 
 jQuery(function() {
   $("a[rel~=popover], .has-popover").popover();

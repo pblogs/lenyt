@@ -133,7 +133,17 @@ aside.prod-reg ul.dropdown-menu > li > a{ background: #ffffff; line-height: 38px
 aside.prod-reg div.search-input{ display: block;}
 aside.prod-reg textarea{ height: 178px; width: 100%; border: none; resize: none; padding: 10px; font-size: 20px; font-family: "Helvetica Light", arial, sans-serif; color: #000000; margin-bottom: 5px;}
 
-a.list-it, input.list-it{ display: block; background: #12ab5c; height: 50px; line-height: 50px; color: #ffffff; font-size: 25px; font-family: "Helvetica Light", arial, sans-serif; text-align: center; margin: 10px 0;}
+a.list-it, input.list-it{
+  display: block;
+  background: #12ab5c;
+  height: 50px;
+  line-height: 50px;
+  color: #ffffff;
+  font-size: 25px;
+  font-family: "Helvetica Light",arial, sans-serif;
+  text-align: center;
+  margin: 10px 0;
+}
 
 aside.prod-reg .category-total input.meet-location, select.meet-location { display: inline-block; border: 1px solid #999999; width: 33.3333%;}
 aside.prod-reg .category-total input.meet-location.inp-bg, span.meet-location.inp-bg{ width: 66%; border: none; margin-right: 0.6667%; color: gray;}
@@ -224,7 +234,7 @@ section.create-listing a{ display: inline-block; background: #eeeeee image-url("
 .user-changes .img-content.col-sm-4 { padding-left: 0; text-align: center;}
 .account-fields.col-sm-8 { padding: 0;}
 .user-changes a.list-it{ font-size: 16px; font-family: "Helvetica Bold", arial, sans-serif;}
-.user-changes a.list-it:hover{ color: #FFFFFF;}
+.user-changes a.list-it:hover, input.list-it:hover{ color: #FFFFFF;}
 .no-border{ border: none;}
 .width-fix{ width: 49%; margin-right: 1%;}
 
@@ -244,6 +254,7 @@ div.connect{ text-align: center; padding: 25px 20px 25px}
 div.connect span{ display: block; text-align: left; font-size: 16px; font-family: "Helvetica Light", arial, sans-serif; color: #000000; margin-bottom: 16px;}
 .no-padding-b{ padding-bottom: 0; padding-top: 0;}
 div.user-changes a.list-it{ height: 30px; line-height: 30px; margin: 0;}
+input.list-it:hover{opacity: 0.7;}
 
 .date-picker-wrapper{ font-family: "Helvetica Light", arial, sans-serif;}
 div.top-calendar{ font-size: 18px; font-family: "Helvetica Light", arial, sans-serif; color: #000000; padding: 10px 10px 0 10px;}

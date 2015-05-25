@@ -13,12 +13,12 @@ aside.left a.logo{ margin: 10px 0 0 28px; display: block;}
 .navbar-default .navbar-nav > li > a.list-icon{ background: image-url('flag_icon_white.png') no-repeat center left; margin-left: 20px; padding-left: 40px;}
 .navbar-default .navbar-nav > li:last-child > a.user{ color: #ffffff;}
 
-.header-content > h1, .header-content > h2, a.how-works{ font-family: "Helvetica Bold", arial, sans-serif;}
+.header-content > h1, .header-content > h2, .how-works{ font-family: "Helvetica Bold", arial, sans-serif;}
 .header-content{ padding-top: 210px; text-align: center;}
 .header-content > h1, .header-content > h2{ color: #ffffff; margin: 0;}
 .header-content > h1{ font-size: 50px;}
 .header-content > h2{ font-size: 42px;}
-a.how-works{ background: rgba(0, 0, 0, 0.33); line-height: 50px; padding: 0 18px; display: table; font-size: 21px; text-transform: capitalize; color: #ffffff; margin: 55px auto;}
+.how-works{cursor: pointer; background: rgba(0, 0, 0, 0.33); line-height: 50px; padding: 0 18px; display: table; font-size: 21px; text-transform: capitalize; color: #ffffff; margin: 55px auto;}
 .header-content input.search-field{ font-size: 25px; border: 1px solid #ffffff; padding-left: 12px; height: 48px; display: inline-block; background: rgba(0, 0, 0, 0.5); color: #ffffff; float: none; margin: 0 auto; position: relative;}
 .header-content input::-moz-placeholder{ opacity: 1; color: #ffffff; font-family: "Helvetica Light", arial, sans-serif;}
 .header-content input::-webkit-input-placeholder{ opacity: 1; color: #ffffff; font-family: "Helvetica Light", arial, sans-serif;}
@@ -81,7 +81,7 @@ ul.dropdown-menu{border: 1px solid #999999; border-radius: 0; right: 0; top: 63p
 
 
 div.number{ min-height: 144px; display: block; text-align: center; vertical-align: middle; padding-top: 64px;}
-div.number span{margin: 0 auto; background: #ffffff; border: 2px solid #666666; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 46px; display: block; color: #666666; font-family: "Helvetica", arial, sans-serif; font-size: 25px;}
+div.number span{margin: 0 auto; background: #ffffff; border: 2px solid #666666; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 52px; display: block; color: #666666; font-family: "Helvetica", arial, sans-serif; font-size: 25px;}
 aside.text-side .text-box.active, div.number span.active{ border: 1px solid #12ab5c !important;}
 div.number span.active{ border-width: 2px !important;}
 

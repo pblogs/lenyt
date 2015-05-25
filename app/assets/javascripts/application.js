@@ -23,7 +23,7 @@
 //= require jquery.daterangepicker
 //= require jquery.mCustomScrollbar.concat.min
 //= require custom
-
+//= require common
 
 
 jQuery(function() {
