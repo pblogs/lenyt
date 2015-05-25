@@ -1,6 +1,6 @@
 %section.content
   %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
-    .price= raw("$50<span>per day</span>")
+    .price= raw("$#{@product.price_per_day}<span>per day</span>")
     .slide-images
       = image_tag('slide-image.jpg')
       .slide-controls
@@ -9,7 +9,7 @@
         %span 1/3
         %a{:href => "#"}
           = image_tag('arrow-right.png')
-    .product-title Leica M9 with 50mm f2.0
+    .product-title= @product.title
   %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
     .actions
       .pick-date
@@ -24,7 +24,7 @@
         .insurance
           .col-xs-12.col-sm-6.col-md-6.col-lg-6
             %h3.bold-text Choose Insurance:
-            %p.value-text Listing Value: $3000
+            %p.value-text= "Listing Value: $#{@product.total_value}"
           .waver.col-xs-12.col-sm-6.col-md-3.col-lg-3
             %h3 Damage Waver
             .text-box.text-box-active
@@ -55,20 +55,7 @@
 %section.content.table-type
   %aside.product-details.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
     .prov
-      %p
-        In beautiful condition. Leica M9 with 50mm Summicron lens.
-        %br/
-        Package includes:
-        %br/
-        \- Leica M9
-        %br/
-        \- 50mm Summicron lens
-        %br/
-        \- 2X batteries
-        %br/
-        \- Tripod
-        %br/
-        \- Carrying bag
+      %p= @product.details
   %aside.map-side.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
     .rit
       .meet-location

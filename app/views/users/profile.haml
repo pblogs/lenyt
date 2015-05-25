@@ -4,7 +4,7 @@
     .col-sm-12
       .shadow-box
         .user-profile
-          = image_tag('audrey-big.png', title: current_user.username)
+          = user_avatar(current_user, '100x100')
           %span.user-name= current_user.username
           .stars
             - 1.upto(5) do

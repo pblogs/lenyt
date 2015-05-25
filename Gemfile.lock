@@ -31,9 +31,15 @@ GEM
       tzinfo (~> 1.1)
     acts-as-taggable-on (3.5.0)
       activerecord (>= 3.2, < 5)
+    annotate (2.6.10)
+      activerecord (>= 3.2, <= 4.3)
+      rake (~> 10.4)
     arel (5.0.1.20140414130214)
     awesome_nested_fields (0.6.4)
       rails (>= 3.0.0)
+    aws-sdk-v1 (1.64.0)
+      json (~> 1.4)
+      nokogiri (>= 1.4.4)
     bcrypt (3.1.10)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -68,6 +74,8 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     diff-lcs (1.2.5)
+    dropzonejs-rails (0.7.1)
+      rails (> 3.1)
     erubis (2.7.0)
     eventmachine (1.0.7)
     execjs (2.5.2)
@@ -152,10 +160,11 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     orm_adapter (0.5.0)
-    paperclip (4.2.1)
+    paperclip (3.4.2)
       activemodel (>= 3.0.0)
+      activerecord (>= 3.0.0)
       activesupport (>= 3.0.0)
-      cocaine (~> 0.5.3)
+      cocaine (~> 0.5.0)
       mime-types
     pg (0.18.2)
     pry (0.10.1)
@@ -270,9 +279,12 @@ PLATFORMS
 DEPENDENCIES
   active_model_serializers
   acts-as-taggable-on
+  annotate (~> 2.6.6)
   awesome_nested_fields
+  aws-sdk-v1
   coffee-rails (~> 4.0.0)
   devise
+  dropzonejs-rails
   factory_girl_rails (~> 4.0)
   faker
   figaro
@@ -287,7 +299,7 @@ DEPENDENCIES
   momentjs-rails
   omniauth-facebook
   omniauth-google-oauth2
-  paperclip
+  paperclip (= 3.4.2)
   pg
   pry-byebug
   pry-rails

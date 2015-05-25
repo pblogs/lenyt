@@ -1,0 +1,23 @@
+Landing Page:
+1. The first section divider picture doesn’t work as it should. It seems like it’s not the full sized picture (there’s quite a bit more sky in the full size image)
+4. Please make the trigger for the green box highlighting happen earlier, preferably when the top of the browser page is 30px from the top of the corresponding box.
+5. Just to clarify, there’s no need to have an “I agree” button in the nav bar. The user will see the agreement pop-up window right after they sign up.
+
+Responsiveness:
+1. There’s still the issue with some elements getting misplaced after a few times of resizing the browser window, for instance the sample postings on the landing page. The camera pics and price tags are moved out of place if you resize the browser window a few times.
+2. Add more padding on the edges for smaller displays, for example the search bar in the landing page when shrunk is edge to edge, and also pushes the search icon below the search bar. The “List your equipment” page also needs padding. Add padding to the edges for all pages.
+3. I would prefer to have the “How it works section” shrink instead of re-order. For example for mobile sized displays, the boxes are put under one another instead of side-by-side which also makes the green highlighting not work for the “Renters” section.
+
+Create a listing page (F1):
+1. The text for the different input boxes have different colours, all should be black.
+3. The pop-up window for the price/day box is not implemented. Refer to F2 page in the designs.
+
+Message board:
+1. The “5 days, $250" on the request bar is not centred in its box.
+
+Account settings page:
+2. The payment settings tab shows the old designs’ BrainTree logo, should say Stripe, refer to G2.
+3. For notification tab refer to G3.
+4. There is no "User Agreement" tab in the final design, it should be "Invite Friends", refer to G4.
+
+I haven’t been able to get to the “Search” page or the “Listing Details” page. Is the front end for these done?
