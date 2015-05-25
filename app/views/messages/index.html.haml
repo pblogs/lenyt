@@ -31,15 +31,15 @@
             .chat-line-product.col-sm-12
               .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
                 .img-content
-                  = image_tag('small-img.jpg')
+                  -# = image_tag('small-img.jpg')
+                  %img{:alt => "Small img", :src => "{{imageUrl}}"}/
                 .request-info
-                  Request for:
-                  %span{'v-text' => 'article_title'}
+                  Request for: {{articleTitle}}
                 .request-info
-                  Request sent on 20/04/2015
+                  Request sent on {{sentOn}}
               .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
-                5 days
-                %span $250
+                {{days}} days
+                %span ${{total}}
               %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
               %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
             .clear
