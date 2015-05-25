@@ -13,5 +13,9 @@ jQuery(function() {
 });
 
 jQuery(document).ready(function($) {
-  $(".owl-carousel").owlCarousel();
+  $(".owl-carousel").owlCarousel({
+    items : 5,
+    lazyLoad : true,
+    navigation : true
+  });
 });
