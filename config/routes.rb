@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       delete :delete_avatar
     end
   end
+  resources :pictures
   resources :listings
 
   root to: 'home_page#index'

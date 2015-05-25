@@ -23,8 +23,8 @@ class Product < ActiveRecord::Base
 
   acts_as_taggable
 
-  has_many :assets, as: :attachable
   belongs_to :user
 
+  has_many :assets, as: :attachable, dependent: :destroy
   accepts_nested_attributes_for :assets
 end

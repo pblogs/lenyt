@@ -63,6 +63,6 @@ class ListingsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :category_id, :user_id, :tag_list, :price_per_day, :total_value, :details, :is_available, :available_at, :end_at, :meet_location)
+    params.require(:product).permit(:title, :category_id, :user_id, :tag_list, :price_per_day, :total_value, :details, :is_available, :available_at, :end_at, :meet_location, assets_attributes:[:image])
   end
 end

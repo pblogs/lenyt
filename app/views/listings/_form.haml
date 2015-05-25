@@ -22,7 +22,8 @@
     .clear
 %aside.listing.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
   .rit
-    = link_to 'Add Pictures', '#', class: 'add-picture inp-bg'
+    = link_to 'Add Pictures', '#', class: 'add-picture inp-bg', data: {toggle: 'modal', target: '#uploadAssets'}
+    = render partial: 'listings/upload_assets', locals: {f: f}
     .slide-images
       = image_tag('slide-image.jpg')
       .slide-controls
