@@ -12,7 +12,7 @@
                   .img-content
                     %span.redc
                       = c.count_messages
-                    = image_tag(c.originator.avatar, class: 'img-circle')
+                    = user_avatar(c.originator)
                   %span.user-name
                     =c.originator.full_name
                   .stars
@@ -33,7 +33,8 @@
                 .img-content
                   = image_tag('small-img.jpg')
                 .request-info
-                  Request for: Leica M6
+                  Request for:
+                  %span{'v-text' => 'article_title'}
                 .request-info
                   Request sent on 20/04/2015
               .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
@@ -46,7 +47,7 @@
               #tchat.chat-height.mCustomScrollbar
                 .chat-message-content{'v-repeat' => 'messages'}
                   .message-details.col-sm-6{'v-class' => 'left: isLeft, right: !isLeft'}
-                    .chat-name.left {{sender}}
+                    .chat-name.left {{sender_name}}
                     .chat-date.right {{created_at}}
                     .clear
                   .clear

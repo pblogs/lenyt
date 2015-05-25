@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   match 'profile', to: 'users#profile', as: 'my_profile', via: [:get]
 
   resources :messages, only: [:index, :show]
+  resources :conversations, only: [:index, :show]
   resources :users do
     collection do
       get :settings

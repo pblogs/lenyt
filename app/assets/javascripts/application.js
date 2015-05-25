@@ -20,10 +20,10 @@
 //= require my_items
 //= require bootstrap-slider
 //= require bootstrap-datepicker
+//= require custom
+//= require jquery.mCustomScrollbar.concat.min
 //= require moment.min
 //= require jquery.daterangepicker
-//= require jquery.mCustomScrollbar.concat.min
-//= require custom
 //= require moment
 //= require common
 
@@ -36,6 +36,10 @@ $(document).ready(function () {
   window.vm = new Vue({
     el: '#vue-el',
     data: {
+      article_title: 'Nikon',
+      sent_on: '20/04/2015',
+      days: 5,
+      total: 250,
       messages: []
     }
   })
@@ -49,23 +53,35 @@ $(document).ready(function () {
     getMessages(
       $(this).data('conversationId'),
       $('.conversations_list').data('userId')
-    )
+    );
   });
 });
 
 function getMessages(id, user_id) {
-  $.getJSON( 'messages/' + id, {
+  $.getJSON( 'conversations/' + id, {
     format: 'json'
   }).done(function( data ) {
-    $.each( data.messages, function( i, message ) {
+    conversation = data.conversation;
+
+    $.each( conversation.messages, function( i, message ) {
       message.created_at = moment(message.created_at).format('MMMM DD - h:mm a' );
       if ( message.sender_id === user_id ) {
         message.isLeft = false
-        message.sender = 'You'
+        message.sender_name = 'You'
       } else {
         message.isLeft = true
       }
     });
-    vm.$data.messages = data.messages
+    vm.$data.messages = conversation.messages
+    // console.log(conversation.request.article);
   })
+}
+
+function scrollMessages() {
+  $('[data-toggle="popover"]').popover();
+  $("#tchat").mCustomScrollbar();
+
+  $("#tchat").mCustomScrollbar("scrollTo","bottom",{
+    scrollEasing:"easeOut"
+  });
 }
