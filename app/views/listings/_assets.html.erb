@@ -1,0 +1,20 @@
+<div class="modal fade" id="uploadAssets" tabindex="-1" role="dialog" aria-labelledby="uploadAssetsLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="uploadAssetsLabel">Upload New</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_tag '/pictures', method: :post, class: "dropzone form", id: "media-dropzone" do %>
+          <div class="fallback">
+            <%= file_field_tag "media", multiple: true%>
+          </div>
+        <% end %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

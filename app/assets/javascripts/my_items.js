@@ -41,19 +41,32 @@ $(document).ready(function(){
     }
   });
 
-  $('#my_dropzone').dropzone({
-    url: '/pictures',
-    method: 'post',
-    headers: {'X-CSRF-Token' : $('meta[name="csrf-token"]').attr('content')},
-
-    maxFiles: 5,
-    uploadMultiple: true,
-    //paramName: "asset",
-    paramName: "asset[image]",
-    // show remove links on each image upload
-    addRemoveLinks: true
-    // if the upload was successful
+  $(function() {
+    var mediaDropzone;
+    mediaDropzone = new Dropzone("#media-dropzone", {
+      paramName: "asset[image]",
+    });
+    return mediaDropzone.on("success", function(file, response) {
+      console.log(response);
+      var _this = this;
+      appendContent(response.url, response.id);
+      setTimeout(function(){
+        $('#myModal').modal('hide');
+        _this.removeAllFiles();
+      },1000);
+    });
   });
+
+  var appendContent = function(imageUrl, mediaId) {
+    $("#media-contents").append('<div class="col-lg-4">' +
+      '<div class="thumbnail"><img src="' + imageUrl + '"/>' +
+      '<div class="caption">' +
+      '<input id="media_contents_" name="media_contents[]" value="' + mediaId +'" type="checkbox">' +
+      '</div>' +
+      '</div></div>');
+    $("#delete").removeAttr('disabled');
+    $("#no-media").html("");
+  };
 });
 
 var appendContent = function(imageUrl, mediaId) {
