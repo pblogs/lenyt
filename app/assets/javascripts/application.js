@@ -20,13 +20,12 @@
 //= require bootstrap-slider
 //= require bootstrap-datepicker
 //= require moment.min
-//= require jquery.daterangepicker
 //= require jquery.mCustomScrollbar.concat.min
 //= require jquery.ui.addresspicker
 //= require map_options
 //= require custom
 //= require common
-
+//= require jquery.daterangepicker
 
 jQuery(function() {
   $("a[rel~=popover], .has-popover").popover();
