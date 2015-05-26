@@ -27,6 +27,7 @@
 //= require custom
 //= require common
 //= require app/messages
+//= require jquery.daterangepicker
 
 jQuery(function() {
   $("a[rel~=popover], .has-popover").popover();

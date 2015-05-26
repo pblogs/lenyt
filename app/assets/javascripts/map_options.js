@@ -1,14 +1,14 @@
-if ($("#addresspicker").length > 0) {
-  $(function() {
+$(function() {
+  if ($( "#map" ).length > 0) {
     var addresspicker = $( "#addresspicker" ).addresspicker({
       componentsFilter: 'country:CA'
     });
     var addresspickerMap = $( "#product_address" ).addresspicker({
-      regionBias: "ca",
+      regionBias: "CA",
       updateCallback: showCallback,
       mapOptions: {
-        zoom: 15,
-        center: new google.maps.LatLng(46, 2),
+        zoom: 12,
+        center: new google.maps.LatLng(43.7182412, -79.378058),
         scrollwheel: false,
         mapTypeId: google.maps.MapTypeId.ROADMAP
       },
@@ -45,5 +45,5 @@ if ($("#addresspicker").length > 0) {
     google.maps.event.addListener(map, 'idle', function(){
       $('#zoom').val(map.getZoom());
     });
-  });
-};
+  };
+});
