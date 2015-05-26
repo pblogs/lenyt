@@ -22,8 +22,6 @@ Account settings page:
 
 I haven’t been able to get to the “Search” page or the “Listing Details” page. Is the front end for these done?
 
-- Make sure that the price is bound anchored to each camera.
-- Use the full imags for both top and bottom.
 - Bottom two under how it works are mis-aligned.
 - 30 pix from top of browser begin to highlight.
 - Renters block hihglight jumps to last block.
