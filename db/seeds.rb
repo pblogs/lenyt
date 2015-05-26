@@ -21,7 +21,6 @@ u3 = User.create!(
   password: 'lenyt2015',
   password_confirmation: 'lenyt2015')
 
-
 u2.send_message(u1, Faker::Lorem.sentence(4, true, 4), 'new request')
 conversation = u2.mailbox.conversations.first
 

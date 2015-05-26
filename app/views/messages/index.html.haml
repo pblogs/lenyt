@@ -1,3 +1,14 @@
+.chat-message-content.hidden
+  .message-details.col-sm-6.right
+    .chat-name.left You
+    .chat-date.right May 26 - 11:49 am
+    .clear
+  .clear
+  .col-sm-6.from-me
+    %p test message
+  .clear
+
+
 %section.content
   #vue-el.col-sm-12.message-board
     - if @conversations.any?
@@ -56,52 +67,10 @@
                   .clear
 
             .type-side
-              %textarea.col-sm-10{:placeholder => "type..."}
-              %button.col-sm-2.send send
+              %textarea.col-sm-10#new_message{:placeholder => "type...", 'v-model' => 'message'}
+              %button.col-sm-2.send{data: {conversation_id: "{{conversationId}}"}} send
               .clear
             .clear
-          #profile.tab-pane
-            .chat-line-product.col-sm-12
-              .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
-                .img-content
-                  = image_tag('small-img.jpg')
-                .request-info
-                  Request for: Leica M6
-                .request-info
-                  Request sent on 20/04/2015
-              .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
-                5 days
-                %span $150
-              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-          #messages.tab-pane
-            .chat-line-product.col-sm-12
-              .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
-                .img-content
-                  = image_tag('small-img.jpg')
-                .request-info
-                  Request for: Leica M6
-                .request-info
-                  Request sent on 20/04/2015
-              .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
-                5 days
-                %span $450
-              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-          #settings.tab-pane
-            .chat-line-product.col-sm-12
-              .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
-                .img-content
-                  = image_tag('small-img.jpg')
-                .request-info
-                  Request for: Leica M6
-                .request-info
-                  Request sent on 20/04/2015
-              .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
-                5 days
-                %span $350
-              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
     - else
       %center
         %h2 Nothing to view here

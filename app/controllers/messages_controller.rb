@@ -6,14 +6,26 @@ class MessagesController < ApplicationController
     @conversations = current_user.mailbox.conversations
   end
 
-  def show
-    conversation = current_user.mailbox.conversations.find(params[:id])
-    @messages = conversation.messages.order(created_at: :asc)
+  def create
+    conv  = current_user.mailbox.conversations.where(
+      id: params[:conversation_id]
+    ).first
+    receipt = current_user.reply_to_conversation(conv, params[:message])
 
     respond_to do |format|
-      format.json {
-        render json: @messages
-      }
-     end
+      format.json do
+        render json: receipt.message
+      end
+    end
+  end
+
+  def show
+    message = Mailboxer::Message.find(params[:id])
+
+    respond_to do |format|
+      format.json do
+        render json: message
+      end
+    end
   end
 end

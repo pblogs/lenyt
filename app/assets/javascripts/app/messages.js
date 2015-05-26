@@ -1,4 +1,3 @@
-
 $(document).ready(function () {
   window.vm = new Vue({
     el: '#vue-el',
@@ -7,8 +6,10 @@ $(document).ready(function () {
       sentOn: '',
       days: 0,
       total: 0,
+      conversationId: 0,
       imageUrl: '',
-      messages: []
+      messages: [],
+      message: ''
     }
   })
 
@@ -18,15 +19,46 @@ $(document).ready(function () {
   )
 
   $('ul.conversations_list li').click(function(event) {
-    $('.tab-content').css({
-      opacity: '0.4',
-      transition: '0.5'
-    });;
-    getMessages(
-      $(this).data('conversationId'),
-      $('.conversations_list').data('userId')
-    );
+    if (!($(this).hasClass( "active" ))) {
+      $('.tab-content').css({opacity: '0.4',transition: '0.5'});;
+      getMessages(
+        $(this).data('conversationId'),
+        $('.conversations_list').data('userId')
+      );
+    };
   });
+
+  if ($('button.send').length > 0) {
+    $('button.send').on('click', function(event) {
+      event.preventDefault();
+      message = vm.$data.message;
+      $.ajax({
+        url: '/messages',
+        type: 'POST',
+        dataType: 'json',
+        data: {
+          conversation_id: $(this).data('conversation-id'),
+          message: message
+        },
+      })
+      .done(function(response) {
+        vm.$data.messages.push({
+          sender_name: 'You',
+          isLeft: false,
+          created_at: moment(response.created_at).format('MMMM DD - h:mm a' ),
+          body: response.message.body
+        });
+        vm.$data.message = '';;
+        setTimeout(scrollMessages);
+      })
+      .fail(function(response) {
+        console.log("error");
+      })
+      .always(function(response) {
+        console.log("complete");
+      });
+    });
+  };
 });
 
 function getMessages(id, user_id) {
@@ -51,7 +83,9 @@ function getMessages(id, user_id) {
     vm.$data.total = conversation.request.total
     vm.$data.messages = conversation.messages
     vm.$data.imageUrl = conversation.request.image_url
+    vm.$data.conversationId = conversation.id
     $('.tab-content').css('opacity', '1.0');
+    setTimeout(scrollMessages);
   })
 }
 
