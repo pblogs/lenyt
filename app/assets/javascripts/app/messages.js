@@ -1,4 +1,9 @@
 $(document).ready(function () {
+  channel = pusher.subscribe('conversations');
+  channel.bind('new-message', function(data) {
+    console.log('An event was triggered with message: ' + data.message);
+  });
+
   window.vm = new Vue({
     el: '#vue-el',
     data: {
