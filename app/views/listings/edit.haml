@@ -1,3 +1,4 @@
+= render 'assets'
 %section.content
   = form_for @product, url: listing_path(@product), html: {method: :put, multipart: true } do |f|
     = render 'shared/errors', resource: @product
