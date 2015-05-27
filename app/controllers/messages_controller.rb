@@ -11,10 +11,17 @@ class MessagesController < ApplicationController
       id: params[:conversation_id]
     ).first
     receipt = current_user.reply_to_conversation(conv, params[:message])
+    message = receipt.message
+    Pusher.trigger("conversation_#{conv.id}", 'new-message',
+    {
+      sender_id: message.sender_id,
+      sender_name: message.sender.full_name,
+      body: message.body
+    })
 
     respond_to do |format|
       format.json do
-        render json: receipt.message
+        render json: message
       end
     end
   end

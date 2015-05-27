@@ -1,9 +1,4 @@
 $(document).ready(function () {
-  channel = pusher.subscribe('conversations');
-  channel.bind('new-message', function(data) {
-    console.log('An event was triggered with message: ' + data.message);
-  });
-
   window.vm = new Vue({
     el: '#vue-el',
     data: {
@@ -19,19 +14,25 @@ $(document).ready(function () {
   })
 
   if ($('.message-board').length > 0) {
+    conversationId = $('.conversations_list').data('conversationId');
+    // subscribe to conversation channel
     getMessages(
-      $('.conversations_list').data('conversationId'),
+      conversationId,
       $('.conversations_list').data('userId')
-    )
+    );
+    subscribeToChannel(conversationId);
   };
 
   $('ul.conversations_list li').click(function(event) {
     if (!($(this).hasClass( "active" ))) {
       $('.tab-content').css({opacity: '0.4',transition: '0.5'});;
+      conversationId = $(this).data('conversationId');
+
       getMessages(
-        $(this).data('conversationId'),
+        conversationId,
         $('.conversations_list').data('userId')
       );
+      subscribeToChannel(conversationId);
     };
   });
 
@@ -44,20 +45,21 @@ $(document).ready(function () {
         type: 'POST',
         dataType: 'json',
         data: {
-          conversation_id: $(this).data('conversation-id'),
+          conversation_id: $('button.send').data('conversation-id'),
           message: message
         },
       })
-      .done(function(response) {
-        vm.$data.messages.push({
-          sender_name: 'You',
-          isLeft: false,
-          created_at: moment(response.created_at).format('MMMM DD - h:mm a' ),
-          body: response.message.body
-        });
-        vm.$data.message = '';;
-        setTimeout(scrollMessages);
-      })
+      // .done(function(response) {
+      //   console.log(response);
+      //   vm.$data.messages.push({
+      //     sender_name: 'You',
+      //     isLeft: false,
+      //     created_at: moment(response.created_at).format('MMMM DD - h:mm a' ),
+      //     body: response.message.body
+      //   });
+      //   vm.$data.message = '';;
+      //   setTimeout(scrollMessages);
+      // })
       .fail(function(response) {
         console.log("error");
       })
@@ -67,6 +69,24 @@ $(document).ready(function () {
     });
   };
 });
+
+function subscribeToChannel(conversation_id) {
+  var channel = pusher.subscribe('conversation_' + conversation_id);
+  channel.bind('new-message', function(data) {
+    console.log(data);
+    console.log(data.sender_name);
+    currentUserId = $('.conversations_list').data('userId');
+
+    vm.$data.messages.push({
+      sender_name: ((currentUserId === data.sender_id) ? 'You' : data.sender_name),
+      isLeft: ((currentUserId === data.sender_id) ? false : true),
+      created_at: moment(data.created_at).format('MMMM DD - h:mm a' ),
+      body: data.body
+    });
+    vm.$data.message = '';;
+    setTimeout(scrollMessages);
+  });
+}
 
 function getMessages(id, user_id) {
   $.getJSON( 'conversations/' + id, {
