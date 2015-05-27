@@ -18,10 +18,12 @@ $(document).ready(function () {
     }
   })
 
-  getMessages(
-    $('.conversations_list').data('conversationId'),
-    $('.conversations_list').data('userId')
-  )
+  if ($('.message-board').length > 0) {
+    getMessages(
+      $('.conversations_list').data('conversationId'),
+      $('.conversations_list').data('userId')
+    )
+  };
 
   $('ul.conversations_list li').click(function(event) {
     if (!($(this).hasClass( "active" ))) {
