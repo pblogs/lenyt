@@ -25,7 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'devise'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
-gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails4-autocomplete'
 gem "paperclip", "= 3.4.2"
 gem 'aws-sdk-v1'

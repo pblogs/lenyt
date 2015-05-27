@@ -2,13 +2,7 @@
   %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
     .price= raw("$#{@product.price_per_day}<span>per day</span>")
     .slide-images
-      = image_tag('slide-image.jpg')
-      .slide-controls
-        %a{:href => "#"}
-          = image_tag('arrow-left.png')
-        %span 1/3
-        %a{:href => "#"}
-          = image_tag('arrow-right.png')
+      = render 'slider'
     .product-title= @product.title
   %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
     .actions

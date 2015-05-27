@@ -1,15 +1,11 @@
 <div id="carousel" class="carousel slide" data-ride="carousel">
   <!-- Wrapper for slides -->
   <div class="carousel-inner" role="listbox">
-    <div class="carousel_slider item active">
-      <%= image_tag('slide-image.jpg') %>
+    <% @product.assets.each_with_index do |a, index| %>
+    <div class="carousel_slider item <%= 'active' if index == 0 %>">
+      <%= image_tag(a.image) %>
     </div>
-    <div class="carousel_slider item">
-      <%= image_tag('slide-image.jpg') %>
-    </div>
-    <div class="carousel_slider item">
-      <%= image_tag('slide-image.jpg') %>
-    </div>
+    <% end %>
   </div>
 </div>
 

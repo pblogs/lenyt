@@ -261,7 +261,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  acts-as-taggable-on
+  acts-as-taggable-on (~> 3.4)
   annotate (~> 2.6.6)
   awesome_nested_fields
   aws-sdk-v1

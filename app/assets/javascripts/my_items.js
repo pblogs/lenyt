@@ -64,13 +64,10 @@ $(document).ready(function(){
     });
 
     var appendContent = function(imageUrl, mediaId) {
-      $("#media-contents").append('<div class="col-lg-4">' +
-        '<div class="thumbnail"><img src="' + imageUrl + '"/>' +
-        '<div class="caption">' +
-        '<input id="media_contents_" name="media_contents[]" value="' + mediaId +'" type="checkbox">' +
+      $(".carousel-inner").append('<div class="carousel_slider item">' +
+        '<img src="' + imageUrl + '"/>' +
         '<a data-method="delete" data-remote="true" href="/pictures/' + mediaId + '">' + "Remove file" + '</a>' +
-        '</div>' +
-        '</div></div>');
+        '</div>');
       $("#delete").removeAttr('disabled');
       $("#no-media").html("");
     };
