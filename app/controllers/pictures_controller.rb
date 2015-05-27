@@ -9,7 +9,11 @@ class PicturesController < ApplicationController
 
     #TODO add attachable_id: and attachable_type:
     if @asset.save
-      render json: { message: "success", fileID: @asset.id }, status: 200
+      render json: {
+        message: 'success',
+        id: @asset.id,
+        url: @asset.image.url
+      }, status: 200
     else
       render json: { error: @asset.errors.full_messages.join(',')}, status: 400
     end
@@ -18,6 +22,6 @@ class PicturesController < ApplicationController
   private
 
   def asset_params
-    params.require(:asset).permit(:image)
+    params.require(:asset).permit!
   end
 end

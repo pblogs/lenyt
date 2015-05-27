@@ -35,5 +35,16 @@ class Product < ActiveRecord::Base
   belongs_to :user
 
   has_many :assets, as: :attachable, dependent: :destroy
-  accepts_nested_attributes_for :assets
+  accepts_nested_attributes_for :assets, allow_destroy: true
+
+  after_save :take_assets
+
+  def take_assets
+    assets = Asset.where(attachable_id: nil)
+
+    assets.each do |asset|
+      asset.attachable = self
+      asset.save
+    end
+  end
 end
