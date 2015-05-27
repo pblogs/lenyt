@@ -1,0 +1,38 @@
+<div id="carousel" class="carousel slide" data-ride="carousel">
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel_slider item active">
+      <%= image_tag('slide-image.jpg') %>
+    </div>
+    <div class="carousel_slider item">
+      <%= image_tag('slide-image.jpg') %>
+    </div>
+    <div class="carousel_slider item">
+      <%= image_tag('slide-image.jpg') %>
+    </div>
+  </div>
+</div>
+
+<div class="slide-controls">
+  <%= link_to image_tag('arrow-left.png'), '#', class: 'carousel_link', data: {move: 'prev'} %>
+  <span><span class='current_slide'>1</span>/<span class='slides_count'></span></span>
+  <%= link_to image_tag('arrow-right.png'), '#', class: 'carousel_link', data: {move: 'next'} %>
+</div>
+
+
+<script type="text/javascript">
+$('.carousel').carousel({
+  interval: false
+})
+
+slides_count = $('.carousel_slider').length
+$('.slides_count').html(slides_count);
+
+
+$('.carousel_link').click(function(event) {
+  event.preventDefault();
+  // $('.current_slide').html($('.carousel .active').index('.carousel .item'));
+  direction = $(this).data('move');
+  $('.carousel').carousel(direction);
+});
+</script>
