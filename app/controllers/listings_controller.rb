@@ -12,10 +12,12 @@ class ListingsController < ApplicationController
 
   def new
     @product = Product.new
+    @my_unit_token = SecureRandom.hex(16)
   end
 
   def edit
     @product = current_user.products.find(params[:id])
+    @my_unit_token = SecureRandom.hex(16)
   end
 
   def create
@@ -23,9 +25,11 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @product.save
+        @product.take_assets(params[:my_unit_token])
         format.html { redirect_to listing_path(@product), notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product}
       else
+        @my_unit_token = SecureRandom.hex(16)
         format.html { render action: 'new', error: 'Error....' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
@@ -37,9 +41,11 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @product.update(product_params)
+        @product.take_assets(params[:my_unit_token])
         format.html { redirect_to listing_path(@product), notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
+        @my_unit_token = SecureRandom.hex(16)
         format.html { render action: 'edit' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end

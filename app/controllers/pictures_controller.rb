@@ -6,8 +6,8 @@ class PicturesController < ApplicationController
 
   def create
     @asset = Asset.new(asset_params)
+    @asset.unit_token = params[:my_unit_token]
 
-    #TODO add attachable_id: and attachable_type:
     if @asset.save
       render json: {
         message: 'success',

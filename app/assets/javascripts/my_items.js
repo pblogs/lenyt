@@ -45,9 +45,15 @@ $(document).ready(function(){
     $(function() {
       var mediaDropzone;
       mediaDropzone = new Dropzone("#media-dropzone", {
-        paramName: "asset[image]",
+        paramName: "asset[image]"
       });
-      return mediaDropzone.on("success", function(file, response) {
+      var my_token = $('#my_unit_token').val();
+      console.log(my_token)
+      mediaDropzone.on("sending", function(file, xhr, data) {
+        data.append("my_unit_token", my_token);
+      });
+
+      return mediaDropzone.on("success", function(file, response, data) {
         console.log(response);
         var _this = this;
         appendContent(response.url, response.id);

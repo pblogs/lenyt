@@ -25,6 +25,7 @@
     = link_to 'Add Pictures', '#', class: 'add-picture inp-bg', data: {toggle: 'modal', target: '#uploadAssets'}
     //= render partial: 'listings/upload_assets', locals: {f: f}
     .slide-images
+      = hidden_field_tag :my_unit_token, @my_unit_token
       - @product.assets.each do |asset|
         = image_tag(asset.image.url(:large)) if asset.image.present?
 
