@@ -69,6 +69,7 @@ $(document).ready(function(){
         '<div class="thumbnail"><img src="' + imageUrl + '"/>' +
         '<div class="caption">' +
         '<input id="media_contents_" name="media_contents[]" value="' + mediaId +'" type="checkbox">' +
+        '<a data-method="delete" data-remote="true" href="/pictures/' + mediaId + '">' + "Remove file" + '</a>' +
         '</div>' +
         '</div></div>');
       $("#delete").removeAttr('disabled');

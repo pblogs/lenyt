@@ -19,6 +19,13 @@ class PicturesController < ApplicationController
     end
   end
 
+  def destroy
+    @asset = Asset.find(params[:id])
+    @asset.destroy
+    @asset.image.clear
+    render json: { message: 'success'}, status: 200
+  end
+
   private
 
   def asset_params
