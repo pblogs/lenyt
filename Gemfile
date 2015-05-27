@@ -39,6 +39,7 @@ gem 'vuejs-rails'
 gem 'momentjs-rails'
 gem 'faker'
 gem 'owlcarousel-rails'
+gem 'pusher'
 
 # Tiny, fast & funny HTTP server
 gem 'thin'
