@@ -31,8 +31,10 @@ $('.slides_count').html(slides_count);
 
 $('.carousel_link').click(function(event) {
   event.preventDefault();
-  // $('.current_slide').html($('.carousel .active').index('.carousel .item'));
   direction = $(this).data('move');
   $('.carousel').carousel(direction);
+  setTimeout(function(){
+    $('.current_slide').html($('.carousel .active').index('.carousel .item')+1);
+  }, 600);
 });
 </script>

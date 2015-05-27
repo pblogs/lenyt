@@ -48,7 +48,6 @@ $(document).ready(function(){
         paramName: "asset[image]"
       });
       var my_token = $('#my_unit_token').val();
-      console.log(my_token)
       mediaDropzone.on("sending", function(file, xhr, data) {
         data.append("my_unit_token", my_token);
       });
