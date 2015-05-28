@@ -45,6 +45,26 @@ $(function() {
     google.maps.event.addListener(map, 'idle', function(){
       $('#zoom').val(map.getZoom());
     });
+
+    var geocoder;
+    geocoder = new google.maps.Geocoder();
+
+    google.maps.event.addListener(gmarker, 'dragend', function() {
+      //updateMarkerStatus('Drag ended');
+      geocodePosition(gmarker.getPosition());
+    });
+
+    function geocodePosition(pos) {
+      geocoder.geocode({
+        latLng: pos
+      }, function(responses) {
+        if (responses && responses.length > 0) {
+          $('#product_address').val(responses[0].formatted_address)
+          //console.log(responses[0].formatted_address);
+        } else {
+          $('#product_address').val('Cannot determine address at this location.');
+        }
+      });
+    }
   };
 });
-
