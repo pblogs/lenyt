@@ -40,6 +40,8 @@ gem 'momentjs-rails'
 gem 'faker'
 gem 'owlcarousel-rails'
 gem 'pusher'
+gem 'socket.io-rails'
+gem 'redis'
 
 # Tiny, fast & funny HTTP server
 gem 'thin'

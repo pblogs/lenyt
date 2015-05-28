@@ -1,0 +1,15 @@
+#config/redis.yml
+default:
+  host: pub-redis-19539.us-east-1-4.3.ec2.garantiadata.com
+  port: 19539
+  password: lenyt2015
+development:
+  db: 0
+#  namespace: appname_dev
+test:
+  db: 1
+#  namespace: appname_test
+production:
+  db: 2
+  host: 192.168.1.100
+#  namespace: appname_prod
