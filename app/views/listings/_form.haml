@@ -25,7 +25,7 @@
     = link_to 'Add Pictures', '#', class: 'add-picture inp-bg', data: {toggle: 'modal', target: '#uploadAssets'}
     //= render partial: 'listings/upload_assets', locals: {f: f}
     .slide-images
-      = hidden_field_tag :my_unit_token, @my_unit_token
+      = hidden_field_tag :my_uniq_token, @my_uniq_token
 
       //= image_tag('slide-image.jpg')
       #media-contents
