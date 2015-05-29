@@ -45,4 +45,12 @@ class Product < ActiveRecord::Base
       asset.save
     end
   end
+
+  def total_days
+    end_at.day - available_at.day
+  end
+
+  def total_price
+    total_days * price_per_day
+  end
 end

@@ -3,7 +3,7 @@
   <div class="carousel-inner" role="listbox">
     <% @product.assets.each_with_index do |a, index| %>
     <div class="carousel_slider item <%= 'active' if index == 0 %>">
-      <%= image_tag(a.image) %>
+      <%= image_tag(a.image.url(:large)) %>
     </div>
     <% end %>
   </div>

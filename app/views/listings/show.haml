@@ -9,9 +9,9 @@
       .total
         %ul
           %li
-            5
+            = @product.total_days
             %span='day(s)'
-          %li= raw("$269<span>total</span>")
+          %li= raw("#{number_to_currency(@product.total_price)}<span>total</span>")
   %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
     .slide-images
       = render 'slider'
