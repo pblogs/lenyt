@@ -47,9 +47,9 @@ $(document).ready(function(){
       mediaDropzone = new Dropzone("#media-dropzone", {
         paramName: "asset[image]"
       });
-      var my_token = $('#my_uniq_token').val();
+      var my_token = $('#my_unique_token').val();
       mediaDropzone.on("sending", function(file, xhr, data) {
-        data.append("my_uniq_token", my_token);
+        data.append("my_unique_token", my_token);
       });
 
       return mediaDropzone.on("success", function(file, response, data) {

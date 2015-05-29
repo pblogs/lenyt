@@ -25,7 +25,7 @@ ActiveRecord::Schema.define(version: 20150528115721) do
     t.string   "attachable_type"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "uniq_token"
+    t.string   "unique_token"
     t.boolean  "is_main",            default: false
   end
 
