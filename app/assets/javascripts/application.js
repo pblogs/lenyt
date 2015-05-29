@@ -31,3 +31,27 @@ jQuery(function() {
   $("a[rel~=popover], .has-popover").popover();
   return $("a[rel~=tooltip], .has-tooltip").tooltip();
 });
+
+$(document).ready(function(){
+  if ($('#rangeCalendar').length > 0) {
+    $("#rangeCalendar").dateRangePicker({
+     format: 'YYYY-MM-DD',
+     inline:true,
+     alwaysOpen:true,
+     container: '#rangeCalendar'
+    }).bind('datepicker-change',function(event,obj){
+      console.log(obj.date1);
+      $('#product_available_at').val(obj.date1)
+      $('#product_end_at').val(obj.date2)
+
+      // obj will be something like this:
+      // {
+      //    date1: (Date object of the earlier date),
+      //    date2: (Date object of the later date),
+      //    value: "2013-06-05 to 2013-06-07"
+      // }
+    });
+  };
+});
+
+

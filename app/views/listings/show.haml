@@ -1,3 +1,6 @@
+= content_for :gmap_api do
+  = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=el'
+
 %section.content
   %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
     .price= raw("$#{@product.price_per_day}<span>per day</span>")
@@ -54,7 +57,25 @@
     .rit
       .meet-location
         %h3.left Suggested Meetup
-        %h3.right Location:80 Church St. Toronto, ON, M2J 3X5
-      .map
-        = image_tag('map.jpg')
+        %h3.right=  @product.address
+      #map-canvas.map
 
+:javascript
+  $(document).ready(function (){
+    function initialize() {
+      var myLatlng = new google.maps.LatLng("#{@product.latitude}","#{@product.longitude}");
+      var mapOptions = {
+        zoom: 12,
+        center: myLatlng
+      }
+      var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+      var marker = new google.maps.Marker({
+        position: myLatlng,
+        map: map,
+        title: "#{@product.address}"
+      });
+    }
+
+    google.maps.event.addDomListener(window, 'load', initialize);
+  })

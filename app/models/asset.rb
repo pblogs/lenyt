@@ -11,6 +11,8 @@
 #  attachable_type    :string(255)
 #  created_at         :datetime
 #  updated_at         :datetime
+#  uniq_token         :string(255)
+#  is_main            :boolean          default(FALSE)
 #
 
 class Asset < ActiveRecord::Base

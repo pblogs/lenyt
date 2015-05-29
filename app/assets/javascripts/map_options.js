@@ -18,7 +18,7 @@ $(function() {
         lng:      "#product_longitude",
         //street_number: '#street_number',
         //route: '#route',
-        locality: '#locality',
+        locality: '#product_locality',
         administrative_area_level_2: '#product_administrative_area_level_2',
         administrative_area_level_1: '#product_administrative_area_level_1',
         country:  '#product_country',

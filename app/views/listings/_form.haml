@@ -17,6 +17,8 @@
         = f.check_box :is_available
         = 'Available Forever'
       .clear
+    = f.hidden_field :available_at
+    = f.hidden_field :end_at
     #rangeCalendar
     .done.right== <a href="#">Done</a>
     .clear
@@ -41,13 +43,3 @@
     = f.hidden_field :administrative_area_level_2
     = f.hidden_field :administrative_area_level_1
     = f.hidden_field :location_type
-
-
-:javascript
-  var configObject = {
-    format: 'YYYY-MM-DD',
-    inline:true,
-    alwaysOpen:true,
-    container: '#rangeCalendar'
-  }
-  $('#rangeCalendar').dateRangePicker(configObject);
