@@ -24,6 +24,9 @@ $('.carousel').carousel({
 slides_count = $('.carousel_slider').length
 $('.slides_count').html(slides_count);
 
+current_slide = ((slides_count > 0) ? 1 : 0);
+
+$('.current_slide').html(current_slide);
 
 $('.carousel_link').click(function(event) {
   event.preventDefault();
