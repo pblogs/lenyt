@@ -55,9 +55,13 @@ $(document).ready(function(){
 
 
     function initialize() {
-      var myLatlng = new google.maps.LatLng("#{@product.latitude}","#{@product.longitude}");
+      lat = $('#map-canvas').data('lat');
+      lng = $('#map-canvas').data('lng');
+      address = $('#map-canvas').data('address');
+
+      var myLatlng = new google.maps.LatLng(lat,lng);
       var mapOptions = {
-        zoom: 12,
+        zoom: 14,
         center: myLatlng
       }
       var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -65,7 +69,7 @@ $(document).ready(function(){
       var marker = new google.maps.Marker({
         position: myLatlng,
         map: map,
-        title: "#{@product.address}"
+        title: address
       });
     }
     google.maps.event.addDomListener(window, 'load', initialize);

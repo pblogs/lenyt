@@ -1,18 +1,22 @@
 %section.content
-  %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
-    .price= raw("$#{@product.price_per_day}<span>per day</span>")
-    .slide-images
-      = render 'slider'
-    .product-title= @product.title
-  %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
+  .col-md-12
     .actions
+      .price
+        = number_to_currency(@product.price_per_day)
       .pick-date
         %input#dpd1{:placeholder => "From", :type => "text"}
         %input#dpd2{:placeholder => "To", :type => "text"}
       .total
         %ul
-          %li= raw("5<span>day(s)</span>")
+          %li
+            5
+            %span='day(s)'
           %li= raw("$269<span>total</span>")
+  %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
+    .slide-images
+      = render 'slider'
+    .product-title= @product.title
+  %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
     .rit
       .gray-box
         .insurance
@@ -55,4 +59,4 @@
       .meet-location
         %h3.left Suggested Meetup
         %h3.right=  @product.address
-      #map-canvas.map
+      #map-canvas.map{data: {lng: @product.longitude, lat: @product.latitude, address: @product.address}}

@@ -15,15 +15,15 @@ main{ padding-bottom: 20px; max-width: 1400px; margin: 0 auto;}
 section.content{ margin: 20px 0; display: table; width: 100%;padding: 0 10px;}
 
 aside.slide{ position: relative;}
-.slide-images{ position: relative}
+.slide-images{ position: relative; height: 299px;}
 .slide-controls{ position: absolute; bottom: 20px; left: 2px; background: rgba(255, 255, 255, 0.66); display: block; height: 36px; padding: 0 10px; line-height: 36px;}
 .slide-controls span{ font-size: 25px; font-family: "Helvetica Light", arial, sans-serif; color: #000000; padding: 0 10px;}
 .slide-controls > a { vertical-align: top;}
 div.product-title{ display: block; color: #000000; font-size: 28px; font-family: "Helvetica", arial, sans-serif; height: 50px; background: #eeeeee; padding-left: 5px; line-height: 50px; margin-right: 9px;}
-div.price{ z-index: 2; height: 60px; padding: 0 12px 0 8px; line-height: 60px; display: block; background: #666666; position: absolute; top:0; right: 0; width: 128px; color: #ffffff; font-size: 42px; font-family: "Helvetica Bold", arial, sans-serif;}
+div.price{float: left; z-index: 2; height: 60px; padding: 0 12px 0 8px; line-height: 60px; display: block; background: #666666; top:0; color: #ffffff; font-size: 42px; font-family: "Helvetica Bold", arial, sans-serif;}
 div.price span{ font-family: "Helvetica", arial, sans-serif; font-size: 16px; line-height: 18px; width: 30px; display: inline-block; margin-left: 6px;}
 aside.user-request{}
-div.actions{ min-height: 60px; display: block; background: #666666; color: #ffffff;}
+div.actions{ min-height: 60px; display: block; background: #666666; color: #ffffff;float: right;}
 div.pick-date{ display: inline-block; vertical-align: top; padding-top: 13px;}
 div.pick-date input{ height: 35px; border-radius: 0; border: none; padding: 0 14px 0 8px; font-size: 16px; font-family: "Helvetica", arial, sans-serif; width: 200px; margin-right: 10px;
     background: #ffffff image-url("arrow-bottom.png") no-repeat; background-position: top 12px right 10px;}
@@ -436,7 +436,7 @@ div.done a{ font-size: 18px; font-family: "Helvetica Light", arial, sans-serif; 
 }
 
 #map-canvas {
-  height: 300px;
+  height: 340px;
   margin: 0px;
   padding: 0px;
   width: 100%;

@@ -12,12 +12,12 @@ class ListingsController < ApplicationController
 
   def new
     @product = Product.new
-    @my_uniq_token = SecureRandom.hex(16)
+    @my_unique_token = SecureRandom.hex(16)
   end
 
   def edit
     @product = current_user.products.find(params[:id])
-    @my_uniq_token = SecureRandom.hex(16)
+    @my_unique_token = SecureRandom.hex(16)
   end
 
   def create
@@ -25,11 +25,11 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @product.save
-        @product.take_assets(params[:my_uniq_token])
+        @product.take_assets(params[:my_unique_token])
         format.html { redirect_to listing_path(@product), notice: 'Product was successfully created.' }
         format.json { render action: 'show', status: :created, location: @product}
       else
-        @my_uniq_token = SecureRandom.hex(16)
+        @my_unique_token = SecureRandom.hex(16)
         format.html { render action: 'new', error: 'Error....' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
@@ -41,11 +41,11 @@ class ListingsController < ApplicationController
 
     respond_to do |format|
       if @product.update(product_params)
-        @product.take_assets(params[:my_uniq_token])
+        @product.take_assets(params[:my_unique_token])
         format.html { redirect_to listing_path(@product), notice: 'Product was successfully updated.' }
         format.json { head :no_content }
       else
-        @my_uniq_token = SecureRandom.hex(16)
+        @my_unique_token = SecureRandom.hex(16)
         format.html { render action: 'edit' }
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end

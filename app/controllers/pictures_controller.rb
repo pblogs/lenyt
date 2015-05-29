@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
 
   def create
     @asset = Asset.new(asset_params)
-    @asset.uniq_token = params[:my_uniq_token]
+    @asset.unique_token = params[:my_unique_token]
 
     if @asset.save
       render json: {
