@@ -55,6 +55,9 @@ $(document).ready(function(){
 
 
     function initialize() {
+      if (!document.getElementById('map-canvas')) {
+        return;
+      }
       lat = $('#map-canvas').data('lat');
       lng = $('#map-canvas').data('lng');
       address = $('#map-canvas').data('address');
