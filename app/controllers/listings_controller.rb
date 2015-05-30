@@ -1,12 +1,13 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!
+  before_filter :load_product, except: [:index, :new]
+  before_filter :validate_owner, except: [:index, :show, :new]
 
   def index
     @products = Product.all
   end
 
   def show
-    @product = current_user.products.find(params[:id])
     @owner = @product.user
   end
 
@@ -19,7 +20,6 @@ class ListingsController < ApplicationController
   end
 
   def edit
-    @product = current_user.products.find(params[:id])
     @my_unique_token = SecureRandom.hex(16)
   end
 
@@ -40,8 +40,6 @@ class ListingsController < ApplicationController
   end
 
   def update
-    @product = current_user.products.find(params[:id])
-
     respond_to do |format|
       if @product.update(product_params)
         @product.take_assets(params[:my_unique_token])
@@ -56,8 +54,6 @@ class ListingsController < ApplicationController
   end
 
   def destroy
-    @product = current_user.product.find(params[:id])
-
     @product.destroy
     respond_to do |format|
       format.html { redirect_to listings_url }
@@ -66,6 +62,17 @@ class ListingsController < ApplicationController
   end
 
   private
+
+  def load_product
+    @product = Product.find(params[:id])
+  end
+
+  def validate_owner
+    unless @product.user == current_user
+      flash[:error] = 'You are not authorized to access this page.'
+      redirect_to listing_path(@product)
+    end
+  end
 
   def product_params
     params.require(:product).permit(:title, :category_id, :user_id,

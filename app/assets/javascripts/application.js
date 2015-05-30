@@ -36,22 +36,29 @@ jQuery(function() {
 
 $(document).ready(function(){
   if ($('#rangeCalendar').length > 0) {
-    $("#rangeCalendar").dateRangePicker({
-     format: 'YYYY-MM-DD',
-     inline:true,
-     alwaysOpen:true,
-     container: '#rangeCalendar'
-    }).bind('datepicker-change',function(event,obj){
-      console.log(obj.date1);
-      $('#product_available_at').val(obj.date1)
-      $('#product_end_at').val(obj.date2)
+    $('#product_is_available').click(function(event) {
+      if ($('#product_is_available').prop( "checked" )) {
+        $('#product_available_at').val('');
+        $('#product_end_at').val('');
+        $("#rangeCalendar").data('dateRangePicker').clear();
+        $("#rangeCalendar").css('pointer-events', 'none');
+      } else {
+        $("#rangeCalendar").css('pointer-events', 'auto');
+      };
+    });
 
-      // obj will be something like this:
-      // {
-      //    date1: (Date object of the earlier date),
-      //    date2: (Date object of the later date),
-      //    value: "2013-06-05 to 2013-06-07"
-      // }
+    $("#rangeCalendar").dateRangePicker({
+      format: 'YYYY-MM-DD',
+      inline:true,
+      alwaysOpen:true,
+      setValue: function(s,s1,s2)
+      {
+        $('#product_available_at').val(s1);
+        $('#product_end_at').val(s2);
+      },
+      container: '#rangeCalendar'
+    }).bind('datepicker-change',function(event,obj){
+      $('#product_is_available').attr('checked', false);
     });
   };
 
