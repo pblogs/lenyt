@@ -23,7 +23,15 @@ div.product-title{ display: block; color: #000000; font-size: 28px; font-family:
 div.price{float: left; z-index: 2; height: 60px; padding: 0 12px 0 8px; line-height: 60px; display: block; background: #666666; top:0; color: #ffffff; font-size: 42px; font-family: "Helvetica Bold", arial, sans-serif;}
 div.price span{ font-family: "Helvetica", arial, sans-serif; font-size: 16px; line-height: 18px; width: 30px; display: inline-block; margin-left: 6px;}
 aside.user-request{}
-div.actions{ min-height: 60px; display: block; background: #666666; color: #ffffff;float: right;}
+div.actions{
+  min-height: 60px;
+  display: block;
+  background: #666666;
+  color: #ffffff;
+  position: absolute;
+  z-index: 3;
+  right: 0;
+  top: 1px;}
 div.pick-date{ display: inline-block; vertical-align: top; padding-top: 13px;}
 div.pick-date input{ height: 35px; border-radius: 0; border: none; padding: 0 14px 0 8px; font-size: 16px; font-family: "Helvetica", arial, sans-serif; width: 200px; margin-right: 10px;
     background: #ffffff image-url("arrow-bottom.png") no-repeat; background-position: top 12px right 10px;}
@@ -496,4 +504,7 @@ div.done a{ font-size: 18px; font-family: "Helvetica Light", arial, sans-serif; 
       background-image: none;
     }
   }
+}
+.insurance {
+  margin-top: 65px;
 }
