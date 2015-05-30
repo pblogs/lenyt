@@ -5,9 +5,12 @@ class ListingsController < ApplicationController
     @products = Product.all
   end
 
+  def show
+    @product = current_user.products.find(params[:id])
+    @owner = @product.user
+  end
 
   def search
-
   end
 
   def new
@@ -50,10 +53,6 @@ class ListingsController < ApplicationController
         format.json { render json: @product.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  def show
-    @product = current_user.products.find(params[:id])
   end
 
   def destroy

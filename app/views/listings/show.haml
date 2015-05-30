@@ -37,8 +37,9 @@
           %p.description Damage Waver: Covers this rental for its full duration. Requires a $450 hold on your credit card as a refundable deductible deposit.
       .user-req
         .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-4
-          = image_tag('emma.png', title: "Emma")
-          %span.user-name Emma
+          = user_avatar(@owner)
+          %span.user-name
+            = @owner.username
           .stars
             %span.star-active.star
             %span.star-active.star
