@@ -55,7 +55,8 @@ div.gray-box{ background: #eeeeee; padding: 24px 8px 16px 14px;}
 p.description{ font-size: 16px; font-family: "Helvetica Light", arial, sans-serif; color: #000000; margin-bottom: 0; margin-top: 14px; font-weight: normal; line-height: normal;}
 
 div.user-stars{ border: 1px solid #cccccc; height: 65px; padding: 8px 12px 6px;}
-div.user-stars img{ float: left; margin-right: 12px;}
+div.user-stars img{ float: left; margin-right: 5px;}
+.raty-cancel{display: none;}
 span.user-name{ color: #000000; font-size: 16px; font-family: "Helvetica Light", arial, sans-serif; padding-top: 2px; display: block;}
 .stars{ display: block;}
 span.star{ width: 20px;  height: 20px; display: inline-block;}

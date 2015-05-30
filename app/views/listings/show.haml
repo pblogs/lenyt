@@ -41,10 +41,7 @@
           %span.user-name
             = @owner.username
           .stars
-            %span.star-active.star
-            %span.star-active.star
-            %span.star-active.star
-            %span.star-inactive.star
+            = rating_for @owner, 'trust', cancel: false
         %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#"} Request
         .clear
         .message

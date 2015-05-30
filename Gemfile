@@ -34,6 +34,7 @@ gem "twitter-bootstrap-rails"
 gem 'mandrill-rails'
 gem "font-awesome-rails"
 gem 'owlcarousel-rails'
+gem 'ratyrate'
 
 # Tiny, fast & funny HTTP server
 gem 'thin'

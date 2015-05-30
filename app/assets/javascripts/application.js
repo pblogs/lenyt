@@ -26,6 +26,8 @@
 //= require custom
 //= require common
 //= require jquery.daterangepicker
+//= require jquery.raty
+//= require ratyrate
 
 jQuery(function() {
   $("a[rel~=popover], .has-popover").popover();
