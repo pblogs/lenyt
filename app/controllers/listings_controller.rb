@@ -1,7 +1,7 @@
 class ListingsController < ApplicationController
   before_action :authenticate_user!
-  before_filter :load_product, except: [:index, :new]
-  before_filter :validate_owner, except: [:index, :show, :new]
+  before_filter :load_product, except: [:index, :new, :create]
+  before_filter :validate_owner, except: [:index, :show, :new, :create]
 
   def index
     @products = Product.all
