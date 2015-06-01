@@ -35,6 +35,8 @@ gem 'mandrill-rails'
 gem "font-awesome-rails"
 gem 'owlcarousel-rails'
 gem 'ratyrate'
+gem 'twitter-typeahead-rails'
+gem 'typeahead-addresspicker-rails'
 
 # Tiny, fast & funny HTTP server
 gem 'thin'

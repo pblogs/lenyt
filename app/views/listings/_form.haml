@@ -32,7 +32,7 @@
       //= image_tag('slide-image.jpg')
       #media-contents
         = render 'slider'
-    = f.text_field :address, class: 'meet-location inp-bg', placeholder: 'Meet Location'
+    = f.text_field :address, class: 'meet-location inp-bg', placeholder: 'Meet Location', autocomplete: :off
     .map-list#map
 
     = f.hidden_field :country
