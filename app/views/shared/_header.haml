@@ -27,7 +27,7 @@
           - else
             - if devise_mapping.registerable? && controller_name != 'registrations'
               %li= link_to "Sign Up", '#', data: {toggle: 'modal', target: '#signUpModal'}
-            %li= link_to "I agree", '#', data: {toggle: 'modal', target: '#myModal2'}
+            // %li= link_to "I agree", '#', data: {toggle: 'modal', target: '#myModal2'}
             - if controller_name != 'sessions'
               %li= link_to "Log In", '#', data: {toggle: 'modal', target: '#myModal1'}
 
