@@ -1,0 +1,9 @@
+{
+  "name": "lenyt",
+  "version": "0.1.0",
+  "scripts": {
+    "start": "gem install bundler && bundle install && rails s",
+    "postinstall": "cd frontend && npm install"
+  },
+  "private": true
+}

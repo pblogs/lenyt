@@ -21,5 +21,9 @@ config/database.yml
 .idea/*
 passenger*
 
+# Frontend
+node_modules
+lenyt-app.js
+
 # Ignore application configuration
 /config/application.yml
