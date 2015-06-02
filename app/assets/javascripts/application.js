@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+// = require lenyt-app
 // = require jquery
 // = require jquery-ui
 // = require jquery_ujs
