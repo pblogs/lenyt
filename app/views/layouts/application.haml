@@ -3,9 +3,8 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title Lenyt
-
+    = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&language=en'
     = stylesheet_link_tag    'application', media: 'all'
-    = javascript_include_tag 'http://maps.google.com/maps/api/js?sensor=false'
     = javascript_include_tag 'application'
     = csrf_meta_tags
     %script{:src => "//cdn.jsdelivr.net/jquery.scrollto/2.1.0/jquery.scrollTo.min.js"}

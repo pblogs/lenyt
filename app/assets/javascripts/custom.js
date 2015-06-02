@@ -23,9 +23,11 @@ $(function(){
       checkout.hide();
     }).data('datepicker');
 })
+
 $(function(){
   $("#range").slider({});
 });
+
 $(document).ready(function(){
   $('[data-toggle="popover"]').popover();
   $("#tchat").mCustomScrollbar();

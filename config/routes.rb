@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: {
-    omniauth_callbacks: 'callbacks',
-    registrations: 'users/registrations',
-    sessions: 'users/sessions' } do
+  post '/rate' => 'rater#create', :as => 'rate'
+  devise_for :users, controllers: { omniauth_callbacks: 'callbacks',  registrations: 'users/registrations',  sessions: 'users/sessions' } do
+    #match 'settings', to: 'users/registrations#settings', as: :settings, via: [:get]
   end
   match 'auth/failure', to: redirect('/'), via: [:get]
   match 'search', to: 'listings#search', as: 'search', via: [:get]
@@ -20,6 +19,7 @@ Rails.application.routes.draw do
   end
   resources :pictures
   resources :listings
+  resources :products, only: [:index, :show]
 
   root to: 'home_page#index'
 end

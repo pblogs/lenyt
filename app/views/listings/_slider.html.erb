@@ -1,0 +1,39 @@
+<div id="carousel" class="carousel slide" data-ride="carousel">
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <% @product.assets.each_with_index do |a, index| %>
+    <div class="carousel_slider item <%= 'active' if index == 0 %>">
+      <%= image_tag(a.image.url(:large)) %>
+    </div>
+    <% end %>
+  </div>
+</div>
+
+<div class="slide-controls">
+  <%= link_to image_tag('arrow-left.png'), '#', class: 'carousel_link', data: {move: 'prev'} %>
+  <span><span class='current_slide'>0</span>/<span class='slides_count'>0</span></span>
+  <%= link_to image_tag('arrow-right.png'), '#', class: 'carousel_link', data: {move: 'next'} %>
+</div>
+
+
+<script type="text/javascript">
+$('.carousel').carousel({
+  interval: false
+})
+
+slides_count = $('.carousel_slider').length
+$('.slides_count').html(slides_count);
+
+current_slide = ((slides_count > 0) ? 1 : 0);
+
+$('.current_slide').html(current_slide);
+
+$('.carousel_link').click(function(event) {
+  event.preventDefault();
+  direction = $(this).data('move');
+  $('.carousel').carousel(direction);
+  setTimeout(function(){
+    $('.current_slide').html($('.carousel .active').index('.carousel .item')+1);
+  }, 600);
+});
+</script>

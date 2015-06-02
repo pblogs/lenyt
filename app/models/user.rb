@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
         :recoverable, :rememberable, :trackable,
         :validatable,
         :omniauthable, omniauth_providers: [:facebook, :google_oauth2]
+
+  ratyrate_rater
+  ratyrate_rateable 'trust'
+
   validates :email, :username, presence: true
   validates :username, uniqueness: true
   acts_as_messageable
@@ -71,7 +75,9 @@ class User < ActiveRecord::Base
   end
 
   def profile_picture
-    avatar.present? ? avatar : image_url
+    return avatar.url(:thumb) if avatar.present?
+    return image_url unless image_url.blank?
+    ActionController::Base.helpers.asset_path 'default_avatar.png'
   end
 
   def full_name

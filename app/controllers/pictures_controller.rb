@@ -6,8 +6,8 @@ class PicturesController < ApplicationController
 
   def create
     @asset = Asset.new(asset_params)
+    @asset.unique_token = params[:my_unique_token]
 
-    #TODO add attachable_id: and attachable_type:
     if @asset.save
       render json: {
         message: 'success',
@@ -17,6 +17,13 @@ class PicturesController < ApplicationController
     else
       render json: { error: @asset.errors.full_messages.join(',')}, status: 400
     end
+  end
+
+  def destroy
+    @asset = Asset.find(params[:id])
+    @asset.destroy
+    @asset.image.clear
+    render json: { message: 'success'}, status: 200
   end
 
   private
