@@ -33,6 +33,8 @@
 // = require map_options
 // = require gmapsjs
 // = require app/products
+// = require socket.io
+// = require jquery.cookie
 
 jQuery(function () {
   $('a[rel~=popover], .has-popover').popover()
