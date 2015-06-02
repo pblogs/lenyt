@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   end
   resources :pictures
   resources :listings
+  resources :products, only: [:index, :show]
 
   root to: 'home_page#index'
 end

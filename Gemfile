@@ -33,10 +33,13 @@ gem 'dropzonejs-rails'
 gem "twitter-bootstrap-rails"
 gem 'mandrill-rails'
 gem "font-awesome-rails"
+gem 'active_model_serializers'
+gem 'vuejs-rails'
 gem 'owlcarousel-rails'
 gem 'ratyrate'
 gem 'twitter-typeahead-rails'
 gem 'typeahead-addresspicker-rails'
+gem 'gmapsjs'
 
 # Tiny, fast & funny HTTP server
 gem 'thin'

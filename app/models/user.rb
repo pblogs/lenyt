@@ -74,7 +74,9 @@ class User < ActiveRecord::Base
   end
 
   def profile_picture
-    avatar.present? ? avatar : image_url
+    return avatar.url(:thumb) if avatar.present?
+    return image_url unless image_url.blank?
+    ActionController::Base.helpers.asset_path 'default_avatar.png'
   end
 
   def full_name

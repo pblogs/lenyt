@@ -13,6 +13,7 @@
 // = require jquery
 // = require jquery-ui
 // = require jquery_ujs
+// = require vue
 // = require dropzone
 // = require twitter/bootstrap
 // = require autocomplete-rails
@@ -29,6 +30,8 @@
 // = require twitter/typeahead
 // = require typeahead-addresspicker
 // = require map_options
+// = require gmapsjs
+// = require app/products
 
 jQuery(function () {
   $('a[rel~=popover], .has-popover').popover()
