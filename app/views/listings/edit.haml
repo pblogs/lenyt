@@ -1,5 +1,9 @@
+= content_for :gmap_api do
+  = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=el'
+
+= render 'assets'
 %section.content
   = form_for @product, url: listing_path(@product), html: {method: :put, multipart: true } do |f|
     = render 'shared/errors', resource: @product
     = render partial: 'form', locals: {f: f}
-    = f.submit "Update product", class: 'list-it col-xs-12 col-sm-12 col-md-12 col-lg-12 btn'
+    = f.submit "Update product", class: 'list-it col-xs-12 col-sm-12 col-md-12 col-lg-12 btn', id: 'new-listing'

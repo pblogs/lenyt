@@ -45,9 +45,14 @@ $(document).ready(function(){
     $(function() {
       var mediaDropzone;
       mediaDropzone = new Dropzone("#media-dropzone", {
-        paramName: "asset[image]",
+        paramName: "asset[image]"
       });
-      return mediaDropzone.on("success", function(file, response) {
+      var my_token = $('#my_unique_token').val();
+      mediaDropzone.on("sending", function(file, xhr, data) {
+        data.append("my_unique_token", my_token);
+      });
+
+      return mediaDropzone.on("success", function(file, response, data) {
         console.log(response);
         var _this = this;
         appendContent(response.url, response.id);
@@ -59,12 +64,10 @@ $(document).ready(function(){
     });
 
     var appendContent = function(imageUrl, mediaId) {
-      $("#media-contents").append('<div class="col-lg-4">' +
-        '<div class="thumbnail"><img src="' + imageUrl + '"/>' +
-        '<div class="caption">' +
-        '<input id="media_contents_" name="media_contents[]" value="' + mediaId +'" type="checkbox">' +
-        '</div>' +
-        '</div></div>');
+      $(".carousel-inner").append('<div class="carousel_slider item">' +
+        '<img src="' + imageUrl + '"/>' +
+        '<a data-method="delete" data-remote="true" href="/pictures/' + mediaId + '">' + "Remove file" + '</a>' +
+        '</div>');
       $("#delete").removeAttr('disabled');
       $("#no-media").html("");
     };

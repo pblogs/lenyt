@@ -1,3 +1,4 @@
+#vue-el
 %section.search-bar
   .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-2
     %input.drop{"data-toggle" => "dropdown", :placeholder => "category", :type => "text"}/
@@ -37,7 +38,8 @@
   .clear
 %section.content
   %aside.map-points.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
-    = image_tag('map-big.jpg')
+    #search_map
+    //= image_tag('map-big.jpg')
 
     .map-pointi
       .map-point

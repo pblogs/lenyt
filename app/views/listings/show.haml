@@ -1,24 +1,22 @@
 %section.content
-  %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
-    .price= raw("$#{@product.price_per_day}<span>per day</span>")
-    .slide-images
-      = image_tag('slide-image.jpg')
-      .slide-controls
-        %a{:href => "#"}
-          = image_tag('arrow-left.png')
-        %span 1/3
-        %a{:href => "#"}
-          = image_tag('arrow-right.png')
-    .product-title= @product.title
-  %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
+  .col-md-12
     .actions
+      .price
+        = number_to_currency(@product.price_per_day)
       .pick-date
         %input#dpd1{:placeholder => "From", :type => "text"}
         %input#dpd2{:placeholder => "To", :type => "text"}
       .total
         %ul
-          %li= raw("5<span>day(s)</span>")
-          %li= raw("$269<span>total</span>")
+          %li
+            = @product.total_days
+            %span='day(s)'
+          %li= raw("#{number_to_currency(@product.total_price)}<span>total</span>")
+  %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
+    .slide-images
+      = render 'slider'
+    .product-title= @product.title
+  %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
     .rit
       .gray-box
         .insurance
@@ -39,13 +37,11 @@
           %p.description Damage Waver: Covers this rental for its full duration. Requires a $450 hold on your credit card as a refundable deductible deposit.
       .user-req
         .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-4
-          = image_tag('emma.png', title: "Emma")
-          %span.user-name Emma
+          = user_avatar(@owner)
+          %span.user-name
+            = @owner.username
           .stars
-            %span.star-active.star
-            %span.star-active.star
-            %span.star-active.star
-            %span.star-inactive.star
+            = rating_for(@owner, 'trust')
         %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#"} Request
         .clear
         .message
@@ -60,7 +56,5 @@
     .rit
       .meet-location
         %h3.left Suggested Meetup
-        %h3.right Location:80 Church St. Toronto, ON, M2J 3X5
-      .map
-        = image_tag('map.jpg')
-
+        %h3.right=  @product.address
+      #map-canvas.map{data: {lng: @product.longitude, lat: @product.latitude, address: @product.address}}

@@ -1,49 +1,43 @@
-$(function() {
-  if ($( "#map" ).length > 0) {
-    var addresspicker = $( "#addresspicker" ).addresspicker({
-      componentsFilter: 'country:CA'
-    });
-    var addresspickerMap = $( "#product_address" ).addresspicker({
-      regionBias: "CA",
-      updateCallback: showCallback,
-      mapOptions: {
-        zoom: 12,
+$(function () {
+  if ($('#map').length > 0) {
+    var addressPicker = new AddressPicker({
+      map: {
+        id: '#map', displayMarker: true,
         center: new google.maps.LatLng(43.7182412, -79.378058),
-        scrollwheel: false,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoom: 12
       },
-      elements: {
-        map:      "#map",
-        lat:      "#product_latitude",
-        lng:      "#product_longitude",
-        //street_number: '#street_number',
-        //route: '#route',
-        locality: '#locality',
-        administrative_area_level_2: '#product_administrative_area_level_2',
-        administrative_area_level_1: '#product_administrative_area_level_1',
-        country:  '#product_country',
-        postal_code: '#product_postal_code',
-        type:    '#product_location_type'
+      marker: {
+        draggable: true,
+        visible: true
+      },
+      zoomForLocation: 12,
+      draggable: true,
+      reverseGeocoding: true,
+      autocompleteService: {
+        componentRestrictions: {
+          country: 'CA'
+        }
       }
-    });
+    })
 
-    var gmarker = addresspickerMap.addresspicker( "marker");
-
-    gmarker.setVisible(true);
-
-    addresspickerMap.addresspicker( "updatePosition");
-
-    $('#reverseGeocode').change(function(){
-      $("#product_address").addresspicker("option", "reverseGeocode", ($(this).val() === 'true'));
-    });
-
-    function showCallback(geocodeResult, parsedGeocodeResult){
-      $('#callback_result').text(JSON.stringify(parsedGeocodeResult, null, 4));
-    }
-    // Update zoom field
-    var map = $("#product_address").addresspicker("map");
-    google.maps.event.addListener(map, 'idle', function(){
-      $('#zoom').val(map.getZoom());
-    });
-  };
-});
+    $('#product_address').typeahead(null, {
+      displayKey: 'description',
+      source: addressPicker.ttAdapter()
+    })
+    addressPicker.bindDefaultTypeaheadEvent($('#product_address'))
+    $(addressPicker).on('addresspicker:selected', function (event, result) {
+      $('#product_latitude').val(result.lat())
+      $('#product_longitude').val(result.lng())
+      $('#product_address').val(result.address())
+      $('#product_locality').val(result.nameForType('locality'))
+      $('#product_administrative_area_level_2').val(result.nameForType('administrative_area_level_2'))
+      $('#product_administrative_area_level_1').val(result.nameForType('administrative_area_level_1'))
+      $('#product_country').val(result.nameForType('country'))
+      $('#product_postal_code').val(result.nameForType('postal_code'))
+      result.addressTypes().forEach(function (type) {
+        console.log('  ' + type + ': ' + result.nameForType(type))
+      })
+    })
+  }
+})
