@@ -1,0 +1,150 @@
+$(document).ready(function () {
+  if (!document.querySelector('[data-session-id]')) {
+    return
+  }
+  var socket = io('pub-redis-19539.us-east-1-4.3.ec2.garantiadata.com:19539')
+
+  socket.emit('login', document.querySelector('[data-session-id]').dataset.sessionId)
+  socket.on('messageGot', function (message) {
+    message.isLeft = true
+    vm.$data.messages.push(message)
+    setTimeout(scrollMessages)
+  })
+
+  Vue.filter('dateTime', function (date, format) {
+    return moment(date).format(format.replace(/'/g, ''))
+  })
+
+  window.vm = new Vue({
+    el: '#vue-el',
+    data: {
+      articleTitle: '',
+      sentOn: '',
+      days: 0,
+      total: 0,
+      conversationId: 0,
+      imageUrl: '',
+      messages: [],
+      message: ''
+    },
+    methods: {
+      sendMessage: function (event) {
+        if (event.keyCode === 13) {
+          sendMessage(event)
+        }
+      }
+    }
+  })
+
+  if ($('.message-board').length > 0) {
+    conversationId = $('.conversations_list').data('conversationId')
+    // subscribe to conversation channel
+    getMessages(
+      conversationId,
+      $('.conversations_list').data('userId')
+    )
+  // subscribeToChannel(conversationId)
+  }
+
+  $('ul.conversations_list li').click(function (event) {
+    if (!($(this).hasClass('active'))) {
+      $('.tab-content').css({opacity: '0.4',transition: '0.5'})
+      conversationId = $(this).data('conversationId')
+
+      getMessages(
+        conversationId,
+        $('.conversations_list').data('userId')
+      )
+    // subscribeToChannel(conversationId)
+    }
+  })
+
+  if ($('button.send').length > 0) {
+    $('button.send').on('click', sendMessage)
+  }
+})
+
+function sendMessage (event) {
+  event.preventDefault()
+  message = vm.$data.message
+  $.ajax({
+    url: '/messages',
+    type: 'POST',
+    dataType: 'json',
+    data: {
+      conversation_id: $('button.send').data('conversation-id'),
+      message: message
+    },
+  })
+    .done(function (response) {
+      console.log(response)
+      vm.$data.messages.push({
+        sender_name: 'You',
+        isLeft: false,
+        created_at: response.created_at,
+        body: response.message.body
+      })
+      vm.$data.message = ''
+      setTimeout(scrollMessages)
+    })
+    .fail(function (response) {
+      console.log('error')
+    })
+    .always(function (response) {
+      console.log('complete')
+    })
+}
+
+function subscribeToChannel (conversation_id) {
+  var channel = pusher.subscribe('conversation_' + conversation_id)
+  channel.bind('new-message', function (data) {
+    console.log(data)
+    console.log(data.sender_name)
+    currentUserId = $('.conversations_list').data('userId')
+
+    vm.$data.messages.push({
+      sender_name: ((currentUserId === data.sender_id) ? 'You' : data.sender_name),
+      isLeft: ((currentUserId === data.sender_id) ? false : true),
+      created_at: data.created_at,
+      body: data.body
+    })
+    vm.$data.message = ''
+    setTimeout(scrollMessages)
+  })
+}
+
+function getMessages (id, user_id) {
+  $.getJSON('conversations/' + id, {
+    format: 'json'
+  }).done(function ( data ) {
+    conversation = data.conversation
+
+    $.each(conversation.messages, function ( i, message ) {
+      if ( message.sender_id === user_id) {
+        message.isLeft = false
+        message.sender_name = 'You'
+      } else {
+        message.isLeft = true
+      }
+    })
+
+    vm.$data.articleTitle = conversation.request.article.title
+    vm.$data.sentOn = conversation.request.sent_on
+    vm.$data.days = conversation.request.days
+    vm.$data.total = conversation.request.total
+    vm.$data.messages = conversation.messages
+    vm.$data.imageUrl = conversation.request.image_url
+    vm.$data.conversationId = conversation.id
+    $('.tab-content').css('opacity', '1.0')
+    setTimeout(scrollMessages)
+  })
+}
+
+function scrollMessages () {
+  $('[data-toggle="popover"]').popover()
+  $('#tchat').mCustomScrollbar()
+
+  $('#tchat').mCustomScrollbar('scrollTo', 'bottom', {
+    scrollEasing: 'easeOut'
+  })
+}

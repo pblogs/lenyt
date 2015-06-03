@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-
   post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks',  registrations: 'users/registrations',  sessions: 'users/sessions' } do
     #match 'settings', to: 'users/registrations#settings', as: :settings, via: [:get]
@@ -8,8 +7,9 @@ Rails.application.routes.draw do
   match 'search', to: 'listings#search', as: 'search', via: [:get]
 
   match 'profile', to: 'users#profile', as: 'my_profile', via: [:get]
-  match 'messages', to: 'users#messages', as: 'my_messages', via: [:get]
 
+  resources :messages, only: [:index, :show, :create]
+  resources :conversations, only: [:index, :show]
   resources :users do
     collection do
       get :settings
@@ -20,6 +20,10 @@ Rails.application.routes.draw do
   resources :pictures
   resources :listings
   resources :products, only: [:index, :show]
+
+  authenticated do
+    root :to => 'listings#search', as: :authenticated
+  end
 
   root to: 'home_page#index'
 end

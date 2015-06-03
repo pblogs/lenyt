@@ -20,6 +20,11 @@ config/database.yml
 .ruby-version
 .idea/*
 passenger*
+node_modules
+
+# Frontend
+node_modules
+lenyt-app.js
 
 # Frontend
 node_modules

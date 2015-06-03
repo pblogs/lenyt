@@ -21,18 +21,19 @@
 // = require my_items
 // = require bootstrap-slider
 // = require bootstrap-datepicker
-// = require moment.min
+// = require moment
 // = require jquery.mCustomScrollbar.concat.min
 // = require custom
 // = require common
+// = require app/messages
 // = require jquery.daterangepicker
 // = require jquery.raty
 // = require ratyrate
 // = require twitter/typeahead
 // = require typeahead-addresspicker
 // = require map_options
-// = require gmapsjs
-// = require app/products
+// = require socket.io
+// = require jquery.cookie
 
 jQuery(function () {
   $('a[rel~=popover], .has-popover').popover()
