@@ -32,7 +32,6 @@
 // = require twitter/typeahead
 // = require typeahead-addresspicker
 // = require map_options
-// = require socket.io
 // = require jquery.cookie
 
 jQuery(function () {
