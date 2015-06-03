@@ -1,10 +1,5 @@
-var Vue = require('vue')
-
 document.addEventListener('DOMContentLoaded', function () {
-  Vue({
-    el: '#lenyt-vue',
-    data: {
-      tmp: 'hey'
-    }
-  })
+  if (document.getElementById('search_map')) {
+    return require('./pages/search/onload')
+  }
 })

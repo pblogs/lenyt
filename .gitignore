@@ -26,5 +26,9 @@ node_modules
 node_modules
 lenyt-app.js
 
+# Frontend
+node_modules
+lenyt-app.js
+
 # Ignore application configuration
 /config/application.yml
