@@ -2,7 +2,7 @@
   "name": "lenyt",
   "version": "0.1.0",
   "scripts": {
-    "start": "gem install bundler && bundle install && rails s",
+    "start": "gem install bundler && bundle install && rails s -p $PORT",
     "postinstall": "cd frontend && npm install"
   },
   "private": true
