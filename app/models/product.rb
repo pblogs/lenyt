@@ -29,7 +29,7 @@
 class Product < ActiveRecord::Base
   validates :title, presence: true
   validates :price_per_day, presence: true, numericality: {greater_than: 0}
-
+  acts_as_mappable
   acts_as_taggable
 
   belongs_to :user
@@ -46,11 +46,18 @@ class Product < ActiveRecord::Base
     end
   end
 
+  def main_image
+    return ActionController::Base.helpers.asset_path 'default_avatar.png' unless assets.any?
+    assets.first.image.url
+  end
+
   def total_days
+    return 0 unless end_at && available_at
     end_at.day - available_at.day
   end
 
   def total_price
+    return 0 unless total_days && price_per_day
     total_days * price_per_day
   end
 end

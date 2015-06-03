@@ -27,7 +27,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails4-autocomplete'
-gem 'mailboxer'
+gem 'mailboxer', :git => 'git://github.com/div/mailboxer.git', :branch => 'rails42-foreigner'
 gem "paperclip", "= 3.4.2"
 gem 'aws-sdk-v1'
 gem 'dropzonejs-rails'
