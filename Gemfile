@@ -14,7 +14,7 @@ gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer',  platforms: :ruby
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -27,6 +27,7 @@ gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'rails4-autocomplete'
+gem 'mailboxer'
 gem "paperclip", "= 3.4.2"
 gem 'aws-sdk-v1'
 gem 'dropzonejs-rails'
@@ -35,7 +36,11 @@ gem 'mandrill-rails'
 gem "font-awesome-rails"
 gem 'active_model_serializers'
 gem 'vuejs-rails'
+gem 'momentjs-rails'
+gem 'faker'
 gem 'owlcarousel-rails'
+gem 'socket.io-rails'
+gem 'redis'
 gem 'ratyrate'
 gem 'twitter-typeahead-rails'
 gem 'typeahead-addresspicker-rails'

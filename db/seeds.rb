@@ -5,6 +5,37 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+u1 = User.create!(
+  username: 'testuser1',
+  email: 'test1@mail.com',
+  password: 'lenyt2015',
+  password_confirmation: 'lenyt2015')
+u2 = User.create!(
+  username: 'testuser2',
+  email: 'test2@mail.com',
+  password: 'lenyt2015',
+  password_confirmation: 'lenyt2015')
+u3 = User.create!(
+  username: 'testuser3',
+  email: 'test3@mail.com',
+  password: 'lenyt2015',
+  password_confirmation: 'lenyt2015')
+
+u2.send_message(u1, Faker::Lorem.sentence(4, true, 4), 'new request')
+conversation = u2.mailbox.conversations.first
+
+15.times do
+  u1.reply_to_conversation(conversation, Faker::Lorem.sentence(4, true, 4))
+  u2.reply_to_conversation(conversation, Faker::Lorem.sentence(4, true, 4))
+end
+
+u3.send_message(u1, Faker::Lorem.sentence(4, true, 4), 'new request')
+conversation = u3.mailbox.conversations.first
+
+10.times do
+  u1.reply_to_conversation(conversation, Faker::Lorem.sentence(4, true, 4))
+  u3.reply_to_conversation(conversation, Faker::Lorem.sentence(4, true, 4))
+end
 
 user = User.first
 details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
@@ -161,4 +192,3 @@ products = Product.create([
     total_value: rand(200..500)
   }
 ])
-
