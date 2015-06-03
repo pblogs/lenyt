@@ -21,5 +21,9 @@ Rails.application.routes.draw do
   resources :listings
   resources :products, only: [:index, :show]
 
+  authenticated do
+    root :to => 'listings#search', as: :authenticated
+  end
+
   root to: 'home_page#index'
 end
