@@ -19,7 +19,10 @@ Rails.application.routes.draw do
   end
   resources :pictures
   resources :listings
-  resources :products, only: [:index, :show]
+
+  namespace :api do
+    resources :products, only: [:index, :show]
+  end
 
   authenticated do
     root :to => 'listings#search', as: :authenticated

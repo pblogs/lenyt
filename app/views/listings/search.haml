@@ -4,21 +4,11 @@
       %input.drop{"data-toggle" => "dropdown", :placeholder => "category", :type => "text"}/
       %ul.dropdown-menu.dropdown-menu-cat{"aria-labelledby" => "dLabel", :role => "menu"}
         %li
-          %a{:href => "#"} All
-        %li
-          %a{:href => "#"} Camera
-        %li
-          %a{:href => "#"} Lenses
-        %li
-          %a{:href => "#"} Audio
-        %li
-          %a{:href => "#"} External Recorders
-        %li
-          %a{:href => "#"} Tripods
-        %li
-          %a{:href => "#"} Rigs & Stabilizers
-        %li
-          %a{:href => "#"} Accessories
+          %a{href: "#"} All
+        - Category.order(name: :asc).each do |cat|
+          %li
+            %a{href: "#", data: {id: cat.id}}
+              =cat.name
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-4
       %input{"data-toggle" => "dropdown", :placeholder => "what", :type => "text"}/
       %ul.dropdown-menu.dropdown-menu-cat{"aria-labelledby" => "dLabel", :role => "menu"}

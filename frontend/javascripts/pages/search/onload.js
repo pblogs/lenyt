@@ -26,7 +26,7 @@ var v = new Vue({
   }
 })
 
-getJson('/products.json', function (err, prods) {
+getJson('/api/products.json', function (err, prods) {
   if (err) {
     return console.error(err)
   }
