@@ -13,6 +13,13 @@ class ProductSerializer < ActiveModel::Serializer
   end
 
   def user
-    object.user.profile_picture
+    {
+      avatar: object.user.profile_picture,
+      rating:
+      {
+        avg: object.user.trust_average.avg, # rand(1.0..5.0)
+        count: object.user.trust_average.qty
+      }
+    }
   end
 end

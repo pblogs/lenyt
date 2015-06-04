@@ -62,19 +62,17 @@
                 %a{:href => "#"} price (high to low)
               %li
                 %a{:href => "#"} proximity
-        .product-list{"v-repeat" => "products", "v-on" => "click: toggleActive", "v-class" => "transparent: !active", data: {index: "{{$index}}"}}
-          .product-description.col-xs-12.col-sm-12.col-md-12.col-lg-12
-            .img-content
-              = image_tag('small-img.jpg', "v-attr" => "src:image")
-            .product-title {{title}}
-            .user-line
-              .img-content
-                = image_tag('#', class: 'img-circle', "v-attr" => "src:user")
-              .stars
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-active.star
-                %span.star-inactive.star
-                %span (17)
-              .distance 15km
-          .product-price.col-xs-1.col-sm-1.col-md-1.col-lg-1 ${{price_per_day}}
+        #product-listing
+          .product-list{"v-repeat" => "products", "v-on" => "click: toggleActive", "v-class" => "transparent: !active", data: {index: "{{$index}}"}}
+            .product-description.col-xs-12.col-sm-12.col-md-12.col-lg-12
+              .img-content.product-avatar
+                = image_tag('small-img.jpg', "v-attr" => "src:image")
+              .product-title {{title}}
+              .user-line
+                .img-content
+                  = image_tag('#', class: 'img-circle search-user-avatar', "v-attr" => "src:user.avatar")
+                .stars
+                  %span.stars-active{"v-style" => "width:(user.rating.avg*20)+'px'"}
+                %span.rating_count ({{user.rating.count}})
+                .distance 15km
+            .product-price.col-xs-1.col-sm-1.col-md-1.col-lg-1 ${{price_per_day}}

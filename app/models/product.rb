@@ -47,8 +47,8 @@ class Product < ActiveRecord::Base
   end
 
   def main_image
-    return ActionController::Base.helpers.asset_path 'default_avatar.png' unless assets.any?
-    assets.first.image.url
+    return ActionController::Base.helpers.asset_path 'small-img.jpg' unless assets.any?
+    assets.first.image.url(:thumb)
   end
 
   def total_days

@@ -279,6 +279,9 @@ span.user-name {
 
 .stars {
   display: block;
+  height: 20px;
+  width: 100px;
+  background: image-url("star-inactive.png") repeat-x;
 }
 
 span.star {
@@ -287,8 +290,9 @@ span.star {
   display: inline-block;
 }
 
-span.star-active {
-  background: image-url("star-active.png") no-repeat;
+span.stars-active {
+  height: 20px;
+  background: image-url("star-active.png") repeat-x;
 }
 
 span.star-inactive {
@@ -544,6 +548,11 @@ div.range-sort .slider.slider-horizontal {
   }
 }
 
+.img-content.product-avatar{
+  height: 132px;
+  width: 145px;
+}
+
 .product-list .product-title {
   color: #000000;
   font-size: 25px;
@@ -580,10 +589,6 @@ div.stars span {
   background-position: left center
 }
 
-div.stars span:last-of-type {
-  padding-left: 4px;
-}
-
 .user-line {
   line-height: 50px;
   height: 50px;
@@ -614,9 +619,9 @@ div.stars span:last-of-type {
 
 .map-point {
   background: #ffffff;
-  padding: 5px 10px 5px 5px;
+  padding: 0;
   text-align: right;
-  min-width: 164px;
+  min-width: 130px;
 }
 
 .map-point img {
@@ -1720,4 +1725,17 @@ div.done a {
 
 .insurance {
   margin-top: 65px;
+}
+
+.search-user-avatar{
+  width: 50px;
+  height: 50px;
+}
+#product-listing{
+  height: 660px;
+  span.rating_count{
+    color: #000;
+    font-size: 16px;
+    font-family: "Helvetica Light", arial, sans-serif;
+  }
 }
