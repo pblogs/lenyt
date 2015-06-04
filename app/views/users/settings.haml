@@ -4,14 +4,14 @@
       .col-xs-4
         // Nav tabs
         %ul.nav.nav-tabs.tabs-left
-          %li.active= link_to raw("<span>Profile Settings</span>"), '#settings', {data: {toggle: 'tab'}}
+          %li= link_to raw("<span>Profile Settings</span>"), '#settings', {data: {toggle: 'tab'}}
           %li= link_to raw("<span>Payment Settings</span>"), '#payment', {data: {toggle: 'tab'}}
-          %li= link_to raw("<span>Notifications</span>"), '#notifications', {data: {toggle: 'tab'}}
+          %li.active= link_to raw("<span>Notifications</span>"), '#notifications', {data: {toggle: 'tab'}}
           %li= link_to raw("<span>Invite Friends</span>"), '#agreement', {data: {toggle: 'tab'}}
       .col-xs-8
         // Tab panes
         .tab-content
-          #settings.tab-pane.active
+          #settings.tab-pane
             = form_for current_user, url: user_path(current_user), html: { method: :put, id: 'user-form' } do |f|
               = render 'shared/errors', resource: current_user
               .user-changes.col-lg-12
@@ -50,5 +50,16 @@
           = render partial: "payment"
 
 
-          #notifications.tab-pane= "Notifications"
-          #agreement.tab-pane= "Agreement"
+          #notifications.tab-pane.active
+            %input#user_updates.css-checkbox.lrg{:checked => "checked", :type => "checkbox"}/
+            %label.css-label.css-checkbox.lrg.klaus{:for => "user_updates", :name => "updates"}
+              Newsletter
+              %br
+              %span.settings Receive periodic email updates from Lenyt about discounts and other goodies
+            %hr
+            %input#user_notifications.css-checkbox.lrg{:checked => "checked", :type => "checkbox"}/
+            %label.css-label.css-checkbox.lrg.klaus{:for => "user_notifications", :name => "nottifications"}
+              Messages
+              %br
+              %span.settings Receive email notifications when you receive a new message or request
+          #agreement.tab-pane= "Invite friends"
