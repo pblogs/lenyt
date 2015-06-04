@@ -52,7 +52,7 @@
                 %a{:href => "#"} price (high to low)
               %li
                 %a{:href => "#"} proximity
-        #product-listing
+        #product-listing{"v-on" => "scroll:scroll"}
           .product-list{"v-repeat" => "products", "v-on" => "click: toggleActive", "v-class" => "transparent: !active", data: {index: "{{$index}}"}}
             .product-description.col-xs-12.col-sm-12.col-md-12.col-lg-12
               .img-content.product-avatar
