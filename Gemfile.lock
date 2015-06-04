@@ -146,6 +146,7 @@ GEM
       railties (>= 3.2.16)
     json (1.8.3)
     jwt (1.5.0)
+    le (2.6.2)
     libv8 (3.16.14.7)
     loofah (2.0.2)
       nokogiri (>= 1.5.9)
@@ -342,6 +343,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   jquery-ui-rails
+  le
   mailboxer!
   mandrill-rails
   momentjs-rails
