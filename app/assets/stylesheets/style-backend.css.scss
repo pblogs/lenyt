@@ -1744,3 +1744,45 @@ div.done a {
   height: 660px;
   overflow: auto;
 }
+
+#media-contents {
+  position: relative;
+  .lenyt-slider {
+    height: 300px;
+    overflow: hidden;
+    width: 680px;
+    position: relative;
+    li {
+      height: 300px;
+      width: 680px;
+      position: absolute;
+      z-index: 0;
+      left: 680px;
+      top: 0;
+      transition: 1s all;
+      &.next {
+        height: 300px;
+        width: 680px;
+        position: absolute;
+        z-index: 1;
+      }
+      &.current {
+        left: 0!important;
+        height: 300px;
+        width: 680px;
+        position: absolute;
+        z-index: 1;
+      }
+      &.previous {
+        left: -680px;
+        height: 300px;
+        width: 680px;
+        position: absolute;
+        z-index: 1;
+      }
+    }
+  }
+  .slide-controls {
+    z-index: 2;
+  }
+}

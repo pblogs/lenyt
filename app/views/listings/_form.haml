@@ -1,45 +1,55 @@
-%aside.prod-reg.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
-  = f.text_field :title, class: 'meet-location inp-bg', placeholder: "Title"
-  = f.select :category_id, Category.all.map{|cat| [cat.name, cat.id]}, {include_blank: "Category"}, class: 'meet-location inp-bg'
-  /= f.text_field :category, class: 'meet-location inp-bg', placeholder: "Category"
-  .category-total
-    %span.meet-location.inp-bg.left.col-xs-12.col-sm-6.col-md-6.col-lg-8= "Price (per day)"
-    = f.text_field :price_per_day, class: 'meet-location left col-xs-12 col-sm-6 col-md-6 col-lg-4', placeholder: "$"
-    %span.meet-location.inp-bg.left.col-xs-12.col-sm-6.col-md-6.col-lg-8= "Total Equipment Value"
-    = f.text_field :total_value, class: 'meet-location left col-xs-12 col-sm-6 col-md-6 col-lg-4', placeholder: "$"
+#listings-edit-add-vue
+  %aside.prod-reg.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
+    = f.text_field :title, class: 'meet-location inp-bg', placeholder: "Title"
+    = f.select :category_id, Category.all.map{|cat| [cat.name, cat.id]}, {include_blank: "Category"}, class: 'meet-location inp-bg'
+    /= f.text_field :category, class: 'meet-location inp-bg', placeholder: "Category"
+    .category-total
+      %span.meet-location.inp-bg.left.col-xs-12.col-sm-6.col-md-6.col-lg-8= "Price (per day)"
+      = f.text_field :price_per_day, class: 'meet-location left col-xs-12 col-sm-6 col-md-6 col-lg-4', placeholder: "$"
+      %span.meet-location.inp-bg.left.col-xs-12.col-sm-6.col-md-6.col-lg-8= "Total Equipment Value"
+      = f.text_field :total_value, class: 'meet-location left col-xs-12 col-sm-6 col-md-6 col-lg-4', placeholder: "$"
 
-  = f.text_area :details, class: 'inp-bg', placeholder: "Details"
-  = f.text_field :tag_list, class: 'meet-location inp-bg', placeholder: 'Tags (separated by commas)'
-  .inp-bg
-    .top-calendar
-      .left= 'Availability'
-      .right
-        = f.check_box :is_available
-        = 'Available Forever'
+    = f.text_area :details, class: 'inp-bg', placeholder: "Details"
+    = f.text_field :tag_list, class: 'meet-location inp-bg', placeholder: 'Tags (separated by commas)'
+    .inp-bg
+      .top-calendar
+        .left= 'Availability'
+        .right
+          = f.check_box :is_available
+          = 'Available Forever'
+        .clear
+      = f.hidden_field :available_at
+      = f.hidden_field :end_at
+      #rangeCalendar
+      //.done.right== <a href="#">Done</a>
       .clear
-    = f.hidden_field :available_at
-    = f.hidden_field :end_at
-    #rangeCalendar
-    //.done.right== <a href="#">Done</a>
-    .clear
-%aside.listing.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
-  .rit
-    = link_to 'Add Pictures', '#', class: 'add-picture inp-bg', data: {toggle: 'modal', target: '#uploadAssets'}
-    //= render partial: 'listings/upload_assets', locals: {f: f}
-    .slide-images
-      = hidden_field_tag :my_unique_token, @my_unique_token
+  %aside.listing.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
+    .rit
+      = link_to 'Add Pictures', '#', class: 'add-picture inp-bg', data: {toggle: 'modal', target: '#uploadAssets'}
+      //= render partial: 'listings/upload_assets', locals: {f: f}
+      .slide-images
+        = hidden_field_tag :my_unique_token, @my_unique_token
 
-      //= image_tag('slide-image.jpg')
-      #media-contents
-        = render 'slider'
-    = f.text_field :address, class: 'meet-location inp-bg', placeholder: 'Meet Location', autocomplete: :off
-    .map-list#map
+        //= image_tag('slide-image.jpg')
+        #media-contents
+          %ul.lenyt-slider
+            %li{"v-repeat" => "images", "v-class" => "current:current, previous:previous, next:next"}
+              %img{"v-attr" => "src:url"}
+          .slide-controls{"v-class" => "hidden:imagesLength <= 1"}
+            = link_to image_tag('arrow-left.png'), '#', class: 'carousel_link', "v-on" => "click:prev"
+            %span
+              %span.current_slide> {{current+1}}
+              \/
+              %span.slides_count {{imagesLength}}
+            = link_to image_tag('arrow-right.png'), '#', class: 'carousel_link', "v-on" => "click:next"
+      = f.text_field :address, class: 'meet-location inp-bg', placeholder: 'Meet Location', autocomplete: :off
+      .map-list#map
 
-    = f.hidden_field :country
-    = f.hidden_field :postal_code
-    = f.hidden_field :locality
-    = f.hidden_field :latitude
-    = f.hidden_field :longitude
-    = f.hidden_field :administrative_area_level_2
-    = f.hidden_field :administrative_area_level_1
-    = f.hidden_field :location_type
+      = f.hidden_field :country
+      = f.hidden_field :postal_code
+      = f.hidden_field :locality
+      = f.hidden_field :latitude
+      = f.hidden_field :longitude
+      = f.hidden_field :administrative_area_level_2
+      = f.hidden_field :administrative_area_level_1
+      = f.hidden_field :location_type

@@ -64,12 +64,43 @@ $(document).ready(function(){
     });
 
     var appendContent = function(imageUrl, mediaId) {
-      $(".carousel-inner").append('<div class="carousel_slider item">' +
-        '<img src="' + imageUrl + '"/>' +
-        '<a data-method="delete" data-remote="true" href="/pictures/' + mediaId + '">' + "Remove file" + '</a>' +
-        '</div>');
-      $("#delete").removeAttr('disabled');
-      $("#no-media").html("");
+      vueInstance.$data.images.push({
+        url: imageUrl,
+        id: mediaId,
+        current: false,
+        previous: false,
+        next: false
+      })
+      vueInstance.$data.imagesLength = vueInstance.$data.images.length
+      vueInstance.$data.current = 0
+      var next = 1
+      var previous = vueInstance.$data.images.length-1
+      if (next>=vueInstance.$data.images.length) {
+        next = 0
+      }
+      if (previous<0) {
+        previous = vueInstance.$data.images.length-1
+      }
+      vueInstance.$data.images.forEach(function (image, ind) {
+        var type = ''
+        if (ind===0) {
+          type = 'current'
+        } else if (ind===next) {
+          type = 'next'
+        } else if (ind===previous) {
+          type = 'previous'
+        }
+        image.previous = false
+        image.current = false
+        image.next = false
+        image[type] = true
+      })
+      //$(".carousel-inner").append('<div class="carousel_slider item">' +
+      //  '<img src="' + imageUrl + '"/>' +
+      //  '<a data-method="delete" data-remote="true" href="/pictures/' + mediaId + '">' + "Remove file" + '</a>' +
+      //  '</div>');
+      //$("#delete").removeAttr('disabled');
+      //$("#no-media").html("");
     };
   };
 });
