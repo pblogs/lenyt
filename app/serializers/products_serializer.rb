@@ -1,8 +1,8 @@
-class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :title, :images, :price_per_day, :map, :user
+class ProductsSerializer < ActiveModel::Serializer
+  attributes :id, :title, :image, :price_per_day, :map, :user
 
-  def images
-    object.assets.map{|a| {url: a.image.url}}
+  def image
+    object.main_image
   end
 
   def map
