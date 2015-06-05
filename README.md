@@ -28,30 +28,33 @@
 ### response
 
 ```
-  [
-    {
-      "id":1,
-      "title":"Nikon 10",
-      "image":"/assets/small-img.jpg",
-      "price_per_day":20,
-      "map":{"lat":44.099421,"long":-79.793701}
-    },
-    {
-      "id":3,
-      "title":"Nikon 18",
-      "image":"/assets/small-img.jpg",
-      "price_per_day":12,
-      "map":{"lat":43.834527,"long":-79.689331}
-    },
-    {
-      "id":4,
-      "title":"Nikon 11",
-      "image":"/assets/small-img.jpg",
-      "price_per_day":16,
-      "map":{"lat":44.138856,"long":-79.337769}
-    }
-    ......
-  ]
+  {
+    "products":
+    [
+      {
+        "id":1,
+        "title":"Nikon 10",
+        "image":"/assets/small-img.jpg",
+        "price_per_day":20,
+        "map":{"lat":44.099421,"long":-79.793701}
+      },
+      {
+        "id":3,
+        "title":"Nikon 18",
+        "image":"/assets/small-img.jpg",
+        "price_per_day":12,
+        "map":{"lat":43.834527,"long":-79.689331}
+      },
+      {
+        "id":4,
+        "title":"Nikon 11",
+        "image":"/assets/small-img.jpg",
+        "price_per_day":16,
+        "map":{"lat":44.138856,"long":-79.337769}
+      }
+      ......
+    ]
+  }
 ```
 
 

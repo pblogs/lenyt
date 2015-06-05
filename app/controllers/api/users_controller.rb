@@ -8,7 +8,7 @@ module Api
     end
 
     def products
-      render json: current_user.products, each_serializer: UserProductsSerializer, root: nil
+      render json: current_user.products, each_serializer: UserProductsSerializer, root: 'products'
     end
   end
 end
