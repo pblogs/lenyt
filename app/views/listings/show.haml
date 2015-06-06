@@ -1,60 +1,71 @@
-%section.content
-  .col-md-12
-    .actions
-      .price
-        = number_to_currency(@product.price_per_day)
-      .pick-date
-        %input#dpd1{:placeholder => "From", :type => "text"}
-        %input#dpd2{:placeholder => "To", :type => "text"}
-      .total
-        %ul
-          %li
-            = @product.total_days
-            %span='day(s)'
-          %li= raw("#{number_to_currency(@product.total_price)}<span>total</span>")
-  %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
-    .slide-images
-      = render 'slider'
-    .product-title= @product.title
-  %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
-    .rit
-      .gray-box
-        .insurance
-          .col-xs-12.col-sm-6.col-md-6.col-lg-6
-            %h3.bold-text Choose Insurance:
-            %p.value-text= "Listing Value: $#{@product.total_value}"
-          .waver.col-xs-12.col-sm-6.col-md-3.col-lg-3
-            %h3 Damage Waver
-            .text-box.text-box-active
-              %span.price-num $19
-              %span.price-description $450 Refundable Deposit
-          .deposit.col-xs-12.col-sm-6.col-md-3.col-lg-3
-            %h3 Full Deposit
-            .text-box
-              %span.price-num $3000
-              %span.price-description Refundable Deposit
+#lenyt-vue-listings-show
+  %section.content
+    .col-md-12
+      .actions
+        .price {{product.price_per_day | currency}}
+        .pick-date
+          %input#dpd1{:placeholder => "From", :type => "text"}
+          %input#dpd2{:placeholder => "To", :type => "text"}
+        .total
+          %ul
+            %li
+              ='0'
+              %span='day(s)'
+            %li= raw("$0.00 <span>total</span>")
+    %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
+      .slide-images
+        #media-contents
+          %ul.lenyt-slider
+            %li{"v-repeat" => "product.images", "v-class" => "current:current, previous:previous, next:next"}
+              %img{"v-attr" => "src:url"}
+          .slide-controls{"v-class" => "hidden:imagesLength <= 1"}
+            = link_to image_tag('arrow-left.png'), '#', class: 'carousel_link', "v-on" => "click:prev"
+            %span
+              %span.current_slide> {{current+1}}
+              \/
+              %span.slides_count {{imagesLength}}
+            = link_to image_tag('arrow-right.png'), '#', class: 'carousel_link', "v-on" => "click:next"
+      .product-title {{product.title}}
+    %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
+      .rit
+        .gray-box
+          .insurance
+            .col-xs-12.col-sm-6.col-md-6.col-lg-6
+              %h3.bold-text Choose Insurance:
+              %p.value-text= "Listing Value: {{product.total_value | currency}}"
+            .waver.col-xs-12.col-sm-6.col-md-3.col-lg-3
+              %h3 Damage Waver
+              .text-box.text-box-active
+                %span.price-num $19
+                %span.price-description $450 Refundable Deposit
+            .deposit.col-xs-12.col-sm-6.col-md-3.col-lg-3
+              %h3 Full Deposit
+              .text-box
+                %span.price-num $3000
+                %span.price-description Refundable Deposit
+            .clear
+            %p.description Damage Waver: Covers this rental for its full duration. Requires a $450 hold on your credit card as a refundable deductible deposit.
+        .user-req
+          .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-4
+            %img.img-circle.img-url{alt:'', src: '', 'v-attr' => 'src:product.user.avatar'}
+            -#= user_avatar(@owner)
+            %span.user-name {{product.user.name}}
+            .stars.ml60
+              %span.stars-active{"v-style" => "width:(rating*20)+'px'"}
+              .over{"v-on" => "mousemove:star, mouseout:resetStar"}
+          %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#"} Request
           .clear
-          %p.description Damage Waver: Covers this rental for its full duration. Requires a $450 hold on your credit card as a refundable deductible deposit.
-      .user-req
-        .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-4
-          = user_avatar(@owner)
-          %span.user-name
-            = @owner.username
-          .stars
-            = rating_for(@owner, 'trust')
-        %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#"} Request
-        .clear
-        .message
-          Your credit card will not be charged until the user accepts your request. You can always view and cancel your requests from the
-          %a{:href => "#"} Message
-          board.
-%section.content.table-type
-  %aside.product-details.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
-    .prov
-      %p= @product.details
-  %aside.map-side.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
-    .rit
-      .meet-location
-        %h3.left Suggested Meetup
-        %h3.right=  @product.address
-      #map-canvas.map{data: {lng: @product.longitude, lat: @product.latitude, address: @product.address}}
+          .message
+            Your credit card will not be charged until the user accepts your request. You can always view and cancel your requests from the
+            %a{:href => "#"} Message
+            board.
+  %section.content.table-type
+    %aside.product-details.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
+      .prov
+        %p {{product.details}}
+    %aside.map-side.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
+      .rit
+        .meet-location
+          %h3.left Suggested Meetup
+          %h3.right=  @product.address
+        #map-canvas.map{data: {lng: @product.longitude, lat: @product.latitude, address: @product.address}}

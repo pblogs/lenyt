@@ -5,4 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (document.getElementById('listings-edit-add-vue')) {
     return require('./pages/listings/add-edit/onload')
   }
+  if (document.getElementById('lenyt-vue-listings-show')) {
+    return require('./pages/listings/show/onload')
+  }
 })
