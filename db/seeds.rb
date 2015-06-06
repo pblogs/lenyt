@@ -192,3 +192,10 @@ products = Product.create([
     total_value: rand(200..500)
   }
 ])
+
+products.each do |p|
+  Asset.create(image: File.new("#{Rails.root}/db/seed/slider1.png"), attachable_type: 'Product', attachable_id: p.id)
+  Asset.create(image: File.new("#{Rails.root}/db/seed/slider2.png"), attachable_type: 'Product', attachable_id: p.id)
+  Asset.create(image: File.new("#{Rails.root}/db/seed/slider3.jpg"), attachable_type: 'Product', attachable_id: p.id)
+  Asset.create(image: File.new("#{Rails.root}/db/seed/slider4.jpg"), attachable_type: 'Product', attachable_id: p.id)
+end

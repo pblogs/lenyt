@@ -78,6 +78,7 @@
       {"url":"/system/assets/images/000/000/003/original/slider3.jpg?1433499702"},
       {"url":"/system/assets/images/000/000/004/original/slider5.jpg?1433499705"}
     ],
+    "total_value":487,
     "price_per_day":18,
     "map":{"lat":43.747289,"long":-80.079346},
     "user":
