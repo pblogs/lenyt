@@ -89,3 +89,17 @@
     }
   }
 ```
+# POST rate user
+
+### request
+
+`/api/rate/`
+
+### params
+`{"score"=>"3", "dimension"=>"trust", "id"=>"1", "klass"=>"User"}`
+
+### response
+
+```
+  true || false
+```

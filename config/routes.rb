@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  post '/rate' => 'rater#create', :as => 'rate'
   devise_for :users, controllers: { omniauth_callbacks: 'callbacks',  registrations: 'users/registrations',  sessions: 'users/sessions' } do
     #match 'settings', to: 'users/registrations#settings', as: :settings, via: [:get]
   end
@@ -22,6 +21,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     get '/users/current'
+    post '/rate' => 'rater#create', :as => 'rate'
     resources :users, only: [:show] do
       member do
         get 'products'
