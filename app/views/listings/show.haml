@@ -52,7 +52,7 @@
             %span.user-name {{product.user.name}}
             .stars.ml60
               %span.stars-active{"v-style" => "width:(rating*20)+'px'"}
-              .over{"v-on" => "mousemove:star, mouseout:resetStar"}
+              .over{"v-on" => "mousemove:star, mouseout:resetStar, click:vote"}
           %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#"} Request
           .clear
           .message

@@ -1,8 +1,12 @@
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :title, :images, :total_value, :price_per_day, :map, :user, :details
+  attributes :id, :title, :images, :total_value, :price_per_day, :map, :user, :details, :voted
 
   def images
     object.assets.map{|a| {url: a.image.url}}
+  end
+
+  def voted
+    true
   end
 
   def map
@@ -14,6 +18,7 @@ class ProductSerializer < ActiveModel::Serializer
 
   def user
     {
+      id: object.user.id,
       name: object.user.username,
       avatar: object.user.profile_picture,
       rating:
