@@ -27,10 +27,11 @@
 #
 
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :title, :voted, :details, :images, :total_value, :price_per_day, :map, :user
+  attributes :id, :title, :voted, :details, :request_sent,
+        :images, :total_value, :price_per_day, :map, :user
 
   def images
-    object.assets.map{|a| {url: a.image.url}}
+    object.assets.map { |a| { url: a.image.url } }
   end
 
   def voted
@@ -44,10 +45,14 @@ class ProductSerializer < ActiveModel::Serializer
     }
   end
 
+  def request_sent
+    serialization_options[:request_sent]
+  end
+
   def user
     owner = serialization_options[:owner]
     {
-      id: object.user.id,
+      id: owner.id,
       name: owner.username,
       avatar: owner.profile_picture,
       rating:

@@ -8,6 +8,7 @@
 #  amount         :string           default("0")
 #  rent_from_date :date
 #  rent_to_date   :date
+#  insurance      :integer
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #
@@ -18,11 +19,16 @@ class Request < ActiveRecord::Base
 
   after_create :init_conversation
 
-  validates :rentee_id, :product_id, :renter_id, presence: true
+  validates :rentee_id, :product_id, :renter_id, :insurance, presence: true
   validates :amount, presence: true, numericality: { greater_than: 0 }
-  validates :rent_from_date, :rent_to_date, date: true
+  validates :rent_from_date, date: true
 
   validates :rent_to_date, date: { after: :rent_from_date }
+
+  INSURANCE = {
+    1 => 'Damage Waver',
+    2 => 'Full Deposit'
+  }
 
   def init_conversation
     subject = "request for #{product.title}"

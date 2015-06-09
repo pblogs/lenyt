@@ -5,13 +5,13 @@ module Api
     respond_to :json
 
     def show
-      render json: @product
+      render json: @request
     end
 
     def create
       @request = Request.new(request_params)
       if @request.save
-        render json: 'success'
+        render json: {status: 'success'}
       else
         render json: @request.errors
       end
@@ -20,7 +20,7 @@ module Api
     private
 
     def load_request
-      @product = Product.find(params[:id])
+      @request = Request.find(params[:id])
     end
 
     def request_params
@@ -30,7 +30,8 @@ module Api
         :product_id,
         :amount,
         :rent_from_date,
-        :rent_to_date)
+        :rent_to_date,
+        :insurance)
     end
   end
 end

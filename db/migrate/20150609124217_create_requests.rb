@@ -7,6 +7,7 @@ class CreateRequests < ActiveRecord::Migration
       t.string :amount, default: 0
       t.date :rent_from_date
       t.date :rent_to_date
+      t.integer :insurance
 
       t.timestamps null: false
     end

@@ -161,6 +161,7 @@ ActiveRecord::Schema.define(version: 20150609124217) do
     t.string   "amount",         default: "0"
     t.date     "rent_from_date"
     t.date     "rent_to_date"
+    t.integer  "insurance"
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end

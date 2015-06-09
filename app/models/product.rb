@@ -46,8 +46,7 @@ class Product < ActiveRecord::Base
   end
 
   def main_image
-    asset_path = ActionController::Base.helpers.asset_path
-    return  asset_path 'small-img.jpg' unless assets.any?
+    return  ActionController::Base.helpers.asset_path 'small-img.jpg' unless assets.any?
     assets.first.image.url(:thumb)
   end
 

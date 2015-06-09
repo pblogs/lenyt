@@ -15,8 +15,15 @@ module Api
       voted = Rate.where(
         rater_id: current_user.id, rateable_id: owner.id
       ).present? ? true : false
+      request_sent = Request.where(
+        renter_id: owner.id,
+        rentee_id: current_user.id
+      ).present? ? true : false
 
-      render json: @product, voted: voted, owner: owner
+      render json: @product,
+        voted: voted,
+        owner: owner,
+        request_sent: request_sent
     end
 
     private

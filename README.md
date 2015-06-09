@@ -66,6 +66,7 @@
     "title":"Nikon 17",
     "voted":true,
     "details": "Lorem Ipsum is simply dummy text of the printing and typesetting................",
+    "request_sent": false,
     "images":[
       {"url":"/system/assets/images/000/000/001/original/slider1.png?1433499688"},
       {"url":"/system/assets/images/000/000/002/original/slider2.png?1433499699"},
@@ -109,6 +110,38 @@
 {"request"=>{"renter_id"=>"1", "rentee_id"=>"2", "amount"=>"150", "rent_from_date"=>"2015-06-09", "rent_to_date"=>"2015-06-30"}}
 ```
 ### response
+#### success
 ```
-  {"rentee_id":["can't be blank"],"product_id":["can't be blank"],"renter_id":["can't be blank"],"amount":["can't be blank","is not a number"],"rent_from_date":["is not a date"],"rent_to_date":["is not a date","is not a date"]}
+{
+"status": "success"
+}
+```
+#### fail
+```
+  {"rentee_id":["can't be blank"],"product_id":["can't be blank"],"renter_id":["can't be blank"],"amount":["can't be blank","is not a number"],"rent_from_date":["is not a date"],"rent_to_date":["is not a date"], "insurance":["can't be blank"]}
+```
+## request info [:GET]
+`/api/requests/:id`
+
+### response
+```
+{
+  "request": {
+  "id": 2,
+  "amount": "150",
+  "rent_from_date": "2015-06-09",
+  "rent_to_date": "2015-07-09",
+  "insurance": "Full Deposit",
+  "renter": {
+    "id": 1,
+    "email": "rmagnum2002@gmail.com",
+    "username": "rmagnum2002"
+    },
+  "rentee": {
+    "id": 2,
+    "email": "test1@mail.com",
+    "username": "testuser1"
+    }
+  }
+}
 ```
