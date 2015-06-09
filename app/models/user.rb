@@ -62,10 +62,11 @@ class User < ActiveRecord::Base
   has_many :sent_requests, class_name: 'Request', foreign_key: :rentee_id
 
   def self.from_omniauth(auth)
+    username = User.parse_username(auth.info.name, auth.provider)
     user_hash = {
       first_name: auth.info.first_name,
       last_name: auth.info.last_name,
-      username: auth.info.name,
+      username: username,
       image_url: auth.info.image,
       address: auth.info.address,
       email: auth.info.email,
@@ -76,6 +77,10 @@ class User < ActiveRecord::Base
     user = find_or_initialize_by(provider: auth.provider, uid: auth.uid)
     user.update_attributes(user_hash)
     user
+  end
+
+  def self.parse_username(string, provider)
+    (provider == 'google_oauth2') ? string[/\(.*?\)/].gsub('(', '').gsub(')', '') : auth.info.name
   end
 
   def profile_picture
