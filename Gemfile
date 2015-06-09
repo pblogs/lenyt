@@ -45,6 +45,8 @@ gem 'twitter-typeahead-rails'
 gem 'typeahead-addresspicker-rails'
 gem 'gmapsjs'
 gem 'will_paginate', '~> 3.0.6'
+
+# logentries gem
 gem 'le', group: :production
 
 # Tiny, fast & funny HTTP server
