@@ -3,7 +3,7 @@
 # Table name: products
 #
 #  id                          :integer          not null, primary key
-#  title                       :string(255)
+#  title                       :string
 #  price_per_day               :integer          default(0)
 #  total_value                 :integer          default(0)
 #  details                     :text
@@ -14,16 +14,16 @@
 #  updated_at                  :datetime
 #  user_id                     :integer
 #  category_id                 :integer
-#  address                     :string(255)
+#  address                     :string
 #  latitude                    :float
 #  longitude                   :float
 #  gmaps                       :boolean
-#  postal_code                 :string(255)
-#  country                     :string(255)
-#  locality                    :string(255)
-#  administrative_area_level_2 :string(255)
-#  administrative_area_level_1 :string(255)
-#  location_type               :string(255)
+#  postal_code                 :string
+#  country                     :string
+#  locality                    :string
+#  administrative_area_level_2 :string
+#  administrative_area_level_1 :string
+#  location_type               :string
 #
 
 class Product < ActiveRecord::Base
