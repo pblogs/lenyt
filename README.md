@@ -1,12 +1,5 @@
 # API DOCS #
-<a name="top"></a>
 
-#### [User](#user)
-#### [Product](#product)
-#### [Rate](#rate)
-#### [Request](#request)
-
-<a name="user"></a>
 # User resource
 
 ## current_user info [:GET]
@@ -59,8 +52,7 @@
   }
 ```
 
-<a name="product"></a>
-# Product resource [go to top](#top)
+# Product resource
 
 ## product info [:GET]
 `/api/products/:id.json`
@@ -90,8 +82,7 @@
   }
 ```
 
-<a name="rate"></a>
-# Rate resource [go to top](#top)
+# Rate resource
 
 ## create [:POST]
 `/api/rate/`
@@ -105,8 +96,7 @@
   true || false
 ```
 
-<a name="request"></a>
-# Request resource [go to top](#top)
+# Request resource
 
 ## create [:POST]
 `/api/requests`
