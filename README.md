@@ -64,6 +64,8 @@
   {
     "id":2,
     "title":"Nikon 17",
+    "voted":true,
+    "details": "Lorem Ipsum is simply dummy text of the printing and typesetting................",
     "images":[
       {"url":"/system/assets/images/000/000/001/original/slider1.png?1433499688"},
       {"url":"/system/assets/images/000/000/002/original/slider2.png?1433499699"},

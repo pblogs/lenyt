@@ -27,14 +27,14 @@
 #
 
 class ProductSerializer < ActiveModel::Serializer
-  attributes :id, :title, :images, :total_value, :price_per_day, :map, :user, :details, :voted
+  attributes :id, :title, :voted, :details, :images, :total_value, :price_per_day, :map, :user
 
   def images
     object.assets.map{|a| {url: a.image.url}}
   end
 
   def voted
-    true
+    serialization_options[:voted]
   end
 
   def map
@@ -45,13 +45,14 @@ class ProductSerializer < ActiveModel::Serializer
   end
 
   def user
+    owner = serialization_options[:owner]
     {
       id: object.user.id,
-      name: object.user.username,
-      avatar: object.user.profile_picture,
+      name: owner.username,
+      avatar: owner.profile_picture,
       rating:
       {
-        avg: (object.user.trust_average ? object.user.trust_average.avg : 0), # rand(1.0..5.0)
+        avg: (owner.trust_average ? owner.trust_average.avg : 0),
         count: (object.user.trust_average ?  object.user.trust_average.qty : 0)
       }
     }

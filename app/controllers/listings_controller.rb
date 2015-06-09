@@ -8,7 +8,6 @@ class ListingsController < ApplicationController
   end
 
   def show
-    @owner = @product.user
   end
 
   def search

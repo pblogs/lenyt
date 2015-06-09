@@ -11,8 +11,12 @@ module Api
 
     def show
       # TODO: Send owner as parameter to serializer
-      @owner = @product.user
-      render json: @product
+      owner = @product.user
+      voted = Rate.where(
+        rater_id: current_user.id, rateable_id: owner.id
+      ).present? ? true : false
+
+      render json: @product, voted: voted, owner: owner
     end
 
     private
