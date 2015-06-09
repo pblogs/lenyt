@@ -1,28 +1,30 @@
-# README #
+# API DOCS #
+<a name="top"></a>
 
-# GET current_user info
+#### [User](#user)
+#### [Product](#product)
+#### [Rate](#rate)
+#### [Request](#request)
 
-### request
+<a name="user"></a>
+# User resource
 
+## current_user info [:GET]
 `/api/users/current.json`
 
 ### response
 
 ```
 {
-  "first_name":"Sergiu",
-  "last_name":"Rosca",
-  "username":"Sergiu Rosca (rmagnum2002)",
+  "first_name":"John",
+  "last_name":"Doe",
+  "username":"John Doe (johndoe)",
   "address":null,
-  "email":"usermail@gmail.com",
-  "avatar":"https://lh6.googleusercontent.com/-DUfJtXdmzqg/AAAAAAAAAAI/AAAAAAAAAG8/CbpdcyzgZ2I/photo.jpg?sz=50"
+  "email":"johndoe@gmail.com",
+  "avatar":"https://lh6.googleusercontent.com/-DUfJtXdmzqg/CbpdcydfgzgSZ2I/photo.jpg?sz=50"
 }
 ```
-
-# GET user products list
-
-### request
-
+## user products list [:GET]
 `/api/users/:id/products.json`
 
 ### response
@@ -57,15 +59,13 @@
   }
 ```
 
+<a name="product"></a>
+# Product resource [go to top](#top)
 
-# GET product info
-
-### request
-
+## product info [:GET]
 `/api/products/:id.json`
 
 ### response
-
 ```
 {
   "product":
@@ -89,10 +89,11 @@
     }
   }
 ```
-# POST rate user
 
-### request
+<a name="rate"></a>
+# Rate resource [go to top](#top)
 
+## create [:POST]
 `/api/rate/`
 
 ### params
@@ -102,4 +103,20 @@
 
 ```
   true || false
+```
+
+<a name="request"></a>
+# Request resource [go to top](#top)
+
+## create [:POST]
+`/api/requests`
+
+### params
+
+```
+{"request"=>{"renter_id"=>"1", "rentee_id"=>"2", "amount"=>"150", "rent_from_date"=>"2015-06-09", "rent_to_date"=>"2015-06-30"}}
+```
+### response
+```
+  success || fail
 ```
