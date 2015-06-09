@@ -5,11 +5,12 @@ module Api
     respond_to :json
 
     def index
-      @products = Product.paginate(:page => params[:page], :per_page => 6)
+      @products = Product.paginate(page: params[:page], per_page: 6)
       render json: @products, each_serializer: ProductsSerializer
     end
 
     def show
+      # TODO: Send owner as parameter to serializer
       @owner = @product.user
       render json: @product
     end

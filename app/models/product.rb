@@ -25,10 +25,9 @@
 #  administrative_area_level_1 :string
 #  location_type               :string
 #
-
 class Product < ActiveRecord::Base
   validates :title, presence: true
-  validates :price_per_day, presence: true, numericality: {greater_than: 0}
+  validates :price_per_day, presence: true, numericality: { greater_than: 0 }
   acts_as_mappable
   acts_as_taggable
 
@@ -47,7 +46,8 @@ class Product < ActiveRecord::Base
   end
 
   def main_image
-    return ActionController::Base.helpers.asset_path 'small-img.jpg' unless assets.any?
+    asset_path = ActionController::Base.helpers.asset_path
+    return  asset_path 'small-img.jpg' unless assets.any?
     assets.first.image.url(:thumb)
   end
 
