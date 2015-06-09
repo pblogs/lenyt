@@ -13,7 +13,7 @@ module Api
       if @request.save
         render json: 'success'
       else
-        render json: 'fail'
+        render json: @request.errors
       end
     end
 
@@ -27,6 +27,7 @@ module Api
       params.require(:request).permit(
         :renter_id,
         :rentee_id,
+        :product_id,
         :amount,
         :rent_from_date,
         :rent_to_date)

@@ -45,6 +45,7 @@ gem 'twitter-typeahead-rails'
 gem 'typeahead-addresspicker-rails'
 gem 'gmapsjs'
 gem 'will_paginate', '~> 3.0.6'
+gem 'date_validator'
 
 # logentries gem
 gem 'le', group: :production

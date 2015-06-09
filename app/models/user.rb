@@ -58,6 +58,8 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /^image\/(png|gif|jpeg|jpg)/
 
   has_many :products
+  has_many :requests, foreign_key: :renter_id
+  has_many :sent_requests, class_name: 'Request', foreign_key: :rentee_id
 
   def self.from_omniauth(auth)
     user_hash = {
