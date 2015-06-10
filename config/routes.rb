@@ -29,6 +29,7 @@ Rails.application.routes.draw do
     end
     resources :products, only: [:index, :show]
     resources :requests
+    resources :conversations, only: [:index, :show]
   end
 
   authenticated do

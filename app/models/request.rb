@@ -33,7 +33,7 @@ class Request < ActiveRecord::Base
   def init_conversation
     subject = "request for #{product.title}"
     rentee.send_message(
-      renter, 'Hi, I am interested to rent this!', subject
+      renter, 'Hi, I am interested to rent this!', subject, id
     )
   end
 end

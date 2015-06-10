@@ -123,7 +123,7 @@
 ## request info [:GET]
 `/api/requests/:id`
 
-### response
+### success response
 ```
 {
   "request": {
@@ -143,5 +143,137 @@
     "username": "testuser1"
     }
   }
+}
+```
+### fail response
+```
+{
+  "status": "not found"
+}
+```
+
+
+# Conversation resource
+
+## current user conversations [:GET]
+`/api/conversations`
+
+### response
+```
+{
+  "conversations": [
+    {
+    "id": 10,
+    "created_at": "2015-06-10T10:10:46.518Z",
+    "request": {
+      "id": 8,
+      "amount": "150",
+      "rent_from_date": "2015-06-09",
+      "rent_to_date": "2015-07-09",
+      "insurance": "Full Deposit",
+      "renter": {
+      "first_name": "Sergiu",
+      "last_name": "Rosca",
+      "username": "rmagnum2002",
+      "address": null,
+      "email": "rmagnum2002@gmail.com",
+      "avatar": "https://lh6.googleusercontent.com/-DUfJtXdmzqg/AAAAAAAAAAI/AAAAAAAAAG8/CbpdcyzgZ2I/photo.jpg?sz=50",
+        "rating": {
+          "avg": 3.5,
+          "count": 2
+        }
+      },
+      "rentee": {
+      "first_name": null,
+      "last_name": null,
+      "username": "testuser1",
+      "address": null,
+      "email": "test1@mail.com",
+      "avatar": "/assets/default_avatar.png",
+        "rating": {
+          "avg": 0,
+          "count": 0
+        }
+      },
+      "product": {
+        "id": 15,
+        "title": "Nikon 18",
+        "image": "/system/assets/images/000/000/057/thumb/slider1.png?1433860867"
+      }
+    },
+    "messages": [
+      {
+        "id": 60,
+        "body": "Hi, I am interested to rent this!",
+        "sender_name": "testuser1",
+        "sender_id": 2,
+        "created_at": "2015-06-10T10:10:46.518Z"
+      }
+    ]
+    }
+  ]
+}
+```
+## conversation info [:GET]
+`/api/conversations/:id`
+
+### success response
+```
+{
+  "conversation": {
+    "id": 10,
+    "created_at": "2015-06-10T10:10:46.518Z",
+    "request": {
+      "id": 8,
+      "amount": "150",
+      "rent_from_date": "2015-06-09",
+      "rent_to_date": "2015-07-09",
+      "insurance": "Full Deposit",
+      "renter": {
+        "first_name": "Sergiu",
+        "last_name": "Rosca",
+        "username": "rmagnum2002",
+        "address": null,
+        "email": "rmagnum2002@gmail.com",
+        "avatar": "https://lh6.googleusercontent.com/-DUfJtXdmzqg/AAAAAAAAAAI/AAAAAAAAAG8/CbpdcyzgZ2I/photo.jpg?sz=50",
+          "rating": {
+            "avg": 3.5,
+            "count": 2
+          }
+        },
+      "rentee": {
+        "first_name": null,
+        "last_name": null,
+        "username": "testuser1",
+        "address": null,
+        "email": "test1@mail.com",
+        "avatar": "/assets/default_avatar.png",
+        "rating": {
+          "avg": 0,
+          "count": 0
+        }
+      },
+      "product": {
+        "id": 15,
+        "title": "Nikon 18",
+        "image": "/system/assets/images/000/000/057/thumb/slider1.png?1433860867"
+      }
+    },
+    "messages": [
+      {
+      "id": 60,
+      "body": "Hi, I am interested to rent this!",
+      "sender_name": "testuser1",
+      "sender_id": 2,
+      "created_at": "2015-06-10T10:10:46.518Z"
+      }
+    ]
+  }
+}
+```
+### fail response
+```
+{
+  "status": "not found"
 }
 ```

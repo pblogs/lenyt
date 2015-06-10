@@ -21,5 +21,6 @@ module Lenyt
     # config.i18n.default_locale = :de
 
     config.serve_static_files = true
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end

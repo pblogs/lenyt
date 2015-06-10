@@ -21,6 +21,8 @@ module Api
 
     def load_request
       @request = Request.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+        return render json: { status: 'not found' }
     end
 
     def request_params

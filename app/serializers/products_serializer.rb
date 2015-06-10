@@ -17,7 +17,7 @@ class ProductsSerializer < ActiveModel::Serializer
       avatar: object.user.profile_picture,
       rating:
       {
-        avg: (object.user.trust_average ? object.user.trust_average.avg : 0), # rand(1.0..5.0)
+        avg: (object.user.trust_average ? object.user.trust_average.avg : 0),
         count: (object.user.trust_average ?  object.user.trust_average.qty : 0)
       }
     }
