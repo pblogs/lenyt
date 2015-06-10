@@ -1,5 +1,5 @@
 %section.content
-  #vue-el.col-sm-12.message-board
+  #vue-el.col-sm-12.message-board{data: {session_id: request.session_options[:id]}}
     - if @conversations.any?
       .col-xs-6
         / required for floating
@@ -36,7 +36,7 @@
                 .request-info
                   Request for: {{articleTitle}}
                 .request-info
-                  Request sent on {{sentOn}}
+                  Request sent on {{sentOn | dateTime 'DD/MM/YYYY'}}
               .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
                 {{days}} days
                 %span ${{total}}
@@ -48,7 +48,7 @@
                 .chat-message-content{'v-repeat' => 'messages'}
                   .message-details.col-sm-6{'v-class' => 'left: isLeft, right: !isLeft'}
                     .chat-name.left {{sender_name}}
-                    .chat-date.right {{created_at}}
+                    .chat-date.right {{created_at | dateTime 'MMMM DD - h:mm a'}}
                     .clear
                   .clear
                   .col-sm-6{'v-class' => '"from-me": !isLeft, "from-them": isLeft'}
@@ -56,7 +56,7 @@
                   .clear
 
             .type-side
-              %textarea.col-sm-10#new_message{:placeholder => "type...", 'v-model' => 'message'}
+              %textarea.col-sm-10#new_message{:placeholder => "type...", 'v-model' => 'message', 'v-on' => 'keydown: sendMessage'}
               %button.col-sm-2.send{data: {conversation_id: "{{conversationId}}"}} send
               .clear
             .clear
