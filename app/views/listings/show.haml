@@ -1,4 +1,9 @@
 #lenyt-vue-listings-show
+  .noticesWrapper.col-md-12.col-xs-12.col-sm-12{style:'float:none', "v-class" => "hide: alertMessage === ''"}
+    .alert.alert-success
+      %a.close{"v-on" => "click:closeAlert"}
+        %i.fa.fa-times
+      %span {{alertMessage}}
   %section.content
     .col-md-12
       .actions
@@ -9,9 +14,13 @@
         .total
           %ul
             %li
-              ='0'
+              ='{{days}}'
               %span='day(s)'
-            %li= raw("$0.00 <span>total</span>")
+            %li
+              %span{"v-class" => "hide: insurance === 1"} {{product.total_value | currency}}
+              %span{"v-class" => "hide: insurance === 2"} {{dw + (product.total_value / 4) | currency}}
+              = raw(" ")
+              %span.small total
     %aside.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
       .slide-images
         #media-contents
@@ -35,12 +44,12 @@
               %p.value-text= "Listing Value: {{product.total_value | currency}}"
             .waver.col-xs-12.col-sm-6.col-md-3.col-lg-3
               %h3 Damage Waver
-              .text-box.text-box-active
+              .text-box{"v-on" => "click: insuranceDW", "v-class" => "'text-box-active': insurance === 1"}
                 %span.price-num {{dw | currency}}
                 %span.price-description {{product.total_value / 4 | currency}} Refundable Deposit
             .deposit.col-xs-12.col-sm-6.col-md-3.col-lg-3
               %h3 Full Deposit
-              .text-box
+              .text-box{"v-on" => "click: insuranceFD", "v-class" => "'text-box-active': insurance === 2"}
                 %span.price-num {{product.total_value | currency}}
                 %span.price-description Refundable Deposit
             .clear
@@ -53,7 +62,7 @@
             .stars.ml60
               %span.stars-active{"v-style" => "width:(rating*20)+'px'"}
               .over{"v-on" => "mousemove:star, mouseout:resetStar, click:vote"}
-          %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#"} Request
+          %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#", "v-on" => "click: request"} Request
           .clear
           .message
             Your credit card will not be charged until the user accepts your request. You can always view and cancel your requests from the

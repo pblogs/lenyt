@@ -16,7 +16,10 @@ var v = new Vue({
     current: 0,
     imagesLength: 0,
     rating: 0,
-    dw: 0
+    dw: 0,
+    days: 0,
+    insurance: 1,
+    alertMessage: ''
   },
   methods: {
     next: function () {
@@ -65,6 +68,36 @@ var v = new Vue({
         }
       }, function () {
       })
+    },
+    insuranceDW: function () {
+      v.$data.insurance = 1
+    },
+    insuranceFD: function () {
+      v.$data.insurance = 2
+    },
+    request: function () {
+      if (v.$data.days === 0) {
+        return
+      }
+      request({
+        method: 'POST',
+        uri: '/api/requests',
+        headers: {
+          'X-Csrf-Token': csrfToken
+        },
+        json: {
+          product_id: v.$data.product.id,
+          amount: '150',
+          rent_from_date: getYMD(dateFrom),
+          rent_to_date: getYMD(dateTo),
+          insurance: v.$data.insurance
+        }
+      }, function () {
+        v.$data.alertMessage = 'Request sent, no error handling ^_^'
+      })
+    },
+    closeAlert: function () {
+      v.$data.alertMessage = ''
     }
   }
 })
@@ -91,11 +124,27 @@ var calculateDw = function () {
   var to = dateTo.getTime()
   if (from >= to || from <= Date.now()) {
     v.$data.dw = 0
+    v.$data.days = 0
     return
   }
 
   var daily = v.$data.product.price_per_day
-  v.$data.dw = daily * 0.15 + ((to - from) / 86400000) * daily * 0.03 // 86400000ms in 24 hours
+  var days = ((to - from) / 86400000) // 86400000ms in 24 hours
+  v.$data.days = days
+  v.$data.dw = daily * 0.15 + days * daily * 0.03
+}
+
+var getYMD = function (date) {
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+  if (month < 10) {
+    month = '0' + month
+  }
+  if (day < 10) {
+    day = '0' + day
+  }
+  return year + '-' + month + '-' + day
 }
 
 request({
