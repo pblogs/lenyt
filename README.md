@@ -78,6 +78,8 @@
     "map":{"lat":43.747289,"long":-80.079346},
     "user":
       {
+        "id":1,
+        "name":"testuser1",
         "avatar":"https://lh6.googleusercontent.com/-DUfJtXdmzqg/AAAAAAAAAAI/AAAAAAAAAG8/CbpdcyzgZ2I/photo.jpg?sz=50",
         "rating":{"avg":0,"count":0}
       }
@@ -107,7 +109,16 @@
 ### params
 
 ```
-{"request"=>{"renter_id"=>"1", "rentee_id"=>"2", "amount"=>"150", "rent_from_date"=>"2015-06-09", "rent_to_date"=>"2015-06-30"}}
+{
+  "request"=>
+  {
+    "product_id"=>"1",
+    "amount"=>"150",
+    "rent_from_date"=>"2015-06-09",
+    "rent_to_date"=>"2015-06-30",
+    "insurance"=>"1"
+  }
+}
 ```
 ### response
 #### success

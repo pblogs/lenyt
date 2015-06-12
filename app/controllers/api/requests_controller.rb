@@ -9,11 +9,15 @@ module Api
     end
 
     def create
-      @request = Request.new(request_params)
-      if @request.save
+      product = Product.find(params[:request][:product_id])
+      request = Request.new(request_params)
+      request.rentee_id = current_user.id
+      request.renter_id = product.user_id
+
+      if request.save
         render json: {status: 'success'}
       else
-        render json: @request.errors
+        render json: request.errors
       end
     end
 
@@ -27,8 +31,6 @@ module Api
 
     def request_params
       params.require(:request).permit(
-        :renter_id,
-        :rentee_id,
         :product_id,
         :amount,
         :rent_from_date,
