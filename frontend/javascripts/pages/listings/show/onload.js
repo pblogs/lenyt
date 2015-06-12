@@ -1,6 +1,8 @@
 var Vue = require('vue')
 var request = require('browser-request')
 var csrfToken = document.querySelector('[name="csrf-token"]').content
+var dateFrom = new Date()
+var dateTo = new Date()
 
 var id = window.location.pathname.match(/\/([^\/]*)\/?$/)[1]
 
@@ -13,7 +15,8 @@ var v = new Vue({
     product: {},
     current: 0,
     imagesLength: 0,
-    rating: 0
+    rating: 0,
+    dw: 0
   },
   methods: {
     next: function () {
@@ -83,6 +86,18 @@ var setImage = function (index) {
   })
 }
 
+var calculateDw = function () {
+  var from = dateFrom.getTime()
+  var to = dateTo.getTime()
+  if (from >= to || from <= Date.now()) {
+    v.$data.dw = 0
+    return
+  }
+
+  var daily = v.$data.product.price_per_day
+  v.$data.dw = daily * 0.15 + ((to - from) / 86400000) * daily * 0.03 // 86400000ms in 24 hours
+}
+
 request({
   uri: '/api/products/' + id + '.json',
   json: true
@@ -100,4 +115,13 @@ request({
   v.$data.rating = data.product.user.rating.avg
   realRating = data.product.user.rating.avg
   v.$data.imagesLength = data.product.images.length
+})
+
+window.jQuery('#dpd1').val('').datepicker().on('changeDate', function (e) {
+  dateFrom = e.date
+  calculateDw()
+})
+window.jQuery('#dpd2').val('').datepicker().on('changeDate', function (e) {
+  dateTo = e.date
+  calculateDw()
 })
