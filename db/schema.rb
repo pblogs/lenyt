@@ -159,12 +159,12 @@ ActiveRecord::Schema.define(version: 20150610084927) do
     t.integer  "renter_id"
     t.integer  "rentee_id"
     t.integer  "product_id"
-    t.string   "amount",         default: "0"
+    t.decimal  "amount",         precision: 8, scale: 2
     t.date     "rent_from_date"
     t.date     "rent_to_date"
     t.integer  "insurance"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
   end
 
   create_table "taggings", force: :cascade do |t|

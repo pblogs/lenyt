@@ -113,7 +113,6 @@
   "request"=>
   {
     "product_id"=>"1",
-    "amount"=>"150",
     "rent_from_date"=>"2015-06-09",
     "rent_to_date"=>"2015-06-30",
     "insurance"=>"1"
@@ -129,7 +128,7 @@
 ```
 #### fail
 ```
-  {"rentee_id":["can't be blank"],"product_id":["can't be blank"],"renter_id":["can't be blank"],"amount":["can't be blank","is not a number"],"rent_from_date":["is not a date"],"rent_to_date":["is not a date"], "insurance":["can't be blank"]}
+  {"rentee_id":["can't be blank"],"product_id":["can't be blank"],"renter_id":["can't be blank"],"amount":["can't be blank","is not a number"],"rent_from_date":["is not a date"],"rent_to_date":["is not a date"], "insurance":["can't be blank"],"errors":["You can't send request to yourself"]}
 ```
 ## request info [:GET]
 `/api/requests/:id`

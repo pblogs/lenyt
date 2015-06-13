@@ -24,6 +24,7 @@ class Request < ActiveRecord::Base
   validates :rent_from_date, date: true
 
   validates :rent_to_date, date: { after: :rent_from_date }
+  validate :request_to_himself, on: :create
 
   INSURANCE = {
     1 => 'Damage Waver',
@@ -35,5 +36,10 @@ class Request < ActiveRecord::Base
     rentee.send_message(
       renter, 'Hi, I am interested to rent this!', subject, id
     )
+  end
+
+  private
+  def request_to_himself
+    (errors[:errors] << "You can't send request to yourself") if self.renter_id == self.rentee_id
   end
 end
