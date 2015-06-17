@@ -7,7 +7,7 @@ var redisSub = redis.createClient(19539, 'pub-redis-19539.us-east-1-4.3.ec2.gara
 })
 var server = http.createServer()
 
-server.listen(9000)
+server.listen(process.env.PORT || 9000)
 
 var io = socketIo.listen(server)
 io.sockets.setMaxListeners(0)
