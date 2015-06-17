@@ -6,7 +6,7 @@ module Api
 
     def index
       @conversations = current_user.mailbox.conversations
-      render json: @conversations
+      render json: @conversations, current_user: current_user
     end
 
     def show

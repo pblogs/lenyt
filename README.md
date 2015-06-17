@@ -175,6 +175,10 @@
     {
     "id": 10,
     "created_at": "2015-06-10T10:10:46.518Z",
+    "participant":{
+      "avatar":"/assets/default_avatar.png",
+      "username":"testuser1"
+    },
     "request": {
       "id": 8,
       "amount": "150",
