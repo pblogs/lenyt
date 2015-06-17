@@ -179,6 +179,7 @@
       "avatar":"/assets/default_avatar.png",
       "username":"testuser1"
     },
+    "options":{"request_buttons":false},
     "request": {
       "id": 8,
       "amount": "150",
