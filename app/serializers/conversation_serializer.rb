@@ -5,6 +5,7 @@ class ConversationSerializer < ActiveModel::Serializer
   has_many :messages
 
   def options
+    return {request_buttons: false} unless object.request
     {
       request_buttons: object.request.renter == serialization_options[:current_user]
     }
