@@ -1,67 +1,61 @@
 %section.content
-  #vue-el.col-sm-12.message-board{data: {session_id: request.session_options[:id]}}
-    - if @conversations.any?
-      .col-xs-6
-        / required for floating
-        / Nav tabs
-        %ul.nav.nav-tabs.tabs-left.conversations_list{data: {conversation_id: @conversations.first.id, user_id: current_user.id}}
-          - @conversations.each_with_index do |c, index|
-            %li{class: ('active' if index ==0), data: {conversation_id: c.id, user_id: current_user.id}}
-              %a{"data-toggle" => "tab", :href => "#home"}
-                .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
-                  .img-content
-                    %span.redc
-                      = c.count_messages
-                    = user_avatar(c.originator)
-                  %span.user-name
-                    =c.originator.full_name
-                  .stars
-                    %span.star-active.star
-                    %span.star-active.star
-                    %span.star-active.star
-                    %span.star-inactive.star
-                    %span (17)
-                .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
-                  Request sent on #{ c.created_at.strftime('%d/%m/%Y') }
+  #vue-messages.col-sm-12.message-board{data: {session_id: request.session_options[:id]}}
+    /- if @conversations.any?
+    .col-xs-6
+      / required for floating
+      / Nav tabs
+      %ul.nav.nav-tabs.tabs-left.conversations_list{data: {conversation_id: @conversations.first.id, user_id: current_user.id}}
+        /- @conversations.each_with_index do |c, index|    {class: ('active' if index ==0), data: {conversation_id: c.id, user_id: current_user.id}}
+        %li{"v-repeat" => "conversations"}
+          %a{:href => "#home"}
+            .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
+              .img-content
+                %span.redc
+                  /= c.count_messages
+                /= user_avatar(c.originator)
+              %span.user-name {{participant.username}}
+              .stars
+            .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
+              Request sent on
+            .clear
+    .col-xs-6
+      / Tab panes
+      .tab-content
+        #home.tab-pane.active
+          .chat-line-product.col-sm-12
+            .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
+              .img-content
+                -# = image_tag('small-img.jpg')
+                %img{:alt => "Small img", :src => "{{imageUrl}}"}/
+              .request-info
+                Request for: {{articleTitle}}
+              .request-info
+                Request sent on {{sentOn | dateTime 'DD/MM/YYYY'}}
+            .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
+              {{days}} days
+              %span ${{total}}
+            %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+            %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+          .clear
+          .chat-messages.col-sm-12
+            #tchat.chat-height.mCustomScrollbar
+              .chat-message-content{'v-repeat' => 'messages'}
+                .message-details.col-sm-6{'v-class' => 'left: isLeft, right: !isLeft'}
+                  .chat-name.left {{sender_name}}
+                  .chat-date.right {{created_at | dateTime 'MMMM DD - h:mm a'}}
+                  .clear
                 .clear
-      .col-xs-6
-        / Tab panes
-        .tab-content
-          #home.tab-pane.active
-            .chat-line-product.col-sm-12
-              .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
-                .img-content
-                  -# = image_tag('small-img.jpg')
-                  %img{:alt => "Small img", :src => "{{imageUrl}}"}/
-                .request-info
-                  Request for: {{articleTitle}}
-                .request-info
-                  Request sent on {{sentOn | dateTime 'DD/MM/YYYY'}}
-              .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
-                {{days}} days
-                %span ${{total}}
-              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-            .clear
-            .chat-messages.col-sm-12
-              #tchat.chat-height.mCustomScrollbar
-                .chat-message-content{'v-repeat' => 'messages'}
-                  .message-details.col-sm-6{'v-class' => 'left: isLeft, right: !isLeft'}
-                    .chat-name.left {{sender_name}}
-                    .chat-date.right {{created_at | dateTime 'MMMM DD - h:mm a'}}
-                    .clear
-                  .clear
-                  .col-sm-6{'v-class' => '"from-me": !isLeft, "from-them": isLeft'}
-                    %p {{body}}
-                  .clear
+                .col-sm-6{'v-class' => '"from-me": !isLeft, "from-them": isLeft'}
+                  %p {{body}}
+                .clear
 
-            .type-side
-              %textarea.col-sm-10#new_message{:placeholder => "type...", 'v-model' => 'message', 'v-on' => 'keydown: sendMessage'}
-              %button.col-sm-2.send{data: {conversation_id: "{{conversationId}}"}} send
-              .clear
+          .type-side
+            %textarea.col-sm-10#new_message{:placeholder => "type...", 'v-model' => 'message', 'v-on' => 'keydown: sendMessage'}
+            %button.col-sm-2.send{data: {conversation_id: "{{conversationId}}"}} send
             .clear
-    - else
-      %center
-        %h2 Nothing to view here
-        %p You'll see your requests here when you have any.
+          .clear
+    /- else
+    %center
+      %h2 Nothing to view here
+      %p You'll see your requests here when you have any.
     .clear

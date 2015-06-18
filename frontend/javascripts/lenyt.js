@@ -8,4 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (document.getElementById('lenyt-vue-listings-show')) {
     return require('./pages/listings/show/onload')
   }
+  if (document.getElementById('vue-messages')) {
+    return require('./pages/messages/onload')
+  }
 })
