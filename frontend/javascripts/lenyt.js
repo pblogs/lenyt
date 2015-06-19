@@ -1,4 +1,8 @@
+/* global io */
 document.addEventListener('DOMContentLoaded', function () {
+  var socket = io('lenyt-node.herokuapp.com')
+  socket.emit('login', document.querySelector('[data-session-id]').dataset.sessionId)
+  window.socket = socket
   if (document.getElementById('search_map')) {
     return require('./pages/search/onload')
   }
@@ -7,5 +11,8 @@ document.addEventListener('DOMContentLoaded', function () {
   }
   if (document.getElementById('lenyt-vue-listings-show')) {
     return require('./pages/listings/show/onload')
+  }
+  if (document.getElementById('vue-messages')) {
+    return require('./pages/messages/onload')
   }
 })
