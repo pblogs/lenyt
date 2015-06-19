@@ -1,6 +1,6 @@
 /* global io */
 document.addEventListener('DOMContentLoaded', function () {
-  var socket = io('localhost:9000')
+  var socket = io('lenyt-node.herokuapp.com')
   socket.emit('login', document.querySelector('[data-session-id]').dataset.sessionId)
   window.socket = socket
   if (document.getElementById('search_map')) {
