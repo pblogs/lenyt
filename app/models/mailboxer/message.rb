@@ -10,19 +10,20 @@ class Mailboxer::Message < Mailboxer::Notification
   after_create :publish_messages
 
   def publish_messages
-    recipients = self.recipients.delete(self.sender)
-    recipient = conv.participants.first
-
-
-      Socket.send('message', {
+    sender = self.sender
+    recipient = self.recipients.first
+    data = {
       recipient_id: recipient.id,
       recipient_name: recipient.full_name,
-      sender_id: message.sender_id,
-      sender_name: message.sender.full_name,
-      body: message.body,
-      created_at: message.created_at,
-      id: message.id
-    }.to_json )
+      sender_id: sender.id,
+      sender_name: sender.full_name,
+      body: self.body,
+      created_at: self.created_at,
+      id: self.id
+    }
+
+    SocketIo.send(sender.id, 'message', data)
+    SocketIo.send(recipient.id, 'message', data)
   end
 
   protected :on_deliver_callback

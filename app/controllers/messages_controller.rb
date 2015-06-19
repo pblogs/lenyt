@@ -15,15 +15,15 @@ class MessagesController < ApplicationController
     conv.participants.delete(current_user)
     recipient = conv.participants.first
 
-    $redis.publish('message', {
-      recipient_id: recipient.id,
-      recipient_name: recipient.full_name,
-      sender_id: message.sender_id,
-      sender_name: message.sender.full_name,
-      body: message.body,
-      created_at: message.created_at,
-      id: message.id
-    }.to_json )
+    # $redis.publish('message', {
+    #   recipient_id: recipient.id,
+    #   recipient_name: recipient.full_name,
+    #   sender_id: message.sender_id,
+    #   sender_name: message.sender.full_name,
+    #   body: message.body,
+    #   created_at: message.created_at,
+    #   id: message.id
+    # }.to_json )
     # Pusher.trigger("conversation_#{conv.id}", 'new-message',
     # {
     #   sender_id: message.sender_id,

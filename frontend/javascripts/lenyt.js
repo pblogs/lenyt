@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   var socket = io('localhost:9000')
-  console.log(document.querySelector('[data-session-id]').dataset.sessionId)
   socket.emit('login', document.querySelector('[data-session-id]').dataset.sessionId)
+  window.socket = socket
   if (document.getElementById('search_map')) {
     return require('./pages/search/onload')
   }

@@ -50,8 +50,8 @@
                 .clear
 
           .type-side
-            %textarea.col-sm-10#new_message{:placeholder => "type...", 'v-model' => 'message', 'v-on' => 'keydown: sendMessage'}
-            %button.col-sm-2.send{data: {conversation_id: "{{conversationId}}"}} send
+            %textarea.col-sm-10{:placeholder => "type...", 'v-model' => 'message', 'v-on' => 'keydown: sendMessageOnEnter'}
+            %button.col-sm-2.send{'v-on' => 'click: sendMessage'} send
             .clear
           .clear
     /- else
