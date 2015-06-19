@@ -10,6 +10,6 @@ test:
   db: 1
 #  namespace: appname_test
 production:
-  db: 2
+  db: 0
   host: pub-redis-19539.us-east-1-4.3.ec2.garantiadata.com
 #  namespace: appname_prod
