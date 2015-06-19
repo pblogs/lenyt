@@ -1,17 +1,12 @@
 %section.content
   #vue-messages.col-sm-12.message-board{data: {session_id: request.session_options[:id]}}
-    /- if @conversations.any?
     .col-xs-6
-      / required for floating
-      / Nav tabs
-      %ul.nav.nav-tabs.tabs-left.conversations_list{data: {conversation_id: @conversations.first.id, user_id: current_user.id}}
-        /- @conversations.each_with_index do |c, index|    {class: ('active' if index ==0), data: {conversation_id: c.id, user_id: current_user.id}}
+      %ul.nav.nav-tabs.tabs-left.conversations_list
         %li{"v-repeat" => "conversations", "v-class" => "active: id === current.id"}
           %a{:href => "#home", "v-on" => "click: switchConversation($index)", data: {index: "{{$index}}"}}
             .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
               .img-content
                 %span.redc
-                /= user_avatar(c.originator)
                 %img.img-circle.avatar{"v-attr" => "src: participant.avatar", height: '50px', width: '50px', }
               %span.user-name {{participant.username}}
               .stars
@@ -19,13 +14,11 @@
               Request sent on {{created_at | dateTime 'DD/MM/YYYY'}}
             .clear
     .col-xs-6
-      / Tab panes
       .tab-content
         #home.tab-pane.active
           .chat-line-product.col-sm-12{"v-class" => "hide: !current.options.request_buttons"}
             .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
               .img-content
-                -# = image_tag('small-img.jpg')
                 %img{:alt => "Small img", :src => "{{current.participant.avatar}}"}/
               .request-info
                 Request for: {{current.request.product.title}}
@@ -54,8 +47,7 @@
             %button.col-sm-2.send{'v-on' => 'click: sendMessage'} send
             .clear
           .clear
-    /- else
-    %center
+    %center{'v-class' => 'hide: !conversations.length'}
       %h2 Nothing to view here
       %p You'll see your requests here when you have any.
     .clear

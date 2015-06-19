@@ -80,7 +80,8 @@ class User < ActiveRecord::Base
   end
 
   def self.parse_username(string, provider)
-    (provider == 'google_oauth2') ? string[/\(.*?\)/].gsub('(', '').gsub(')', '') : auth.info.name
+    # (provider == 'google_oauth2') ? string[/\(.*?\)/].gsub('(', '').gsub(')', '') : auth.info.name
+    auth.info.name
   end
 
   def profile_picture
