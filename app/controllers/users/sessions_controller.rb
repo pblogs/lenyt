@@ -1,6 +1,7 @@
 class Users::SessionsController < Devise::SessionsController
   respond_to :js
   layout false, only: :create
+  skip_before_filter :publish_session
 
   def new
     super
