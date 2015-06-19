@@ -1,3 +1,4 @@
+/* global io */
 document.addEventListener('DOMContentLoaded', function () {
   var socket = io('localhost:9000')
   socket.emit('login', document.querySelector('[data-session-id]').dataset.sessionId)

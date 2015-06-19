@@ -1,10 +1,10 @@
+/* global $ socket */
 var request = require('browser-request')
 var Vue = require('vue')
 var moment = require('moment')
-var _ = require('lodash')
 var csrfToken = document.querySelector('[name="csrf-token"]').content
 
-function scrollMessages() {
+function scrollMessages () {
   setTimeout(function () {
     $('[data-toggle="popover"]').popover()
 
@@ -30,7 +30,6 @@ function sendMessage (event) {
     }
   }, function () {})
 }
-
 
 Vue.filter('dateTime', function (date, format) {
   return moment(date).format(format.replace(/'/g, ''))
@@ -97,12 +96,6 @@ request({
         conversation.messages.push(newMessage)
       })
 
-
-      //if (v.$data.current.participant.username !== chatUserName) {
-      //  return
-      //}
-      //
-      //v.$data.current.messages.push(newMessage)
       scrollMessages()
     })
   })
