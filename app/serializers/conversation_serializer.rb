@@ -12,9 +12,8 @@ class ConversationSerializer < ActiveModel::Serializer
   end
 
   def participant
-    require 'pry'
-    binding.pry
-    user = object.participants.delete(serialization_options[:current_user])
+    object.participants.delete(serialization_options[:current_user])
+    user = object.participants[0]
     participant = {
       avatar: user.profile_picture,
       username: user.username
