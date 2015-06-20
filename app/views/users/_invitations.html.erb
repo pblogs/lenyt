@@ -1,10 +1,35 @@
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : <%= ENV['lenyt_facebook_key'] %>,
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 <center>
   <h4><%= t "devise.invitations.new.header" %></h4>
-  <div class="facebook">
-    <a href="#" class='logo'>
+  <br>
+  <ul class="facebook">
+    <li href="#" class='fb_logo'>
       <i class="fa fa-facebook"></i>
-    </a>
-  </div>
+    </li>
+    <li class='fb_share'>
+      Share
+    </li>
+    <li class='fb_like'>
+      Like
+    </li>
+  </ul>
 </center>
 
 <hr class='black'>
@@ -23,3 +48,18 @@
   <p><%= f.submit t("devise.invitations.new.submit_button"), class: 'list-it col-xs-12 col-sm-12 col-md-12 col-lg-12 btn', id: 'new-listing' %></p>
 <% end %>
 <div class="clearfix"></div>
+
+<script type="text/javascript">
+  $('li.fb_share').click(function(event) {
+    FB.ui({
+      method: 'share_open_graph',
+      action_type: 'og.likes',
+      action_properties: JSON.stringify({
+        object:'http://lenyt-dev.herokuapp.com/',
+      })
+    }, function(response){
+      // Debug response (optional)
+      console.log(response);
+    });
+  });
+</script>

@@ -118,7 +118,29 @@ img.img-circle.img-url.user-avatar {
   textarea:focus{
     outline: 0;
   }
-  .facebook{}
+  ul.facebook{
+    display: inline-flex;
+    li{
+      background-color: #4B66A1;
+      color: #fff;
+    }
+    li.fb_share:hover, li.fb_like:hover{background-color: #6A82B5;}
+    li.fb_logo{
+      height: 40px;
+      width: 30px;
+      font-size: 20px;
+      padding: 6px;
+    }
+    li.fb_share, li.fb_like {
+      margin-left: 2px;
+      text-align: center;
+      width: 70px;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 40px;
+      cursor: pointer;
+    }
+  }
 }
 .noresize {
   resize: none;
