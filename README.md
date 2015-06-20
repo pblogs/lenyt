@@ -51,11 +51,24 @@
     ]
   }
 ```
+# Tag resource
+
+## tag listings [:GET]
+`/api/products/:id.json`
+
+### response
+```
+{"tags":[
+      {"id":1,"name":"nikon","taggings_count":123},
+      {"id":2,"name":"leica","taggings_count":10}
+    ]
+}
+```
 
 # Product resource
 
 ## product info [:GET]
-`/api/products/:id.json`
+`/api/tags.json`
 
 ### response
 ```
