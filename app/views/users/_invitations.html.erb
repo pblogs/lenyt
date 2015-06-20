@@ -41,10 +41,10 @@
 
   <ul>
     <li v-repeat="mails">
-      <span v-class="hide: status !== -1">fail</span>
-      <span v-class="hide: status !== 1">success</span>
       <span>{{value}}</span>
-      <span v-on="click: removeMail($index)">remove</span>
+      <span v-on="click: removeMail($index)" v-class="hide: status !== 0" style="cursor:pointer">Remove</span>
+      <span v-class="hide: status !== -1">{{message}}</span>
+      <span v-class="hide: status !== 1">Success</span>
     </li>
   </ul>
 

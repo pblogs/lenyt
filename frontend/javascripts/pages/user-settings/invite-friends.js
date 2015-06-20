@@ -10,13 +10,8 @@ var v = new Vue({
   },
   methods: {
     switchOnComma: function (e) {
-      console.log(e.keyCode)
       if (e.keyCode === 188) {
-        v.$data.mails.push({
-          value: v.$data.mail.replace(/\s|,/g, ''),
-          status: 0
-        })
-        v.$data.mail = ''
+        addMail()
       }
     },
     removeMail: function (index) {
@@ -25,12 +20,14 @@ var v = new Vue({
     sendMails: function (e) {
       e.preventDefault()
 
-      v.$data.mails.push({
-        value: v.$data.mail.replace(/\s|,/g, ''),
-        status: 0
-      })
-      v.$data.mail = ''
+      if (addMail()) {
+        return
+      }
+
       v.$data.mails.forEach(function (mail) {
+        if (mail.status !== 0) {
+          return
+        }
         request({
           method: 'POST',
           uri: '/users/invitation',
@@ -51,6 +48,7 @@ var v = new Vue({
           if (data.success) {
             mail.status = 1
           } else {
+            mail.message = data.errors.email[0]
             mail.status = -1
           }
         })
@@ -58,3 +56,23 @@ var v = new Vue({
     }
   }
 })
+
+var addMail = function () {
+  var mail = v.$data.mail.replace(/\s|,/g, '')
+  if (!mail.length) {
+    return false
+  }
+  for (var i = 0, l = v.$data.mails.length; i < l; i++) {
+    if (v.$data.mails[i].value === mail) {
+      v.$data.mail = ''
+      return false
+    }
+  }
+  v.$data.mails.push({
+    value: mail,
+    status: 0,
+    message: ''
+  })
+  v.$data.mail = ''
+  return true
+}
