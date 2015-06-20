@@ -103,3 +103,26 @@ span.twitter-typeahead {
 img.img-circle.img-url.user-avatar {
   height: 50px;
 }
+#invitations{
+  #new-listing {
+    height: 30px;
+    line-height: 32px;
+    font-size: 20px;
+    font-weight: 800;
+    border-radius: 0px;
+  }
+  #user_email{
+    border: 1px solid #999999;
+    border-radius: 0px;
+  }
+  textarea:focus{
+    outline: 0;
+  }
+  .facebook{}
+}
+.noresize {
+  resize: none;
+}
+hr.black {
+  border-top: 1px solid #242424;
+}

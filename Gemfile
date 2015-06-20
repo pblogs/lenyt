@@ -23,6 +23,7 @@ gem 'jquery-ui-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
+gem 'devise_invitable', '~> 1.3.4'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'acts-as-taggable-on', '~> 3.4'

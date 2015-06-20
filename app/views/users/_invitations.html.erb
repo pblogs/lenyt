@@ -1,0 +1,25 @@
+<center>
+  <h4><%= t "devise.invitations.new.header" %></h4>
+  <div class="facebook">
+    <a href="#" class='logo'>
+      <i class="fa fa-facebook"></i>
+    </a>
+  </div>
+</center>
+
+<hr class='black'>
+<h4>Invite Friends via Email</h4>
+<h5>Enter their email addresses below separated by comma:</h5>
+<br><br>
+<%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: {method: :post, remote: true} do |f| %>
+  <%= devise_error_messages! %>
+
+<% resource.class.invite_key_fields.each do |field| -%>
+  <div class="form-group">
+    <%= f.text_field field, class: 'form-control noresize', placeholder: 'email address' %>
+  </div>
+<% end -%>
+
+  <p><%= f.submit t("devise.invitations.new.submit_button"), class: 'list-it col-xs-12 col-sm-12 col-md-12 col-lg-12 btn', id: 'new-listing' %></p>
+<% end %>
+<div class="clearfix"></div>

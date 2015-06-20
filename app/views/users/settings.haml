@@ -6,8 +6,8 @@
         %ul.nav.nav-tabs.tabs-left
           %li= link_to raw("<span>Profile Settings</span>"), '#settings', {data: {toggle: 'tab'}}
           %li= link_to raw("<span>Payment Settings</span>"), '#payment', {data: {toggle: 'tab'}}
-          %li.active= link_to raw("<span>Notifications</span>"), '#notifications', {data: {toggle: 'tab'}}
-          %li= link_to raw("<span>Invite Friends</span>"), '#agreement', {data: {toggle: 'tab'}}
+          %li= link_to raw("<span>Notifications</span>"), '#notifications', {data: {toggle: 'tab'}}
+          %li.active= link_to raw("<span>Invite Friends</span>"), '#invitations', {data: {toggle: 'tab'}}
       .col-xs-8
         // Tab panes
         .tab-content
@@ -47,10 +47,10 @@
                 = link_to "Save", 'javascript:{}', class: 'list-it col-xs-12 col-sm-12 top-space', onclick: "document.getElementById('user-form').submit(); return false;"
 
               .clear
-          = render partial: "payment"
+          = render "payment"
 
 
-          #notifications.tab-pane.active
+          #notifications.tab-pane
             %input#user_updates.css-checkbox.lrg{:checked => "checked", :type => "checkbox"}/
             %label.css-label.css-checkbox.lrg.klaus{:for => "user_updates", :name => "updates"}
               Newsletter
@@ -62,4 +62,5 @@
               Messages
               %br
               %span.settings Receive email notifications when you receive a new message or request
-          #agreement.tab-pane= "Invite friends"
+          #invitations.tab-pane.active
+            = render 'invitations'

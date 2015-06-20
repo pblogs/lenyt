@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
-  devise_for :users, controllers: { omniauth_callbacks: 'callbacks',  registrations: 'users/registrations',  sessions: 'users/sessions' } do
-    #match 'settings', to: 'users/registrations#settings', as: :settings, via: [:get]
+  devise_for :users, controllers: {
+    omniauth_callbacks: 'callbacks',
+    registrations: 'users/registrations',
+    sessions: 'users/sessions',
+    invitations: 'users/invitations'
+  } do
+    # match 'settings', to: 'users/registrations#settings'
   end
   match 'auth/failure', to: redirect('/'), via: [:get]
   match 'search', to: 'listings#search', as: 'search', via: [:get]
