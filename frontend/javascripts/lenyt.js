@@ -15,4 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (document.getElementById('vue-messages')) {
     return require('./pages/messages/onload')
   }
+  if (document.getElementById('vue-email')) {
+    return require('./pages/user-settings/invite-friends')
+  }
 })

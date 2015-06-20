@@ -36,12 +36,16 @@
 <h4>Invite Friends via Email</h4>
 <h5>Enter their email addresses below separated by comma:</h5>
 <br><br>
-<%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: {method: :post, remote: true} do |f| %>
+<%= form_for resource, as: resource_name, url: invitation_path(resource_name), html: {method: :post, remote: true, id: 'vue-email'} do |f| %>
   <%= devise_error_messages! %>
+
+  <ul>
+    <li v-repeat="mails">{{$value}}</li>
+  </ul>
 
 <% resource.class.invite_key_fields.each do |field| -%>
   <div class="form-group">
-    <%= f.text_field field, class: 'form-control noresize', placeholder: 'email address' %>
+    <%= f.text_field field, class: 'form-control noresize', placeholder: 'email address', 'v-model' => 'mail', 'v-on' => 'keyup: switchOnComma' %>
   </div>
 <% end -%>
 
