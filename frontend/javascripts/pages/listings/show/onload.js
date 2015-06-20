@@ -19,7 +19,8 @@ var v = new Vue({
     dw: 0,
     days: 0,
     insurance: 1,
-    alertMessage: ''
+    alertMessage: '',
+    username: ''
   },
   methods: {
     next: function () {
@@ -146,6 +147,17 @@ var getYMD = function (date) {
   }
   return year + '-' + month + '-' + day
 }
+
+request({
+  uri: '/api/users/current.json',
+  json: true
+}, function (err, response, data) {
+  if (err) {
+    throw err
+  }
+
+  v.$data.username = data.username
+})
 
 request({
   uri: '/api/products/' + id + '.json',

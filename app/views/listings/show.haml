@@ -55,14 +55,14 @@
             .clear
             %p.description Damage Waver: Covers this rental for its full duration. Requires a $450 hold on your credit card as a refundable deductible deposit.
         .user-req
-          .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-4
+          .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-4{"v-class" => "large: product.user.name === username"}
             %img.img-circle.img-url.user-avatar{alt:'', src: '', 'v-attr' => 'src:product.user.avatar'}
             -#= user_avatar(@owner)
             %span.user-name {{product.user.name}}
             .stars.ml60
               %span.stars-active{"v-style" => "width:(rating*20)+'px'"}
               .over{"v-on" => "mousemove:star, mouseout:resetStar, click:vote"}
-          %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#", "v-on" => "click: request"} Request
+          %a.request.col-xs-6.col-sm-6.col-md-6.col-lg-8{:href => "#", "v-on" => "click: request", "v-class" => "hide: product.user.name === username"} Request
           .clear
           .message
             Your credit card will not be charged until the user accepts your request. You can always view and cancel your requests from the
