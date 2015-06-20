@@ -104,6 +104,19 @@ img.img-circle.img-url.user-avatar {
   height: 50px;
 }
 #invitations{
+  form#vue-email{
+    ul{
+      li.email_entry{
+        margin: 5px 0;
+        span.email_value{
+          border: 1px solid #2C5EAD;
+          padding: 4px 5px;
+          background-color: #D3E1F9;
+          border-radius: 3px;
+        }
+      }
+    }
+  }
   #new-listing {
     height: 30px;
     line-height: 32px;

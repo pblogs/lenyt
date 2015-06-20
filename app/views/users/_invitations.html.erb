@@ -40,11 +40,13 @@
   <%= devise_error_messages! %>
 
   <ul>
-    <li v-repeat="mails">
-      <span>{{value}}</span>
-      <span v-on="click: removeMail($index)" v-class="hide: status !== 0" style="cursor:pointer">Remove</span>
-      <span v-class="hide: status !== -1">{{message}}</span>
-      <span v-class="hide: status !== 1">Success</span>
+    <li class='email_entry' v-repeat="mails">
+      <span class='email_value'>
+        {{value}}
+        <span v-on="click: removeMail($index)" v-class="hide: status !== 0" style="cursor:pointer"><i class="fa fa-times"></i></span>
+      </span>
+      <span v-class="hide: status !== -1">{{message === 'has already been taken' ? 'This user is a Lenyt member' : message}}</span>
+      <span class='success' v-class="hide: status !== 1">Email successfully sent</span>
     </li>
   </ul>
 
