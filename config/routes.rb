@@ -27,7 +27,11 @@ Rails.application.routes.draw do
   namespace :api do
     get '/users/current'
     post '/rate' => 'rater#create', :as => 'rate'
-    resources :users, only: [:show] do
+    resources :users do
+      collection do
+        put 'newsletter_notifcations'
+        put 'messages_notifcations'
+      end
       member do
         get 'products'
       end

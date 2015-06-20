@@ -14,7 +14,10 @@
   "username":"John Doe (johndoe)",
   "address":null,
   "email":"johndoe@gmail.com",
-  "avatar":"https://lh6.googleusercontent.com/-DUfJtXdmzqg/CbpdcydfgzgSZ2I/photo.jpg?sz=50"
+  "avatar":"https://lh6.googleusercontent.com/-DUfJtXdmzqg/CbpdcydfgzgSZ2I/photo.jpg?sz=50",
+  "newsletter_notifcations":true,
+  "messages_notifcations":true,
+  "rating":{"avg":0,"count":0}
 }
 ```
 ## user products list [:GET]
@@ -51,6 +54,29 @@
     ]
   }
 ```
+## update user message settings [:PUT]
+`/api/users/messages_notifcations.json`
+
+### params
+`{"message"=>"true || false"}`
+
+### response
+
+```
+  empty
+```
+## update user newsletter settings [:PUT]
+`/api/users/newsletter_notifcations.json`
+
+### params
+`{"newsletter"=>"true || false"}`
+
+### response
+
+```
+  empty
+```
+
 # Tag resource
 
 ## tag listings [:GET]
