@@ -1,53 +1,54 @@
 %section.content
-  #vue-messages.col-sm-12.message-board{data: {session_id: request.session_options[:id]}}
-    .col-xs-6
-      %ul.nav.nav-tabs.tabs-left.conversations_list
-        %li{"v-repeat" => "conversations", "v-class" => "active: id === current.id"}
-          %a{:href => "#home", "v-on" => "click: switchConversation($index)", data: {index: "{{$index}}"}}
-            .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              .img-content
-                %span.redc
-                %img.img-circle.avatar{"v-attr" => "src: participant.avatar", height: '50px', width: '50px', }
-              %span.user-name {{participant.username}}
-              .stars
-            .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
-              Request sent on {{created_at | dateTime 'DD/MM/YYYY'}}
+  #vue-messages.col-sm-12.message-board
+    %div{'v-class' => 'hide: !conversations.length'}
+      .col-xs-6
+        %ul.nav.nav-tabs.tabs-left.conversations_list
+          %li{"v-repeat" => "conversations", "v-class" => "active: id === current.id"}
+            %a{:href => "#home", "v-on" => "click: switchConversation($index)", data: {index: "{{$index}}"}}
+              .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                .img-content
+                  %span.redc
+                  %img.img-circle.avatar{"v-attr" => "src: participant.avatar", height: '50px', width: '50px', }
+                %span.user-name {{participant.username}}
+                .stars
+              .request-info.col-xs-6.col-sm-6.col-md-6.col-lg-6
+                Request sent on {{created_at | dateTime 'DD/MM/YYYY'}}
+              .clear
+      .col-xs-6
+        .tab-content
+          #home.tab-pane.active
+            .chat-line-product.col-sm-12{"v-class" => "hide: !current.options.request_buttons"}
+              .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
+                .img-content
+                  %img{:alt => "Small img", :src => "{{current.participant.avatar}}"}/
+                .request-info
+                  Request for: {{current.request.product.title}}
+                .request-info
+                  Request sent on {{current.created_at | dateTime 'DD/MM/YYYY'}}
+              .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
+                {{current.days}} days
+                %span {{current.total | currency}}
+              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
             .clear
-    .col-xs-6
-      .tab-content
-        #home.tab-pane.active
-          .chat-line-product.col-sm-12{"v-class" => "hide: !current.options.request_buttons"}
-            .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
-              .img-content
-                %img{:alt => "Small img", :src => "{{current.participant.avatar}}"}/
-              .request-info
-                Request for: {{current.request.product.title}}
-              .request-info
-                Request sent on {{current.created_at | dateTime 'DD/MM/YYYY'}}
-            .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
-              {{current.days}} days
-              %span {{current.total | currency}}
-            %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-            %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-          .clear
-          .chat-messages.col-sm-12
-            #tchat.chat-height.mCustomScrollbar
-              .chat-message-content{'v-repeat' => 'current.messages'}
-                .message-details.col-sm-6{'v-class' => 'left: sender_name === current.participant.username, right: !(sender_name === current.participant.username)'}
-                  .chat-name.left {{sender_name}}
-                  .chat-date.right {{created_at | dateTime 'MMMM DD - h:mm a'}}
+            .chat-messages.col-sm-12
+              #tchat.chat-height.mCustomScrollbar
+                .chat-message-content{'v-repeat' => 'current.messages'}
+                  .message-details.col-sm-6{'v-class' => 'left: sender_name === current.participant.username, right: !(sender_name === current.participant.username)'}
+                    .chat-name.left {{sender_name}}
+                    .chat-date.right {{created_at | dateTime 'MMMM DD - h:mm a'}}
+                    .clear
                   .clear
-                .clear
-                .col-sm-6{'v-class' => '"from-me": !(sender_name === current.participant.username), "from-them": sender_name === current.participant.username'}
-                  %p {{body}}
-                .clear
+                  .col-sm-6{'v-class' => '"from-me": !(sender_name === current.participant.username), "from-them": sender_name === current.participant.username'}
+                    %p {{body}}
+                  .clear
 
-          .type-side
-            %textarea.col-sm-10{:placeholder => "type...", 'v-model' => 'message', 'v-on' => 'keydown: sendMessageOnEnter'}
-            %button.col-sm-2.send{'v-on' => 'click: sendMessage'} send
+            .type-side
+              %textarea.col-sm-10{:placeholder => "type...", 'v-model' => 'message', 'v-on' => 'keydown: sendMessageOnEnter'}
+              %button.col-sm-2.send{'v-on' => 'click: sendMessage'} send
+              .clear
             .clear
-          .clear
-    %center{'v-class' => 'hide: !conversations.length'}
+    %center{'v-class' => 'hide: conversations.length'}
       %h2 Nothing to view here
       %p You'll see your requests here when you have any.
     .clear

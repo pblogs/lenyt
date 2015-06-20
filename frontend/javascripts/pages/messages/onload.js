@@ -20,7 +20,7 @@ function sendMessage (event) {
   event.preventDefault()
   request({
     method: 'POST',
-    uri: '/messages',
+    uri: '/api/messages',
     headers: {
       'X-Csrf-Token': csrfToken
     },
