@@ -53,8 +53,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -66,8 +65,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -79,8 +77,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -92,8 +89,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -105,8 +101,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -118,8 +113,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -131,8 +125,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -144,8 +137,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -157,8 +149,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -170,8 +161,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -183,8 +173,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -196,8 +185,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -209,8 +197,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -222,8 +209,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -235,8 +221,7 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
-    address: 'Toronto, Canada'
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
   }
 ])
 
