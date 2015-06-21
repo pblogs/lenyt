@@ -194,6 +194,22 @@
     }
   }
 ```
+# Asset resource
+
+## destroy [:DELETE]
+`/api/assets/:id`
+
+### params
+`{"product_id"=>"3"}`
+
+### response
+
+```
+{ message: 'success' }, status: 200
+{ message: 'Product not found' }, status: 404
+{ message: 'Asset not found' }, status: 404
+{ message: 'Could not delete image' }
+```
 
 # Rate resource
 
