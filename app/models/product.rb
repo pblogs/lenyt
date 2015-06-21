@@ -62,13 +62,13 @@ class Product < ActiveRecord::Base
   end
 
   def self.search(params)
-    # require 'pry'
-    # binding.pry
-
-    products = Product.tagged_with(params[:tag])
+    # TODO: Load products that are available first
+    products = Product.where('end_at >= ?', Date.today)
+    if params[:tag_id]
+      products = products.joins(:taggings).where('taggings.taggable_id = ?', params[:tag_id]).uniq
+    end
     if params[:category_id]
-      cat =  params[:category_id]
-      products = products.any? ? products.where(category_id: cat) : Product.where(category_id: cat)
+      products = products.where(category_id: params[:category_id])
     end
     products
   end

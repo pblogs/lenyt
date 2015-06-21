@@ -1,6 +1,6 @@
 module Api
   class ProductsController < ApplicationController
-    # before_action :authenticate_user!
+    before_action :authenticate_user!
     before_filter :load_product, only: [:show]
     respond_to :json
 
@@ -10,19 +10,19 @@ module Api
       else
         @products = Product.paginate(page: params[:page], per_page: 6)
       end
+
       render json: @products, each_serializer: ProductsSerializer
     end
 
     def show
-      # TODO: Send owner as parameter to serializer
       owner = @product.user
       voted = Rate.where(
         rater_id: current_user.id, rateable_id: owner.id
-      ).present? ? true : false
+      ).first.present?
       request_sent = Request.where(
         renter_id: owner.id,
         rentee_id: current_user.id
-      ).present? ? true : false
+      ).first.present?
 
       render json: @product,
         voted: voted,
