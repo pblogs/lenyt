@@ -157,10 +157,10 @@
     "details": "Lorem Ipsum is simply dummy text of the printing and typesetting................",
     "request_sent": false,
     "images":[
-      {"url":"/system/assets/images/000/000/001/original/slider1.png?1433499688"},
-      {"url":"/system/assets/images/000/000/002/original/slider2.png?1433499699"},
-      {"url":"/system/assets/images/000/000/003/original/slider3.jpg?1433499702"},
-      {"url":"/system/assets/images/000/000/004/original/slider5.jpg?1433499705"}
+      {"id": 1, "url":"/system/assets/images/000/000/001/original/slider1.png?1433499688"},
+      {"id": 2, "url":"/system/assets/images/000/000/002/original/slider2.png?1433499699"},
+      {"id": 3, "url":"/system/assets/images/000/000/003/original/slider3.jpg?1433499702"},
+      {"id": 4, "url":"/system/assets/images/000/000/004/original/slider5.jpg?1433499705"}
     ],
     "total_value":487,
     "price_per_day":18,

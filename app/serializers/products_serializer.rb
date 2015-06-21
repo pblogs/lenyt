@@ -1,5 +1,6 @@
 class ProductsSerializer < ActiveModel::Serializer
-  attributes :id, :title, :image, :price_per_day, :map, :user, :tags, :address, :category
+  attributes :id, :title, :image, :price_per_day,
+    :map, :user, :tags, :address, :category
 
   def image
     object.main_image
