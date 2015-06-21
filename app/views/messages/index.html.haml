@@ -34,8 +34,8 @@
             .chat-messages.col-sm-12
               #tchat.chat-height.mCustomScrollbar
                 .chat-message-content{'v-repeat' => 'current.messages'}
-                  .message-details.col-sm-6{'v-class' => 'left: sender_name === current.participant.username, right: !(sender_name === current.participant.username)'}
-                    .chat-name.left {{sender_name}}
+                  .message-details.col-sm-6{'v-class' => "sender_name === current.participant.username ? 'left' : 'right' " }
+                    .chat-name.left {{sender_name === current.participant.username ? current.participant.username : 'You'}}
                     .chat-date.right {{created_at | dateTime 'MMMM DD - h:mm a'}}
                     .clear
                   .clear
