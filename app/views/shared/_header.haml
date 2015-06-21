@@ -22,7 +22,7 @@
                 %li= link_to "Your Listings", my_profile_path
                 %li= link_to raw("Messages <span class='redc'>3</span>"), messages_path
                 %li= link_to "Account Settings", settings_users_path
-                %li= link_to "Invite Friends", '#'
+                %li= link_to "Invite Friends", settings_users_path
                 %li= link_to "Log Out", destroy_user_session_path, {method: :delete}
           - else
             - if devise_mapping.registerable? && controller_name != 'registrations'
