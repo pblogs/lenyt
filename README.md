@@ -3,7 +3,7 @@
 # User resource
 
 ## current_user info [:GET]
-`/api/users/current.json`
+`/api/users/current`
 
 ### response
 
@@ -21,7 +21,7 @@
 }
 ```
 ## user products list [:GET]
-`/api/users/:id/products.json`
+`/api/users/:id/products`
 
 ### response
 
@@ -55,7 +55,7 @@
   }
 ```
 ## update user message settings [:PUT]
-`/api/users/messages_notifcations.json`
+`/api/users/messages_notifcations`
 
 ### params
 `{"message"=>"true || false"}`
@@ -66,7 +66,7 @@
   empty
 ```
 ## update user newsletter settings [:PUT]
-`/api/users/newsletter_notifcations.json`
+`/api/users/newsletter_notifcations`
 
 ### params
 `{"newsletter"=>"true || false"}`
@@ -80,11 +80,12 @@
 # Tag resource
 
 ## tag listings [:GET]
-`/api/products/:id.json`
+`/api/products/:id`
 
 ### response
 ```
-{"tags":[
+{
+  "tags":[
       {"id":1,"name":"nikon","taggings_count":123},
       {"id":2,"name":"leica","taggings_count":10}
     ]
@@ -93,8 +94,57 @@
 
 # Product resource
 
+## search products [:GET]
+`/api/products`
+### params
+`{"search"=>{"category_id"=>"7", "tag"=>"tag4"}}`
+
+### response
+```
+{
+  "products": [
+    {
+      "id": 6,
+      "title": "Nikon 18",
+      "image": "/system/assets/images/000/000/021/thumb/slider1.png?1434839632",
+      "price_per_day": 17,
+      "map": {
+        "lat": 46.538554,
+        "long": -84.302902
+      },
+      "user": {
+        "avatar": "/assets/default_avatar.png",
+        "rating": {
+          "avg": 0,
+          "count": 0
+        }
+      },
+      "tags": [
+        {
+          "id": 4,
+          "name": "tag6",
+          "taggings_count": 3
+        },
+        {
+          "id": 5,
+          "name": "tag4",
+          "taggings_count": 6
+        }
+      ],
+      "address": "Toronto, Canada",
+      "category": {
+        "id": 7,
+        "name": "Lenses",
+        "created_at": "2015-06-20T22:33:25.571Z",
+        "updated_at": "2015-06-20T22:33:25.571Z"
+      }
+    }
+  ]
+}
+```
+
 ## product info [:GET]
-`/api/tags.json`
+`/api/product/:id`
 
 ### response
 ```
@@ -122,6 +172,25 @@
         "avatar":"https://lh6.googleusercontent.com/-DUfJtXdmzqg/AAAAAAAAAAI/AAAAAAAAAG8/CbpdcyzgZ2I/photo.jpg?sz=50",
         "rating":{"avg":0,"count":0}
       }
+    },
+    "tags": [
+      {
+        "id": 2,
+        "name": "tag9",
+        "taggings_count": 4
+      },
+      {
+        "id": 1,
+        "name": "tag2",
+        "taggings_count": 1
+      }
+    ],
+    "address": "Toronto, Canada",
+    "category": {
+      "id": 10,
+      "name": "Recorders",
+      "created_at": "2015-06-20T22:33:25.576Z",
+      "updated_at": "2015-06-20T22:33:25.576Z"
     }
   }
 ```

@@ -36,8 +36,8 @@
 #  avatar_content_type    :string
 #  avatar_file_size       :integer
 #  avatar_updated_at      :datetime
-#  newsletter             :boolean          default(TRUE)
-#  messages               :boolean          default(TRUE)
+#  messages_notifcations             :boolean          default(TRUE)
+#  newsletter_notifcations               :boolean          default(TRUE)
 #
 
 class User < ActiveRecord::Base

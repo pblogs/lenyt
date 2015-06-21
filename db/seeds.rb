@@ -40,7 +40,9 @@ end
 user = User.first
 details = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
 
-products = Product.create([
+category_ids = Category.pluck(:id)
+
+products = Product.create!([
   {
     title: "Nikon #{rand(10..20)}",
     price_per_day: rand(10..20),
@@ -49,7 +51,10 @@ products = Product.create([
     latitude: '44.099421',
     longitude: '-79.793701',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -59,7 +64,10 @@ products = Product.create([
     latitude: '43.747289',
     longitude: '-80.079346',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -69,7 +77,10 @@ products = Product.create([
     latitude: '43.834527',
     longitude: '-79.689331',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -79,7 +90,10 @@ products = Product.create([
     latitude: '44.138856',
     longitude: '-79.337769',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -89,7 +103,10 @@ products = Product.create([
     latitude: '43.65595',
     longitude: '-80.661621',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -99,7 +116,10 @@ products = Product.create([
     latitude: '46.538554',
     longitude: '-84.302902',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -109,7 +129,10 @@ products = Product.create([
     latitude: '44.015904',
     longitude: '-78.147297',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -119,7 +142,10 @@ products = Product.create([
     latitude: '44.035529',
     longitude: '-78.219223',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -129,7 +155,10 @@ products = Product.create([
     latitude: '44.005657',
     longitude: '-78.274155',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -139,7 +168,10 @@ products = Product.create([
     latitude: '43.665419',
     longitude: '-79.481878',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -149,7 +181,10 @@ products = Product.create([
     latitude: '43.651323',
     longitude: '-79.476213',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -159,7 +194,10 @@ products = Product.create([
     latitude: '43.654615',
     longitude: '-79.477544',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -169,7 +207,10 @@ products = Product.create([
     latitude: '43.656602',
     longitude: '-79.482737',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -179,7 +220,10 @@ products = Product.create([
     latitude: '43.653311',
     longitude: '-79.484968',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   },
   {
     title: "Nikon #{rand(10..20)}",
@@ -189,7 +233,10 @@ products = Product.create([
     latitude: '43.669051',
     longitude: '-79.46188',
     details: details,
-    total_value: rand(200..500)
+    total_value: rand(200..500),
+    category_id: category_ids.sample,
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    address: 'Toronto, Canada'
   }
 ])
 

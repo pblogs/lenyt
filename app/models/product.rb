@@ -32,6 +32,7 @@ class Product < ActiveRecord::Base
   acts_as_taggable
 
   belongs_to :user
+  belongs_to :category
 
   has_many :assets, as: :attachable, dependent: :destroy
   accepts_nested_attributes_for :assets, allow_destroy: true
@@ -58,5 +59,17 @@ class Product < ActiveRecord::Base
   def total_price
     return 0 unless total_days && price_per_day
     total_days * price_per_day
+  end
+
+  def self.search(params)
+    # require 'pry'
+    # binding.pry
+
+    products = Product.tagged_with(params[:tag])
+    if params[:category_id]
+      cat =  params[:category_id]
+      products = products.any? ? products.where(category_id: cat) : Product.where(category_id: cat)
+    end
+    products
   end
 end
