@@ -4,7 +4,6 @@ class ListingsController < ApplicationController
   before_filter :validate_owner, except: [:index, :show, :new, :create, :search]
 
   def index
-    @products = Product.all
   end
 
   def show
