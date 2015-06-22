@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   resources :pictures
   resources :listings
 
-  namespace :api do
+  namespace :api, defaults: { format: :json } do
     get '/users/current'
     post '/rate' => 'rater#create', :as => 'rate'
     resources :users do

@@ -42,10 +42,14 @@ details = "Lorem Ipsum is simply dummy text of the printing and typesetting indu
 
 category_ids = Category.pluck(:id)
 
+date0 = Time.now
+date1 = 1.day.ago
+date2 = 1.month.from_now
+
 products = Product.create!([
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '6226 10 Line, Beeton, ON L0G 1A0, Canada',
     latitude: '44.099421',
@@ -53,11 +57,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '5423-5445 Trafalgar Road North, Hillsburgh, ON N0B 1Z0, Canada',
     latitude: '43.747289',
@@ -65,11 +71,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '5501-5613 Countryside Drive, Brampton, ON L6P, Canada',
     latitude: '43.834527',
@@ -77,11 +85,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '19619 McCowan Road, Mount Albert, ON L0G 1M0, Canada',
     latitude: '44.138856',
@@ -89,11 +99,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '7588 4 Line, Wallenstein, ON N0B 2S0, Canada',
     latitude: '43.65595',
@@ -101,11 +113,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '865 Second Line East, Sault Ste. Marie, ON P6B 4K5, Canada',
     latitude: '46.538554',
@@ -113,11 +127,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '18 Oriole Crescent, Baltimore, ON K0K 1C0, Canada',
     latitude: '44.015904',
@@ -125,11 +141,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: "3429-3461 Albert's Alley, Cobourg, ON K9A 4J7, Canada",
     latitude: '44.035529',
@@ -137,11 +155,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '3054 McClelland Road, Port Hope, ON L1A 3V6, Canada',
     latitude: '44.005657',
@@ -149,11 +169,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '3351 Dundas Street West, Toronto, ON M6P 2A6, Canada',
     latitude: '43.665419',
@@ -161,11 +183,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '265 Runnymede Road, Toronto, ON M6S 2Y5, Canada',
     latitude: '43.651323',
@@ -173,11 +197,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '349 Runnymede Road, Toronto, ON M6S 2Y5, Canada',
     latitude: '43.654615',
@@ -185,11 +211,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '648 Windermere Avenue, Toronto, ON M6S 3L8, Canada',
     latitude: '43.656602',
@@ -197,11 +225,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: '360 Armadale Avenue, Toronto, ON M6S 3X8, Canada',
     latitude: '43.653311',
@@ -209,11 +239,13 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   },
   {
     title: "Nikon #{rand(10..20)}",
-    price_per_day: rand(10..20),
+    price_per_day: rand(10..500),
     user_id: user.id,
     address: 'Old Weston Road, Toronto, ON M6N, Canada',
     latitude: '43.669051',
@@ -221,7 +253,9 @@ products = Product.create!([
     details: details,
     total_value: rand(200..500),
     category_id: category_ids.sample,
-    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}"
+    tag_list: "tag#{rand(0..9)}, tag#{rand(0..9)}",
+    available_at: Time.at((date1.to_f - date0.to_f) * rand + date0.to_f),
+    end_at: Time.at((date2.to_f - date1.to_f) * rand + date1.to_f)
   }
 ])
 

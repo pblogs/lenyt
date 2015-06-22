@@ -62,14 +62,23 @@ class Product < ActiveRecord::Base
   end
 
   def self.search(params)
-    # TODO: Load products that are available first
-    products = Product.where('end_at >= ?', Date.today)
+    params ||= {}
+    min = params[:price_min] ||= '10'
+    max = params[:price_max] ||= '500'
+    sdate = params[:start_date] ||= 1.day.ago
+    edate = params[:end_date] ||=  (sdate.to_date + 1.month).to_date
+
+    products = Product.where('available_at between ? and ? or end_at between ? and ?', sdate, edate, sdate, edate)
+    products = products.where(price_per_day: [min..max])
+
     if params[:tag_id]
-      products = products.joins(:taggings).where('taggings.taggable_id = ?', params[:tag_id]).uniq
+      products = products.includes(:taggings).where(taggings: { tag_id: params[:tag_id] })
     end
+
     if params[:category_id]
       products = products.where(category_id: params[:category_id])
     end
+
     products
   end
 end

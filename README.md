@@ -97,7 +97,7 @@
 ## search products [:GET]
 `/api/products`
 ### params
-`{"search"=>{"category_id"=>"7", "tag"=>"tag4"}}`
+`{"search"=>{"price_min"=>"10", "price_max"=>"500", "category_id"=>"8", "tag_id"=>"5", "start_date"=>"2015-07-15", "end_date"=>"2015-07-25"}}`
 
 ### response
 ```
@@ -138,7 +138,8 @@
         "created_at": "2015-06-20T22:33:25.571Z",
         "updated_at": "2015-06-20T22:33:25.571Z"
       }
-    }
+    },
+    ..........
   ]
 }
 ```
