@@ -211,6 +211,20 @@
 { message: 'Could not delete image' }
 ```
 
+## destroy new assets [:DELETE]
+`/api/assets/:id/delete_new_asset`
+
+### params
+`{"token"=>"b24896766f852e6dc9686c1198f4e9ab"}`
+
+### response
+
+```
+{ message: 'success' }, status: 200
+{ message: 'Asset not found' }, status: 404
+{ message: 'Could not delete image' }
+```
+
 # Rate resource
 
 ## create [:POST]

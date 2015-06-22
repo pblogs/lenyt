@@ -38,7 +38,11 @@ Rails.application.routes.draw do
     end
     resources :products, only: [:index, :show]
     resources :requests
-    resources :assets
+    resources :assets do
+      member do
+        delete 'delete_new_asset'
+      end
+    end
     resources :tags, only: :index
     resources :messages, only: :create
     resources :conversations, only: [:index, :show]
