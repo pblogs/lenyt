@@ -16,7 +16,7 @@ var getProducts = function (page) {
 
     prods.products.forEach(function (product, index) {
       var options = {
-        content: template.replace(/IMAGE_URL/g, product.image).replace(/TITLE/g, product.title).replace(/PRICE/g, '$' + product.price_per_day),
+        content: template.replace(/IMAGE_URL/g, product.image).replace(/TITLE/g, product.title).replace(/PRICE/g, '$' + product.price_per_day).replace(/ID/g, product.id),
         position: gMap.coords(product.map.lat, product.map.long)
       }
       var iwindow = gMap.infoWindow(map, options).onClose(function () {
