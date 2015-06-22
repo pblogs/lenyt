@@ -62,6 +62,7 @@ gem 'annotate', '~> 2.6.6'
 
 gem 'geokit'
 gem 'geokit-rails'
+gem 'city-state'
 
 group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring

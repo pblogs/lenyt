@@ -5,12 +5,7 @@ module Api
     respond_to :json
 
     def index
-      # if params[:search]
       @products = Product.search(params[:search]).paginate(page: params[:page], per_page: 6)
-      # else
-      #   @products = Product.paginate(page: params[:page], per_page: 6)
-      # end
-      p "PRODUCTS COUNT #{@products.count}"
       render json: @products, each_serializer: ProductsSerializer
     end
 

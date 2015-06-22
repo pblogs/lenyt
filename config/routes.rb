@@ -38,6 +38,7 @@ Rails.application.routes.draw do
     end
     resources :products, only: [:index, :show]
     resources :requests
+    resources :cities, only: :index
     resources :assets do
       member do
         delete 'delete_new_asset'

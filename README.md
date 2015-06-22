@@ -92,6 +92,25 @@
 }
 ```
 
+# City resource
+
+## city listings [:GET]
+`/api/cities?name='Aca'`
+
+### response
+```
+{
+  "cities": [
+    {
+      "id": 1,
+      "name": "Acadia Valley",
+      "state": "AB",
+      "created_at": "2015-06-22T20:00:06.183Z",
+      "updated_at": "2015-06-22T20:00:06.183Z"
+    },
+....
+```
+
 # Product resource
 
 ## search products [:GET]
