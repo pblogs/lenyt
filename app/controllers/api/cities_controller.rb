@@ -4,7 +4,12 @@ module Api
     respond_to :json
 
     def index
-      cities = City.where('name ILIKE ?', "%#{params[:name]}%")
+      if params[:name]
+        cities = City.where('name ILIKE ?', "%#{params[:name]}%").first(6)
+      else
+        cities = []
+      end
+
       render json: cities
     end
   end
