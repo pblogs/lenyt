@@ -3,6 +3,7 @@ var request = require('browser-request')
 
 var editing = location.pathname.match(/\/listings\/([0-9]*)/)
 var listingId = editing ? +editing[1] : -1
+var csrfToken = document.querySelector('[name="csrf-token"]').content
 
 var v = new Vue({
   el: '#listings-edit-add-vue',
@@ -25,10 +26,26 @@ var v = new Vue({
         previous = v.$data.images.length - 1
       }
       setImage(previous)
+    },
+    removeImage: function () {
+      var id = v.$data.images[v.$data.current].id
+      v.$data.images.splice(v.$data.current, 1)
+      v.$data.imagesLength = v.$data.images.length
+      setImage(0)
+      request({
+        method: 'DELETE',
+        headers: {
+          'X-Csrf-Token': csrfToken
+        },
+        uri: '/api/assets/' + id,
+        json: {
+          product_id: listingId
+        }
+      }, function (){})
     }
   }
 })
-
+//Gheorghe Iordache si Alexei Cernobae
 if (editing) {
   request({
     uri: '/api/products/' + listingId,

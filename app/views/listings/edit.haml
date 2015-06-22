@@ -2,7 +2,7 @@
   = javascript_include_tag 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&language=el'
 
 = render 'assets'
-%section#vue-edit-listing.content
+%section.content
   = form_for @product, url: listing_path(@product), html: {method: :put, multipart: true } do |f|
     = render 'shared/errors', resource: @product
     = render partial: 'form', locals: {f: f}
