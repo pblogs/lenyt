@@ -1,4 +1,8 @@
 var Vue = require('vue')
+var request = require('browser-request')
+
+var editing = location.pathname.match(/\/listings\/([0-9]*)/)
+var listingId = editing ? +editing[1] : -1
 
 var v = new Vue({
   el: '#listings-edit-add-vue',
@@ -24,6 +28,52 @@ var v = new Vue({
     }
   }
 })
+
+if (editing) {
+  request({
+    uri: '/api/products/' + listingId,
+    json: true
+  }, function (err, response, data) {
+    if (err) {
+      throw err
+    }
+
+    data.product.images.forEach(function (image) {
+      v.$data.images.push({
+        url: image.url,
+        id: image.id,
+        current: false,
+        previous: false,
+        next: false
+      })
+    })
+
+    v.$data.imagesLength = v.$data.images.length
+    v.$data.current = 0
+    var next = 1
+    var previous = v.$data.images.length-1
+    if (next>=v.$data.images.length) {
+      next = 0
+    }
+    if (previous<0) {
+      previous = v.$data.images.length-1
+    }
+    v.$data.images.forEach(function (image, ind) {
+      var type = ''
+      if (ind===0) {
+        type = 'current'
+      } else if (ind===next) {
+        type = 'next'
+      } else if (ind===previous) {
+        type = 'previous'
+      }
+      image.previous = false
+      image.current = false
+      image.next = false
+      image[type] = true
+    })
+  })
+}
 
 var setImage = function (index) {
   v.$data.current = index
