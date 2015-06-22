@@ -223,10 +223,10 @@ var selectTag = function (index) {
   filter()
 }
 
-var range = jQuery("#range").slider()
+var range = window.jQuery('#range').slider()
 
-var sliderTimer = setTimeout(function (){})
-var cityTimer = setTimeout(function (){})
+var sliderTimer = setTimeout(function () {})
+var cityTimer = setTimeout(function () {})
 
 range.on('slide', function () {
   clearTimeout(sliderTimer)
@@ -252,7 +252,7 @@ var findCity = function () {
 
 getProducts(page)
 
-$('#range-pick').dateRangePicker({
+window.jQuery('#range-pick').dateRangePicker({
   format: 'YYYY-MM-DD',
   inline: true,
   alwaysOpen: true,

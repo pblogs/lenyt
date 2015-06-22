@@ -1,7 +1,7 @@
 var Vue = require('vue')
 var request = require('browser-request')
 
-var editing = location.pathname.match(/\/listings\/([0-9]*)/)
+var editing = window.location.pathname.match(/\/listings\/([0-9]*)/)
 var listingId = editing ? +editing[1] : -1
 var csrfToken = document.querySelector('[name="csrf-token"]').content
 
@@ -41,7 +41,7 @@ var v = new Vue({
         json: {
           product_id: listingId
         }
-      }, function (){})
+      }, function () {})
     }
   }
 })
@@ -68,20 +68,20 @@ if (editing) {
     v.$data.imagesLength = v.$data.images.length
     v.$data.current = 0
     var next = 1
-    var previous = v.$data.images.length-1
-    if (next>=v.$data.images.length) {
+    var previous = v.$data.images.length - 1
+    if (next >= v.$data.images.length) {
       next = 0
     }
-    if (previous<0) {
-      previous = v.$data.images.length-1
+    if (previous < 0) {
+      previous = v.$data.images.length - 1
     }
     v.$data.images.forEach(function (image, ind) {
       var type = ''
-      if (ind===0) {
+      if (ind === 0) {
         type = 'current'
-      } else if (ind===next) {
+      } else if (ind === next) {
         type = 'next'
-      } else if (ind===previous) {
+      } else if (ind === previous) {
         type = 'previous'
       }
       image.previous = false
