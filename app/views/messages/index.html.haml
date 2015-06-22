@@ -7,7 +7,7 @@
             %a{:href => "#home", "v-on" => "click: switchConversation($index)", data: {index: "{{$index}}"}}
               .user-stars.col-xs-6.col-sm-6.col-md-6.col-lg-6
                 .img-content
-                  %span.redc
+                  %span.redc.hidden
                   %img.img-circle.avatar{"v-attr" => "src: participant.avatar", height: '50px', width: '50px', }
                 %span.user-name {{participant.username}}
                 .stars

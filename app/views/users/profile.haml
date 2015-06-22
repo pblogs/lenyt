@@ -9,12 +9,12 @@
           .stars
             - 1.upto(5) do
               %span.star-active.star
-            %span= "17"
+            %span= ""
 
         .profile-actions
           .action-item.col-xs-12.col-sm-3= link_to "Account Settings", settings_users_path, class: 'settings'
           .action-item.box-center.col-xs-12.col-sm-4= raw('Total Revenue <span>$0</span>')
-          .action-item.col-xs-12.col-sm-3= link_to raw("Messages<span class='redc'>0</span>"), messages_path, class: 'messages'
+          .action-item.col-xs-12.col-sm-3= link_to raw("Messages<span class='redc hidden'></span>"), messages_path, class: 'messages'
           .clear
     // End User Section
     // Listing section
