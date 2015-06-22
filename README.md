@@ -116,7 +116,14 @@
 ## search products [:GET]
 `/api/products`
 ### params
-`{"search"=>{"price_min"=>"10", "price_max"=>"500", "category_id"=>"8", "tag_id"=>"5", "start_date"=>"2015-07-15", "end_date"=>"2015-07-25"}}`
+`{"search"=>{
+    "price_min"=>"10",
+    "price_max"=>"500",
+    "category_id"=>"8",
+    "tag_id"=>"5",
+    "start_date"=>"2015-07-15",
+    "end_date"=>"2015-07-25"
+  } , "order"=>"price", "direction"=>"desc"}`
 
 ### response
 ```
