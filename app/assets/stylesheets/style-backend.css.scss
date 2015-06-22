@@ -737,8 +737,12 @@ aside.prod-reg ul.dropdown-menu > li > a {
   height: auto;
 }
 
-aside.prod-reg div.search-input {
+aside.prod-reg div.search-input, .display-block {
   display: block;
+}
+
+section.search-bar ul.dropdown-menu > li.current-tag > a {
+  background: #eee;
 }
 
 aside.prod-reg textarea {

@@ -1,23 +1,23 @@
 #lenyt-search
   %section.search-bar
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-2
-      %input.drop{"data-toggle" => "dropdown", :placeholder => "category", :type => "text"}/
+      %input.drop{"data-toggle" => "dropdown", :placeholder => "category", :type => "text", "v-model" => "category.name"}/
       %ul.dropdown-menu.dropdown-menu-cat{"aria-labelledby" => "dLabel", :role => "menu"}
         %li
-          %a{href: "#"} All
+          %a{href: "#", "v-on" => "click: selectCategory(0, '')"} All
         - Category.order(name: :asc).each do |cat|
           %li
-            %a{href: "#", data: {id: cat.id}}
+            %a{href: "#", data: {id: cat.id}, "v-on" => "click: selectCategory(#{cat.id}, '#{cat.name}')"}
               =cat.name
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-4
-      %input{"data-toggle" => "dropdown", :placeholder => "what", :type => "text"}/
-      %ul.dropdown-menu.dropdown-menu-cat{"aria-labelledby" => "dLabel", :role => "menu"}
-        %li
-          %a{:href => "#"} leica... (4 listings)
-        %li
-          %a{:href => "#"} lens... (35 listings)
+      %input#tag-input{:type => "text", "v-model" => "tags.searchTerm", "v-on" => "focus:tags.visible = true, blur: hideTags, keypress: findTags", "v-attr" => "placeholder: tags.placeholder"}
+      %ul.dropdown-menu.dropdown-menu-cat{"v-class" => "display-block: tags.visible === true"}
+        %li{"v-repeat" => "tags.list", "v-class" => "current-tag: $index === tags.current", "v-on" => "click: selectTag($index)"}
+          %a{:href => "#"}
+            {{name}}
+            %span{"v-class" => "hide: !taggings_count"} ({{taggings_count}} listings)
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-3
-      %input{"data-toggle" => "dropdown", :placeholder => "where", :type => "text"}/
+      %input{"data-toggle" => "dropdown", :placeholder => "where", :type => "text"}
       %ul.dropdown-menu.dropdown-menu-cat{"aria-labelledby" => "dLabel", :role => "menu"}
         %li
           %a{:href => "#"} Toronto, ON
