@@ -16,7 +16,11 @@ class ConversationSerializer < ActiveModel::Serializer
     user = object.participants[0]
     participant = {
       avatar: user.profile_picture,
-      username: user.username
+      username: user.username,
+      rating: {
+        avg: (user.trust_average ? user.trust_average.avg : 0),
+        count: (user.trust_average ?  user.trust_average.qty : 0)
+      }
     }
   end
 end
