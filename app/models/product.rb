@@ -79,6 +79,7 @@ class Product < ActiveRecord::Base
     if params[:category_id]
       products = products.where(category_id: params[:category_id])
     end
+    products = products.where(locality: params[:locality]) if params[:locality]
 
     products
   end
