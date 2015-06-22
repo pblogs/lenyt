@@ -45,7 +45,7 @@ var v = new Vue({
     }
   }
 })
-//Gheorghe Iordache si Alexei Cernobae
+
 if (editing) {
   request({
     uri: '/api/products/' + listingId,
