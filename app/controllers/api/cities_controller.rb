@@ -5,7 +5,7 @@ module Api
 
     def index
       if params[:name]
-        cities = City.where('name ILIKE ?', "%#{params[:name]}%").first(6)
+        cities = City.where('name ILIKE ?', "%#{params[:name]}%").first(4)
       else
         cities = []
       end
