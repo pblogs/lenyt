@@ -7,6 +7,10 @@ var map = gMap.create(document.getElementById('search_map'), gMap.coords(44.0994
 var gettingProducts = false
 var page = 1
 var cityName = ''
+var dates = {
+  from: '',
+  to: ''
+}
 
 var tagsList = []
 
@@ -57,6 +61,11 @@ var generateRequestBody = function (page) {
   if (cityName.length) {
     _return += '&search[locality]=' + cityName
   }
+
+  if (dates.from !== '' && dates.to !== '') {
+    _return += '&search[start_date]=' + dates.from + '&search[end_date]=' + dates.to
+  }
+
   return _return
 }
 var filter = function () {
@@ -96,6 +105,9 @@ var v = new Vue({
           name: 'Please type more...'
         }
       ]
+    },
+    datePicker: {
+      visible: false
     }
   },
   methods: {
@@ -124,6 +136,13 @@ var v = new Vue({
     },
     selectTag: function (index) {
       selectTag(index)
+    },
+    deSelectTag: function () {
+      v.$data.tags.active = {}
+      v.$data.tags.placeholder = 'what'
+      v.$data.tags.searchTerm = ''
+      document.getElementById('tag-input').blur()
+      filter()
     },
     hideTags: function () {
       setTimeout(function () {
@@ -174,6 +193,12 @@ var v = new Vue({
         v.$data.city.search = name
         cityName = name
       }
+      filter()
+    },
+    disableDates: function () {
+      v.$data.datePicker.visible = false
+      dates.from = ''
+      dates.to = ''
       filter()
     }
   }
@@ -226,3 +251,16 @@ var findCity = function () {
 }
 
 getProducts(page)
+
+$('#range-pick').dateRangePicker({
+  format: 'YYYY-MM-DD',
+  inline: true,
+  alwaysOpen: true,
+  setValue: function (s, s1, s2) {
+    v.$data.datePicker.visible = false
+    dates.from = s1
+    dates.to = s2
+    filter()
+  },
+  container: '#range-pick'
+})

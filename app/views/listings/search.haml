@@ -12,6 +12,9 @@
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-4
       %input#tag-input{:type => "text", "v-model" => "tags.searchTerm", "v-on" => "focus:tags.visible = true, blur: hideTags, keyup: findTags", "v-attr" => "placeholder: tags.placeholder"}
       %ul.dropdown-menu.dropdown-menu-cat{"v-class" => "display-block: tags.visible === true"}
+        %li{"v-on" => "click: deSelectTag"}
+          %a{:href => "#"}
+            All
         %li{"v-repeat" => "tags.list", "v-class" => "current-tag: $index === tags.current", "v-on" => "click: selectTag($index)", "v-class" => "hide: $index > 3"}
           %a{:href => "#"}
             {{name}}
@@ -24,7 +27,10 @@
             {{name}}
             %span{"v-class" => "hide: !state"}, {{state}}
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-3.no-padding
-      %input#dpd1.drop{:placeholder => "when", :type => "text"}/
+      %input{:placeholder => "when", :type => "text", "v-on" => "click: datePicker.visible = true"}/
+      %div.range-date-picker-dd{"v-class": "hide: !datePicker.visible"}
+        %a{href: "#", "v-on" => "click: disableDates"} Any
+        #range-pick
     .clear
   %section.content
     %aside.map-points.slide.left.col-xs-12.col-sm-6.col-md-6.col-lg-6
