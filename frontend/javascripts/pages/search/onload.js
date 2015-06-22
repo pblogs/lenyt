@@ -6,6 +6,7 @@ var productMarkers = []
 var map = gMap.create(document.getElementById('search_map'), gMap.coords(44.099421, -79.793701))
 var gettingProducts = false
 var page = 1
+var cityName = ''
 
 var tagsList = []
 
@@ -49,6 +50,13 @@ var generateRequestBody = function (page) {
     _return += '&search[tag_id]=' + v.$data.tags.active.id
   }
 
+  var priceRange = range.val().split(',')
+
+  _return += '&search[price_min]=' + priceRange[0] + '&search[price_max]=' + priceRange[1]
+
+  if (cityName.length) {
+    _return += '&search[locality]=' + cityName
+  }
   return _return
 }
 var filter = function () {
@@ -79,6 +87,15 @@ var v = new Vue({
       current: -1,
       active: {},
       placeholder: 'what'
+    },
+    city: {
+      search: '',
+      visible: false,
+      list: [
+        {
+          name: 'Please type more...'
+        }
+      ]
     }
   },
   methods: {
@@ -111,7 +128,12 @@ var v = new Vue({
     hideTags: function () {
       setTimeout(function () {
         v.$data.tags.visible = false
-      }, 200)
+      }, 400)
+    },
+    hideCity: function () {
+      setTimeout(function () {
+        v.$data.city.visible = false
+      }, 400)
     },
     findTags: function (e) {
       if (e.keyCode === 40) {
@@ -135,6 +157,24 @@ var v = new Vue({
       v.$data.tags.list = tagsList.filter(function (tag) {
         return tag.name.match(v.$data.tags.searchTerm)
       })
+    },
+    findCity: function () {
+      v.$data.city.list = [
+        {
+          name: 'Loading...'
+        }
+      ]
+      clearTimeout(cityTimer)
+      cityTimer = setTimeout(findCity, 300)
+    },
+    setCity: function (name) {
+      if (name.match(/\.\.\./)) {
+        cityName = ''
+      } else {
+        v.$data.city.search = name
+        cityName = name
+      }
+      filter()
     }
   }
 })
@@ -156,6 +196,33 @@ var selectTag = function (index) {
   v.$data.tags.searchTerm = ''
   document.getElementById('tag-input').blur()
   filter()
+}
+
+var range = $("#range").slider()
+
+var sliderTimer = setTimeout(function (){})
+var cityTimer = setTimeout(function (){})
+
+range.on('slide', function () {
+  clearTimeout(sliderTimer)
+
+  sliderTimer = setTimeout(afterSlide, 150)
+})
+
+var afterSlide = function () {
+  filter()
+}
+var findCity = function () {
+  request({
+    uri: '/api/cities?name=' + v.$data.city.search,
+    json: true
+  }, function (err, response, data) {
+    if (err) {
+      throw err
+    }
+
+    v.$data.city.list = data.cities
+  })
 }
 
 getProducts(page)

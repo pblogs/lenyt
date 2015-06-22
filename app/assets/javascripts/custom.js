@@ -1,5 +1,5 @@
 $(function(){
-  $("#range").slider({});
+
 });
 
 $(document).ready(function(){

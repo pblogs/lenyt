@@ -12,17 +12,17 @@
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-4
       %input#tag-input{:type => "text", "v-model" => "tags.searchTerm", "v-on" => "focus:tags.visible = true, blur: hideTags, keyup: findTags", "v-attr" => "placeholder: tags.placeholder"}
       %ul.dropdown-menu.dropdown-menu-cat{"v-class" => "display-block: tags.visible === true"}
-        %li{"v-repeat" => "tags.list", "v-class" => "current-tag: $index === tags.current", "v-on" => "click: selectTag($index)"}
+        %li{"v-repeat" => "tags.list", "v-class" => "current-tag: $index === tags.current", "v-on" => "click: selectTag($index)", "v-class" => "hide: $index > 3"}
           %a{:href => "#"}
             {{name}}
             %span{"v-class" => "hide: !taggings_count"} ({{taggings_count}} listings)
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-3
-      %input{"data-toggle" => "dropdown", :placeholder => "where", :type => "text"}
-      %ul.dropdown-menu.dropdown-menu-cat{"aria-labelledby" => "dLabel", :role => "menu"}
-        %li
-          %a{:href => "#"} Toronto, ON
-        %li
-          %a{:href => "#"} Tokyo, Japan
+      %input{:placeholder => "where", :type => "text", "v-model" => "city.search", "v-on" => "focus: city.visible = true, blur: hideCity, keyup: findCity"}
+      %ul.dropdown-menu.dropdown-menu-cat{"v-class" => "display-block: city.visible === true"}
+        %li{"v-repeat" => "city.list", "v-on" => "click: setCity(name)"}
+          %a{:href => "#"}
+            {{name}}
+            %span{"v-class" => "hide: !state"}, {{state}}
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-3.no-padding
       %input#dpd1.drop{:placeholder => "when", :type => "text"}/
     .clear
@@ -41,7 +41,7 @@
       .rit
         .range-sort
           %span $ 10
-          %input#range.span2{"data-slider-max" => "500", "data-slider-min" => "10", "data-slider-step" => "1", "data-slider-value" => "[10,200]", :type => "text", :value => ""}/
+          %input#range.span2{"data-slider-max" => "500", "data-slider-min" => "10", "data-slider-step" => "1", "data-slider-value" => "[10,500]", :type => "text", :value => ""}/
           %span $ 500
           .search-input
             %input.sort{"data-toggle" => "dropdown", :placeholder => "sort by", :type => "text"}/
