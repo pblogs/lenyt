@@ -198,7 +198,7 @@ var selectTag = function (index) {
   filter()
 }
 
-var range = $("#range").slider()
+var range = jQuery("#range").slider()
 
 var sliderTimer = setTimeout(function (){})
 var cityTimer = setTimeout(function (){})
