@@ -80,7 +80,7 @@
 # Tag resource
 
 ## tag listings [:GET]
-`/api/products/:id`
+`/api/tags`
 
 ### response
 ```

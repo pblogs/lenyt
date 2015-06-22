@@ -55,8 +55,7 @@
         #product-listing{"v-on" => "scroll:scroll"}
           .product-list{"v-repeat" => "products", "v-on" => "click: toggleActive", "v-class" => "transparent: !active", data: {index: "{{$index}}"}}
             .product-description.col-xs-12.col-sm-12.col-md-12.col-lg-12
-              .img-content.product-avatar
-                = image_tag('small-img.jpg', "v-attr" => "src:image")
+              .img-content.product-avatar{"v-style" => "background-image: 'url(' + image + ')'"}
               .product-title {{title}}
               .user-line
                 .img-content

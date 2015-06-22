@@ -555,15 +555,23 @@ div.range-sort .slider.slider-horizontal {
 .product-description .img-content {
   float: left;
   padding-right: 12px;
-  img {
+  img.search-user-avatar {
     max-width: 132px;
     max-height: 132px;
   }
+  // img.list_product_image{
+  //   max-width: initial;
+  //   height: 100%;
+  // }
 }
 
 .img-content.product-avatar{
   height: 132px;
   width: 145px;
+  overflow: hidden;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 150%;
 }
 
 .product-list .product-title {

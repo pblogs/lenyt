@@ -260,8 +260,12 @@ products = Product.create!([
 ])
 
 products.each do |p|
-  Asset.create(image: File.new("#{Rails.root}/db/seed/slider1.png"), attachable_type: 'Product', attachable_id: p.id)
-  Asset.create(image: File.new("#{Rails.root}/db/seed/slider2.png"), attachable_type: 'Product', attachable_id: p.id)
-  Asset.create(image: File.new("#{Rails.root}/db/seed/slider3.jpg"), attachable_type: 'Product', attachable_id: p.id)
-  Asset.create(image: File.new("#{Rails.root}/db/seed/slider4.jpg"), attachable_type: 'Product', attachable_id: p.id)
+  token = SecureRandom.hex(16)
+  [1,2,3].shuffle.each do |i|
+    Asset.create(image: File.new("#{Rails.root}/db/seed/slider#{i}.png"),
+      attachable_type: 'Product',
+      attachable_id: p.id,
+      unique_token: token
+    )
+  end
 end

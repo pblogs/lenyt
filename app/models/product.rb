@@ -48,7 +48,8 @@ class Product < ActiveRecord::Base
 
   def main_image
     return  ActionController::Base.helpers.asset_path 'small-img.jpg' unless assets.any?
-    assets.first.image.url(:thumb)
+    # assets.first.image.url(:small)
+    assets.first.image.url
   end
 
   def total_days

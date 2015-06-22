@@ -17,10 +17,10 @@
                 = current_user.full_name
                 %span.user-block
                   = user_avatar(current_user)
-                  %span.counti.redc= '3'
+                  %span.counti.redc.hidden= '3'
               %ul.dropdown-menu{role: 'menu', aria: {labelledby: 'dLabel'}}
                 %li= link_to "Your Listings", my_profile_path
-                %li= link_to raw("Messages <span class='redc'>3</span>"), messages_path
+                %li= link_to raw("Messages <span class='redc hidden'>3</span>"), messages_path
                 %li= link_to "Account Settings", settings_users_path
                 %li= link_to "Invite Friends", settings_users_path
                 %li= link_to "Log Out", destroy_user_session_path, {method: :delete}
