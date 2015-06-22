@@ -10,7 +10,7 @@
             %a{href: "#", data: {id: cat.id}, "v-on" => "click: selectCategory(#{cat.id}, '#{cat.name}')"}
               =cat.name
     .search-input.col-xs-12.col-sm-6.col-md-6.col-lg-4
-      %input#tag-input{:type => "text", "v-model" => "tags.searchTerm", "v-on" => "focus:tags.visible = true, blur: hideTags, keypress: findTags", "v-attr" => "placeholder: tags.placeholder"}
+      %input#tag-input{:type => "text", "v-model" => "tags.searchTerm", "v-on" => "focus:tags.visible = true, blur: hideTags, keyup: findTags", "v-attr" => "placeholder: tags.placeholder"}
       %ul.dropdown-menu.dropdown-menu-cat{"v-class" => "display-block: tags.visible === true"}
         %li{"v-repeat" => "tags.list", "v-class" => "current-tag: $index === tags.current", "v-on" => "click: selectTag($index)"}
           %a{:href => "#"}

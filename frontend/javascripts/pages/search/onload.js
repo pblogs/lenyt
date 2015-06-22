@@ -1,7 +1,6 @@
 var Vue = require('vue')
 var request = require('browser-request')
 var _ = require('lodash')
-var getJson = require('../../services/get-json')
 var gMap = require('../../services/map')
 var productMarkers = []
 var map = gMap.create(document.getElementById('search_map'), gMap.coords(44.099421, -79.793701))
@@ -12,10 +11,14 @@ var tagsList = []
 
 var getProducts = function (page) {
   gettingProducts = true
-  getJson('/api/products.json?page=' + page, function (err, prods) {
+  request({
+    uri: '/api/products?' + generateRequestBody(page),
+    json: true
+  }, function (err, response, prods) {
     if (err) {
       return console.error(err)
     }
+
     var template = document.getElementsByClassName('map-pointi')[0].innerHTML
 
     prods.products.forEach(function (product, index) {
@@ -34,6 +37,31 @@ var getProducts = function (page) {
       gettingProducts = false
     }
   })
+}
+var generateRequestBody = function (page) {
+  var _return = 'page=' + page
+
+  if (v.$data.category.id > 0) {
+    _return += '&search[category_id]=' + v.$data.category.id
+  }
+
+  if (Object.keys(v.$data.tags.active).length) {
+    _return += '&search[tag_id]=' + v.$data.tags.active.id
+  }
+
+  return _return
+}
+var filter = function () {
+  gettingProducts = false
+  page = 1
+
+  v.$data.products = []
+  productMarkers.forEach(function (marker) {
+    marker.close()
+  })
+  productMarkers = []
+
+  getProducts(page)
 }
 
 var v = new Vue({
@@ -75,6 +103,7 @@ var v = new Vue({
     selectCategory: function (id, name) {
       v.$data.category.name = name
       v.$data.category.id = id
+      filter()
     },
     selectTag: function (index) {
       selectTag(index)
@@ -82,11 +111,10 @@ var v = new Vue({
     hideTags: function () {
       setTimeout(function () {
         v.$data.tags.visible = false
-      }, 100)
+      }, 200)
     },
     findTags: function (e) {
       if (e.keyCode === 40) {
-        e.preventDefault()
         v.$data.tags.current++
         if (v.$data.tags.current === v.$data.tags.list.length) {
           v.$data.tags.current--
@@ -94,7 +122,6 @@ var v = new Vue({
         return
       }
       if (e.keyCode === 38) {
-        e.preventDefault()
         v.$data.tags.current--
         if (v.$data.tags.current < 0) {
           v.$data.tags.current = 0
@@ -102,7 +129,6 @@ var v = new Vue({
         return
       }
       if (e.keyCode === 13) {
-        e.preventDefault()
         selectTag(v.$data.tags.current)
       }
       v.$data.tags.current = -1
@@ -129,6 +155,7 @@ var selectTag = function (index) {
   v.$data.tags.placeholder = v.$data.tags.active.name
   v.$data.tags.searchTerm = ''
   document.getElementById('tag-input').blur()
+  filter()
 }
 
 getProducts(page)
