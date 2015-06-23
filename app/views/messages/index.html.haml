@@ -18,7 +18,7 @@
       .col-xs-6
         .tab-content
           #home.tab-pane.active
-            .chat-line-product.col-sm-12{"v-class" => "hide: !current.options.request_buttons"}
+            .chat-line-product.col-sm-12
               .inb.col-xs-12.col-sm-8.col-md-6.col-lg-6.chat-product
                 .img-content
                   %img{:alt => "Small img", :src => "{{current.participant.avatar}}"}/
@@ -29,8 +29,8 @@
               .pr-details.col-xs-12.col-sm-4.col-md-2.col-lg-2.inb
                 {{current.days}} days
                 %span {{current.total | currency}}
-              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
-              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => ""}
+              %a.chat-delete.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => "", "v-class" => "hide: !current.options.request_buttons"}
+              %a.chat-check.col-xs-6.col-sm-6.col-md-2.col-lg-2.inb{:href => "", "v-class" => "hide: !current.options.request_buttons"}
             .clear
             .chat-messages.col-sm-12
               #tchat.chat-height.mCustomScrollbar
