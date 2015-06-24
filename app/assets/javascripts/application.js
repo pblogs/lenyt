@@ -40,7 +40,7 @@ jQuery(function () {
 })
 
 $(document).ready(function () {
-  //$('#product-listing').mCustomScrollbar()
+  // $('#product-listing').mCustomScrollbar()
 
   if ($('#rangeCalendar').length > 0) {
     $('#product_is_available').click(function (event) {
