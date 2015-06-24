@@ -1,2 +1,101 @@
-also, when you click on a listing on the map shouldn't it link to the listing page?
-user updates notification settings
+Tablet sizing, enlarge the cameras to mobile sizing/smallest.
+
+One for desktop, and one for mobile and tablet.
+
+Align the pictures in the carasoul
+
+Align pictures in the centre and align text at the bottom
+
+Price tag must always be attached.
+
+Price tag must always be at top right of picture
+
+Keep padding consistent on different sizes, and remove pre and next button, keep just the dots.
+
+Boxes must all be in allignment
+at bottom of landing page
+
+Add the sign-up bottom to the bottom below numbered how it works secton
+Social media buttons should always remain same size while scaling down
+
+at the smallest size keep them horizontal, and same size, and keep same format as desktop
+
+Add padding to how it works box
+
+http://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height
+
+Add the red pin first, and when you scroll the red pin it will highlight on the right sider listing.
+
+When you close it on the map, it's still highlighted on right side
+
+The dropdown boxes on search page must be same size as corresponding bos
+
+The when box on search page doesn't close, when click away.
+Airbnb range
+1000+
+Mask images instead of resize to square, so we cut off but keep the size
+
+Shorter triangle on map
+
+Just one calendar box to fit the when sizing.
+
+Change the current date color on map
+
+on calender*
+
+Look into done button
+
+Should see the chosen date range in the field
+look into pressing enter to search
+
+External recorders should be joined together
+
+Search on top, price and sort, and listings, and map should be at the bottom
+
+for mobile scaled devices, map causes issues when scrolling down
+
+Padding on the search fields for mobile devices. All boxes should have some padding on the sides.
+
+The boxes when shrinking are a bit out of spcace.
+
+Only green box should be highlighted
+
+ Highlighting when rolling over the listings, should only be pins on map by default, and when u click on pin turns into icon
+
+ On right side listing should also go to detail page
+
+The days should be same size as the Total on listing page.
+
+The content should all fit on the full screen of the listing page similar to, the search page .
+
+All pages except landing page should follow 100% browser height.
+
+When clicking between insurance options, it changes size of page, and both insurance boxes should be same height and size.
+
+When you click on Price per day field there should be pop up as shown in design about 1/30 of the price calculation instruction
+
+When message is sent reciepient must see red notification on messages.
+
+Look into category background gradient in safari.
+
+The messages page should but full size 100% browser height.
+
+Should scroll through the senders.
+
+Make the search fields not case sensitive.
+
+Tags field shows 3 listings ,but only displays one.
+
+Add the number of days on the messages request page.
+
+Create listing page not responsive.
+
+Listing detail show page not responsive.
+
+Actual listing page gray box font is a bit lower, must be centered.
+
+Make remove button same size and font as rest of fonts.
+
+User name push to left a little bit from the image.
+
+When you make nav smaller, image of user should be same size as how it is on nav bar.

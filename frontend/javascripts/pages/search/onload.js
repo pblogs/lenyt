@@ -252,15 +252,24 @@ var findCity = function () {
 
 getProducts(page)
 
-window.jQuery('#range-pick').dateRangePicker({
-  format: 'YYYY-MM-DD',
-  inline: true,
-  alwaysOpen: true,
-  setValue: function (s, s1, s2) {
-    v.$data.datePicker.visible = false
-    dates.from = s1
-    dates.to = s2
-    filter()
-  },
-  container: '#range-pick'
+// window.jQuery('#range-pick').dateRangePicker({
+//   format: 'YYYY-MM-DD',
+//   inline: true,
+//   alwaysOpen: true,
+//   setValue: function (s, s1, s2) {
+//     v.$data.datePicker.visible = false
+//     dates.from = s1
+//     dates.to = s2
+//     filter()
+//   },
+//   container: '#range-pick'
+// })
+
+window.jQuery('.input-daterange').each(function () {
+  jQuery(this).datepicker({
+    format: 'yyyy-mm-dd',
+    startDate: new Date(),
+    clearBtn: true,
+    maxViewMode: 'days'
+  })
 })

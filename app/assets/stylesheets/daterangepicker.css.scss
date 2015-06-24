@@ -223,3 +223,7 @@
 .hide {
     display: none;
 }
+.datepicker table tr td.range, .datepicker table tr td.range:hover, .datepicker table tr td.range.disabled, .datepicker table tr td.range.disabled:hover {
+  color: #12ab5c;
+  border-radius: 0;
+}

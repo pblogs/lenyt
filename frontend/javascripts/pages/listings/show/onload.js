@@ -67,8 +67,7 @@ var v = new Vue({
           id: v.$data.product.user.id,
           klass: 'User'
         }
-      }, function () {
-      })
+      }, function () {})
     },
     insuranceDW: function () {
       v.$data.insurance = 1
@@ -94,7 +93,7 @@ var v = new Vue({
           insurance: v.$data.insurance
         }
       }, function () {
-        v.$data.alertMessage = 'Request sent, no error handling ^_^'
+        v.$data.alertMessage = 'Request sent'
       })
     },
     closeAlert: function () {
@@ -178,7 +177,11 @@ request({
   v.$data.imagesLength = data.product.images.length
 })
 
-window.jQuery('#dpd1').val('').datepicker().on('changeDate', function (e) {
+window.jQuery('#dpd1').val('').datepicker(
+  {
+    startDate: new Date()
+  }
+).on('changeDate', function (e) {
   dateFrom = e.date
   calculateDw()
 })
