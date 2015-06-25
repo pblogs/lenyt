@@ -26,7 +26,7 @@
         #media-contents
           %ul.lenyt-slider
             %li{"v-repeat" => "product.images", "v-class" => "current:current, previous:previous, next:next"}
-              %img{"v-attr" => "src:url"}
+              %img{class: 'img-responsive', "v-attr" => "src:url"}
           .slide-controls{"v-class" => "hidden:imagesLength <= 1"}
             = link_to image_tag('arrow-left.png'), '#', class: 'carousel_link', "v-on" => "click:prev"
             %span
@@ -49,7 +49,7 @@
                 %span.price-description {{product.total_value / 4 | currency}} Refundable Deposit
             .deposit.col-xs-12.col-sm-6.col-md-3.col-lg-3
               %h3 Full Deposit
-              .text-box{"v-on" => "click: insuranceFD", "v-class" => "'text-box-active': insurance === 2"}
+              .text-box{"v-on" => "click: insuranceFD", "v-class" => "'text-box-active': insurance === 2", class: 'full-deposit'}
                 %span.price-num {{product.total_value | currency}}
                 %span.price-description Refundable Deposit
             .clear

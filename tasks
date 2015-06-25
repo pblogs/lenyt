@@ -1,101 +1,107 @@
-Tablet sizing, enlarge the cameras to mobile sizing/smallest.
-
-One for desktop, and one for mobile and tablet.
-
-Align the pictures in the carasoul
-
-Align pictures in the centre and align text at the bottom
-
-Price tag must always be attached.
-
-Price tag must always be at top right of picture
-
-Keep padding consistent on different sizes, and remove pre and next button, keep just the dots.
-
-Boxes must all be in allignment
-at bottom of landing page
-
-Add the sign-up bottom to the bottom below numbered how it works secton
-Social media buttons should always remain same size while scaling down
-
-at the smallest size keep them horizontal, and same size, and keep same format as desktop
-
-Add padding to how it works box
+Add the sign-up bottons to the bottom.below numbered how it works secton
+// look in the desisngs below the how it works
 
 http://stackoverflow.com/questions/6654958/make-body-have-100-of-the-browser-height
 
 Add the red pin first, and when you scroll the red pin it will highlight on the right sider listing.
+// Nick
 
 When you close it on the map, it's still highlighted on right side
+// Nick
 
 The dropdown boxes on search page must be same size as corresponding bos
 
 The when box on search page doesn't close, when click away.
-Airbnb range
+// Nick should send new params to request
+
+Airbnb range - // price should go from  0 to 1000+, update range values
 1000+
 Mask images instead of resize to square, so we cut off but keep the size
+// images in marker as background centered
 
 Shorter triangle on map
+???
 
 Just one calendar box to fit the when sizing.
+// try to hide one calendar with css and show one only
 
-Change the current date color on map
-
-on calender*
+Change the current date color on map on calender*
+// remove current date highlight
 
 Look into done button
-
 Should see the chosen date range in the field
+
 look into pressing enter to search
+// Nick slect tags using arrow
 
 External recorders should be joined together
+// remove external category, rename recorders to external recorders
 
 Search on top, price and sort, and listings, and map should be at the bottom
-
 for mobile scaled devices, map causes issues when scrolling down
+// rearange elemets on page
 
 Padding on the search fields for mobile devices. All boxes should have some padding on the sides.
 
 The boxes when shrinking are a bit out of spcace.
+//element.style {
+//  height: 70px;
+//  padding: 12px; // 7px
+//  cursor: pointer;
+//}
 
 Only green box should be highlighted
-
  Highlighting when rolling over the listings, should only be pins on map by default, and when u click on pin turns into icon
+/// OMG!!!!
 
  On right side listing should also go to detail page
+/// OMG
 
 The days should be same size as the Total on listing page.
+// font size 16px for day(s)
 
 The content should all fit on the full screen of the listing page similar to, the search page .
-
 All pages except landing page should follow 100% browser height.
+The messages page should but full size 100% browser height.
+Nick ????
 
 When clicking between insurance options, it changes size of page, and both insurance boxes should be same height and size.
+// size for boxes
 
 When you click on Price per day field there should be pop up as shown in design about 1/30 of the price calculation instruction
+// recomend popover next to price per day field in new listin page
 
 When message is sent reciepient must see red notification on messages.
+// Nick
 
 Look into category background gradient in safari.
-
-The messages page should but full size 100% browser height.
+// talk to designer, select in new listing page
 
 Should scroll through the senders.
+// scroll ul list
 
 Make the search fields not case sensitive.
+// tags...
 
 Tags field shows 3 listings ,but only displays one.
+// check products tagged with Leica on heroku
 
 Add the number of days on the messages request page.
+// days missing in the request
 
 Create listing page not responsive.
-
 Listing detail show page not responsive.
+// make it reposnsive as much as possible
 
 Actual listing page gray box font is a bit lower, must be centered.
+???
 
 Make remove button same size and font as rest of fonts.
+// remove asset link styling
 
 User name push to left a little bit from the image.
+//span.user-block {
+//  margin-left: 15px;
+//}
 
 When you make nav smaller, image of user should be same size as how it is on nav bar.

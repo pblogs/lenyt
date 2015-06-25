@@ -53,6 +53,7 @@ main {
   padding-bottom: 20px;
   max-width: 1400px;
   margin: 0 auto;
+  height: 100%;
 }
 
 section.content {
@@ -222,7 +223,11 @@ div.waver {
 div.text-box {
   box-shadow: 0 1px 3px 2px #d9d9d9;
   background: #ffffff;
-  padding: 2px 8px 2px;
+  padding: 5px 8px 2px;
+  height: 55px;
+}
+div.text-box.full-deposit{
+  padding-top: 10px;
 }
 
 div.text-box-active {
@@ -1790,7 +1795,6 @@ div.done a {
   .lenyt-slider {
     height: 300px;
     overflow: hidden;
-    width: 680px;
     position: relative;
     li {
       height: 300px;

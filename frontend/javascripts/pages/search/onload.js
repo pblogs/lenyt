@@ -31,13 +31,39 @@ var getProducts = function (page) {
         content: template.replace(/IMAGE_URL/g, product.image).replace(/TITLE/g, product.title).replace(/PRICE/g, '$' + product.price_per_day).replace(/ID/g, product.id),
         position: gMap.coords(product.map.lat, product.map.long)
       }
-      var iwindow = gMap.infoWindow(map, options).onClose(function () {
-        v.$data.products[index].active = false
+
+      var iwindow = gMap.infoWindow(map, options)
+
+      var marker = new google.maps.Marker({
+        position: gMap.coords(product.map.lat, product.map.long),
+        map: map,
+        title: product.tile,
+        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + product.id + '|FE6256|FFFFFF',
+        animation: google.maps.Animation.DROP
       })
-      productMarkers.push(iwindow)
-      product.active = false
+
+      google.maps.event.addListener(marker, 'click', function () {
+        iwindow.open(map, marker).onClose(function () {
+          v.$data.products[index].active = false
+          marker.setVisible(true)
+        })
+        marker.setVisible(false)
+      })
       v.$data.products.push(product)
     })
+
+    // prods.products.forEach(function (product, index) {
+    //   var options = {
+    //     content: template.replace(/IMAGE_URL/g, product.image).replace(/TITLE/g, product.title).replace(/PRICE/g, '$' + product.price_per_day).replace(/ID/g, product.id),
+    //     position: gMap.coords(product.map.lat, product.map.long)
+    //   }
+    //   var iwindow = gMap.infoWindow(map, options).onClose(function () {
+    //     v.$data.products[index].active = false
+    //   })
+    //   productMarkers.push(iwindow)
+    //   product.active = false
+    //   v.$data.products.push(product)
+    // })
     if (prods.products.length) {
       gettingProducts = false
     }

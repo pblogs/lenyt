@@ -35,12 +35,12 @@ section.devices h3{ font-size: 21px; color: #666666; text-align: center; padding
 div.device-price{ padding: 30px 15px; text-align: center;}
 div.device-price .device-item{ display: table-cell; text-align: center; margin: 0 16px; min-height: 200px; float: none;}
 div.device-price .device-item h4 > a{ color: #666666; font-size: 17px; font-family: "Helvetica", arial, sans-serif;}
-div.device-price .device-item .thumbnail-device{ position: relative;}
-div.device-price .device-item .thumbnail-device span.price{ position: absolute; top: 0; right: 20px; border-radius: 50%; background: #12ab5c; font-size: 18px; color: #ffffff; padding: 12px 6px 6px; line-height: 16px; width: 50px; height: 50px;}
+div.device-price .device-item .thumbnail-device{ position: relative;height: 155px;}
+div.device-price .device-item .thumbnail-device span.price{ position: absolute; top: 0; right: 30px; border-radius: 50%; background: #12ab5c; font-size: 18px; color: #ffffff; padding: 12px 6px 6px; line-height: 16px; width: 50px; height: 50px;}
 div.device-price .device-item .thumbnail-device span.price span{ display: block; font-size: 12px;}
 
 section.how{ height: 50px; text-align: center; margin-bottom: 60px;}
-section.how h2{ color: #666666; font-size: 25px; text-transform: capitalize; line-height: 50px;}
+section.how h2{ color: #666666; font-size: 25px; text-transform: capitalize; line-height: 20px;}
 aside.text-side{ text-align: center;}
 aside.text-side h3{ font-size: 25px; color: #333333; margin-top: 0;}
 aside.text-side .text-box{ height: 120px; box-shadow: 0 1px 3px 2px #d9d9d9; background: #ffffff; padding: 10px 15px; margin-bottom: 38px;}
@@ -51,10 +51,10 @@ section.bg-one{ min-height: 300px; background: image-url("2.jpg") no-repeat cent
 section.bg-two{ min-height: 300px; background: image-url("3.jpg") no-repeat bottom right; margin: 80px auto; background-size: cover; }
 section.bg-one, section.bg-two{ background-attachment: fixed;}
 div.social{ min-height: 80px; padding: 10px 0; float: none; display: inline-block;}
-div.social a{ display: inline-block; padding: 0 44px;}
+div.social a{ display: inline-block;}
 .center{ text-align: center;}
 
-.line-numbers{ background: image-url('line-numbers.jpg') no-repeat top center; min-height: 772px;}
+.line-numbers{ background: image-url('line-numbers.jpg') no-repeat top center; min-height: 772px;padding-top: 15px;}
 
 footer{ background: #666666; color: #ffffff; text-align: center; height: 65px;}
 footer div.made{ padding-top: 14px; font-size: 25px;}
@@ -80,7 +80,7 @@ ul.dropdown-menu{border: 1px solid #999999; border-radius: 0; right: 0; top: 63p
 
 
 
-div.number{ min-height: 144px; display: block; text-align: center; vertical-align: middle; padding-top: 64px;}
+div.number{ min-height: 144px; display: block; text-align: center; vertical-align: middle; padding-top: 68px; padding-bottom: 35px;}
 div.number span{margin: 0 auto; background: #ffffff; border: 2px solid #666666; border-radius: 50%; width: 50px; height: 50px; text-align: center; line-height: 52px; display: block; color: #666666; font-family: "Helvetica", arial, sans-serif; font-size: 25px;}
 aside.text-side .text-box.active, div.number span.active{ border: 1px solid #12ab5c !important;}
 div.number span.active{ border-width: 2px !important;}

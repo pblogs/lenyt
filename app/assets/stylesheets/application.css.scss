@@ -25,6 +25,10 @@
  *= require_self
  */
 
+html, body
+{
+    height: 100%;
+}
 ::-webkit-input-placeholder {
    color: #000000;
 }
