@@ -15,7 +15,7 @@
           %ul
             %li
               ='{{days}}'
-              %span='day(s)'
+              %span.small='day(s)'
             %li
               %span{"v-class" => "hide: insurance === 1"} {{product.total_value | currency}}
               %span{"v-class" => "hide: insurance === 2"} {{dw + (product.total_value / 4) | currency}}

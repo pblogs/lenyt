@@ -3,7 +3,14 @@ var request = require('browser-request')
 var _ = require('lodash')
 var gMap = require('../../services/map')
 var productMarkers = []
-var map = gMap.create(document.getElementById('search_map'), gMap.coords(44.099421, -79.793701))
+var markers = []
+// var map = gMap.create(document.getElementById('search_map'), gMap.coords(44.099421, -79.793701))
+var map = new GMaps({
+  div: '#search_map',
+  lat: '43.7182412',
+  lng: '-79.378058',
+  zoom: 11
+})
 var gettingProducts = false
 var page = 1
 var cityName = ''
@@ -14,7 +21,25 @@ var dates = {
 
 var tagsList = []
 
+GMaps.geolocate({
+  success: function (position) {
+    map.setCenter(position.coords.latitude, position.coords.longitude)
+    map.addMarker({
+      lat: position.coords.latitude,
+      lng: position.coords.longitude,
+      icon: '/map/home.png'
+    })
+  },
+  error: function (error) {
+    alert('Geolocation failed: ' + error.message)
+  },
+  not_supported: function () {
+    alert('Your browser does not support geolocation')
+  }
+})
+
 var getProducts = function (page) {
+  clearMarkers()
   gettingProducts = true
   request({
     uri: '/api/products?' + generateRequestBody(page),
@@ -31,27 +56,14 @@ var getProducts = function (page) {
         content: template.replace(/IMAGE_URL/g, product.image).replace(/TITLE/g, product.title).replace(/PRICE/g, '$' + product.price_per_day).replace(/ID/g, product.id),
         position: gMap.coords(product.map.lat, product.map.long)
       }
+      var iwindow = gMap.infoWindow(map, options).onClose(function () {})
+      addMarker(product, iwindow)
 
-      var iwindow = gMap.infoWindow(map, options)
-
-      var marker = new google.maps.Marker({
-        position: gMap.coords(product.map.lat, product.map.long),
-        map: map,
-        title: product.tile,
-        icon: 'http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=' + product.id + '|FE6256|FFFFFF',
-        animation: google.maps.Animation.DROP
-      })
-
-      google.maps.event.addListener(marker, 'click', function () {
-        iwindow.open(map, marker).onClose(function () {
-          v.$data.products[index].active = false
-          marker.setVisible(true)
-        })
-        marker.setVisible(false)
-      })
+      productMarkers.push(iwindow)
       v.$data.products.push(product)
     })
 
+    // var template = document.getElementsByClassName('map-pointi')[0].innerHTML
     // prods.products.forEach(function (product, index) {
     //   var options = {
     //     content: template.replace(/IMAGE_URL/g, product.image).replace(/TITLE/g, product.title).replace(/PRICE/g, '$' + product.price_per_day).replace(/ID/g, product.id),
@@ -69,6 +81,42 @@ var getProducts = function (page) {
     }
   })
 }
+
+// Add a marker to the map and push to the array.
+function addMarker (product, iwindow) {
+  map.addMarker({
+    lat: product.map.lat,
+    lng: product.map.long,
+    title: product.title,
+    icon: '/map/marker.png',
+    click: function (e) {
+      this.setVisible(false)
+      iwindow.open(map, this).onClose(function () {
+        // v.$data.products[index].active = false
+        this.setVisible(true)
+      })
+    }
+  })
+
+  // var marker = new google.maps.Marker({
+  //   position: location,
+  //   map: map
+  // })
+  markers.push(this)
+}
+
+// Sets the map on all markers in the array.
+function setAllMap (map) {
+  for (var i = 0; i < markers.length; i++) {
+    markers[i].setMap(map)
+  }
+}
+
+// Removes the markers from the map, but keeps them in the array.
+function clearMarkers () {
+  setAllMap(null)
+}
+
 var generateRequestBody = function (page) {
   var _return = 'page=' + page
 

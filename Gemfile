@@ -47,6 +47,7 @@ gem 'typeahead-addresspicker-rails'
 gem 'gmapsjs'
 gem 'will_paginate', '~> 3.0.6'
 gem 'date_validator'
+gem 'gmapsjs'
 
 # logentries gem
 gem 'le', group: :production
