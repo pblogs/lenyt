@@ -47,18 +47,26 @@
     %aside.user-request.right.col-xs-12.col-sm-6.col-md-6.col-lg-6
       .rit
         .range-sort
-          %span $ 10
-          %input#range.span2{"data-slider-max" => "500", "data-slider-min" => "10", "data-slider-step" => "1", "data-slider-value" => "[10,500]", :type => "text", :value => "10,500"}/
-          %span $ 500
-          .search-input
-            %input.sort{"data-toggle" => "dropdown", :placeholder => "sort by", :type => "text"}/
-            %ul.dropdown-menu.dropdown-menu-cat{"aria-labelledby" => "dLabel", :role => "menu"}
-              %li
-                %a{:href => "#"} price (low to high)
-              %li
-                %a{:href => "#"} price (high to low)
-              %li
-                %a{:href => "#"} proximity
+          .row
+            .col-md-12
+              .col-md-6
+                %span
+                  $
+                  %div.start_range 0
+                %input#range.span2{"data-slider-max" => "1000", "data-slider-min" => "0", "data-slider-step" => "1", "data-slider-value" => "[0,1000]", :type => "text", :value => "0,1000"}/
+                %span
+                  $
+                  %div.end_range
+                    1000
+              .search-input.col-md-6
+                %input.sort{"data-toggle" => "dropdown", :placeholder => "sort by", :type => "text"}/
+                %ul.dropdown-menu.dropdown-menu-cat{"aria-labelledby" => "dLabel", :role => "menu"}
+                  %li
+                    %a{:href => "#"} price (low to high)
+                  %li
+                    %a{:href => "#"} price (high to low)
+                  %li
+                    %a{:href => "#"} proximity
         #product-listing{"v-on" => "scroll:scroll"}
           %template{"v-repeat" => "product: products"}
 

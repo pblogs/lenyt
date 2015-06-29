@@ -39,7 +39,7 @@ GMaps.geolocate({
 })
 
 var getProducts = function (page) {
-  clearMarkers()
+  // clearMarkers()
   gettingProducts = true
   request({
     uri: '/api/products?' + generateRequestBody(page),
@@ -297,7 +297,9 @@ var selectTag = function (index) {
   filter()
 }
 
-var range = window.jQuery('#range').slider()
+var range = window.jQuery('#range').slider({
+  tooltip: 'hide'
+})
 
 var sliderTimer = setTimeout(function () {})
 var cityTimer = setTimeout(function () {})
@@ -306,6 +308,15 @@ range.on('slide', function () {
   clearTimeout(sliderTimer)
 
   sliderTimer = setTimeout(afterSlide, 150)
+  values = $('input#range').val().split(',')
+  min = values[0]
+  max = values[1]
+  if (max === '1000') {
+    max = '1000+'
+  }
+
+  jQuery('div.start_range').html(min)
+  jQuery('div.end_range').html(max)
 })
 
 var afterSlide = function () {

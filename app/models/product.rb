@@ -64,13 +64,17 @@ class Product < ActiveRecord::Base
 
   def self.search(params)
     params ||= {}
-    min = params[:price_min] ||= '10'
-    max = params[:price_max] ||= '500'
+    min = params[:price_min] ||= '0'
+    max = params[:price_max] ||= '1000'
     sdate = params[:start_date] ||= 1.day.ago
     edate = params[:end_date] ||=  (sdate.to_date + 1.month).to_date
 
     products = Product.where('available_at between ? and ? or end_at between ? and ?', sdate, edate, sdate, edate)
-    products = products.where(price_per_day: [min..max])
+    if max == '1000'
+      products = products.where('price_per_day >= ?', min)
+    else
+      products = products.where(price_per_day: [min..max])
+    end
 
     if params[:tag_id]
       products = products.includes(:taggings).where(taggings: { tag_id: params[:tag_id] })

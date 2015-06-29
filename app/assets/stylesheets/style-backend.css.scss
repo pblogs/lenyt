@@ -485,6 +485,12 @@ div.search-input {
   width: 350px;
 }
 
+.start_range, .end_range{
+  display: inline-block;
+  width: 36px;
+  text-align: center;
+}
+
 .range-sort {
   padding-bottom: 16px;
 }
@@ -534,10 +540,6 @@ div.search-input {
 div.search-input {
   position: relative;
   display: inline-block;
-}
-
-div.range-sort .slider.slider-horizontal {
-  width: 287px;
 }
 
 .product-list {
